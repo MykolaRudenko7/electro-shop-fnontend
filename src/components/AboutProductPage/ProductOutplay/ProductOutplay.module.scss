@@ -1,0 +1,21 @@
+.outplay {
+  background-color: $outpayBlockBackgroundColor;
+  &__container {
+    @extend %mainDefaultContainerSettings;
+    background: url('../../../images/AboutPage/main/Outplay/outplay.png'),
+      linear-gradient(to bottom, lightgray -0.56rem -14.48rem, $outpayBlockBackgroundColor);
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    padding-bottom: 5.5rem;
+    @include onTablet() {
+      background-position: 100% 100%;
+      padding-bottom: 3.8rem;
+    }
+    @include onPhone() {
+      background-size: 120% 60%;
+      background-position-y: -15%;
+      padding-bottom: 3.1rem;
+    }
+  }
+}

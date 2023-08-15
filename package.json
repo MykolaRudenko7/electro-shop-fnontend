@@ -3,16 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "lint:all": "eslint src",
+    "prettier:all": "prettier --check \"src/**/*.((js|ts)(x)?|scss)\"",
+    "prettier": "prettier --write .",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@uidotdev/usehooks": "^2.1.0",
+    "classnames": "^2.3.2",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
     "next": "13.4.12",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sass": "^1.64.2",
+    "swiper": "^10.1.0",
+    "uuidv4": "^6.2.13"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.1"
   }
 }

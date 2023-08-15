@@ -1,0 +1,30 @@
+@mixin flexible() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin onSmallPhone {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+@mixin onPhone {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+@mixin onTablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin onDesktop {
+  @media (max-width: 1300px) {
+    @content;
+  }
+}
+@mixin onSmallTablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}

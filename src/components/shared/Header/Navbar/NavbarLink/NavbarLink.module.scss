@@ -1,0 +1,37 @@
+.navbarLinkWrapper {
+  @include flexible();
+  @include onTablet() {
+    &::before {
+      position: absolute;
+      content: '>';
+      right: 2.7rem;
+      @include onSmallPhone() {
+        display: none;
+      }
+    }
+  }
+}
+.navbarLink {
+  white-space: nowrap;
+  color: $mainBlackColor;
+  font-weight: $semiBoldFontWeight;
+  transition: all 0.3s ease;
+  &:hover {
+    color: $mainBlueColor;
+    transform: scale(1.03);
+  }
+  @include onTablet() {
+    font-size: 1.3rem;
+    font-weight: $regularFontWeight;
+    position: relative;
+  }
+}
+.activeLink {
+  color: $mainBlueColor;
+  padding: 0.8rem 2.6rem;
+  border-radius: 5rem;
+  border: 0.2rem solid $mainBlueColor;
+  @include onTablet() {
+    padding: 0.25rem 0.8rem;
+  }
+}

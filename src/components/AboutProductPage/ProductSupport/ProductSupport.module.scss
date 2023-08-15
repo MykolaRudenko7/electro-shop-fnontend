@@ -1,0 +1,64 @@
+.support {
+  background: $mainWhiteColor;
+  &__container {
+    @extend %mainDefaultContainerSettings;
+    padding: 10rem 0 10rem 26.7rem;
+    background: no-repeat url('../../../images/AboutPage/main/Support/support.png');
+    background-position: 65% 100%;
+  }
+  @include onTablet() {
+    &__container {
+      padding: 6.4rem 0 6.4rem 7.7rem;
+      background: no-repeat url('../../../images/AboutPage/main/Support/supportTablet.png');
+      background-position: 100% 100%;
+    }
+  }
+  @include onPhone() {
+    &__container {
+      padding: 3.7rem 0 12.6rem 2.6rem;
+      background: no-repeat url('../../../images/AboutPage/main/Support/supportMobile.png');
+      background-position: 100% 100%;
+    }
+    @include onSmallPhone() {
+      &__container {
+        background-image: none;
+      }
+    }
+  }
+}
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  @include onTablet() {
+    gap: 1.4rem;
+  }
+}
+.link {
+  color: $supportLinksColor;
+  background: $mainWhiteColor;
+  font-size: 1rem;
+  font-weight: $mediumFontWeight;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 34.7rem;
+  padding: 1.5rem 2.66rem 1.5rem 1.7rem;
+  border-radius: 0.6rem;
+  border: 0.1rem solid $mainBorderColor;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(0.98);
+    padding-right: 1rem;
+  }
+  @include onTablet() {
+    font-size: 1.2rem;
+    font-weight: $mediumFontWeight;
+    width: 24.3rem;
+    padding: 1rem 1.4rem 1rem 1.86rem;
+  }
+}
+.linkTitleMark {
+  color: $mainBlueColor;
+}

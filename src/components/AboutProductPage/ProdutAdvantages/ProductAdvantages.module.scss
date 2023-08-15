@@ -1,0 +1,32 @@
+.advantages {
+  background: $productChoiceBlockBackgroundColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.advantagesContainer {
+  @extend %mainDefaultContainerSettings;
+  padding-top: 6.25rem;
+  padding-bottom: 4.45rem;
+  @include onTablet() {
+    padding: 3.8rem 2.2rem;
+  }
+  @include onPhone() {
+    padding: 2.5rem 5.5rem;
+  }
+}
+.advantagesCards {
+  list-style: none;
+  max-width: 100.56rem;
+  display: flex;
+  gap: 13rem;
+  align-items: center;
+  justify-content: center;
+  @include onTablet() {
+    max-width: 100%;
+    gap: 2rem;
+  }
+  @include onPhone() {
+    flex-wrap: wrap;
+  }
+}

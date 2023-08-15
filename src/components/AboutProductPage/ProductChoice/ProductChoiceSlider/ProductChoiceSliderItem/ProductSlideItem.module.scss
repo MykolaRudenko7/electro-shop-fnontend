@@ -1,0 +1,38 @@
+.textBlock {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  max-width: 27rem;
+  margin-top: 3.2rem;
+  color: $mainBlackColor;
+  font-size: 1.2rem;
+  font-weight: $lightFontWeight;
+  line-height: 1.4rem;
+  @include onTablet() {
+    margin-top: 0.5rem;
+  }
+  @include onPhone() {
+    margin-top: 0.5rem;
+    max-width: 21.5rem;
+    font-size: 1rem;
+  }
+}
+.textBlockImage {
+  padding-right: 1.1rem;
+  border-right: solid 0.2rem $blueBorderSliderTextBlock;
+  height: auto;
+  width: auto;
+  @include onTablet() {
+    padding-right: 0.6rem;
+  }
+}
+.textBlockSubtitle {
+  padding-left: 1.1rem;
+  @include onTablet() {
+    padding-left: 0.6rem;
+  }
+}
+.textBlockLink {
+  text-decoration-line: underline;
+  color: $mainBlueColor;
+}

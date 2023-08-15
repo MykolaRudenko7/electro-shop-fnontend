@@ -1,0 +1,52 @@
+.search {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  @include onTablet() {
+    width: 100%;
+    padding-right: 1.2rem;
+  }
+  @include onPhone() {
+    padding-right: 0rem;
+  }
+}
+.icon {
+  @include flexible();
+  transition: transform 0.5s ease;
+  @include onDesktop() {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+  @include onTablet() {
+    display: none;
+  }
+}
+.input {
+  border: none;
+  outline: none;
+  border-radius: 2.5rem;
+  overflow: hidden;
+  width: 0;
+  white-space: nowrap;
+  transition: all 0.3s ease-in-out;
+  padding: 0.5rem 1rem;
+  &::placeholder {
+    font-family: $mainFontFamily;
+    color: $mainBorderColor;
+    font-size: 1.4rem;
+    @include onTablet() {
+      font-size: 1.1rem;
+    }
+  }
+  @include onTablet() {
+    width: 100%;
+    background-image: url('../../../../../images/AboutPage/header/searchGray.svg');
+    background-position: 1rem center;
+    background-repeat: no-repeat;
+    padding: 1.2rem 1.2rem 1.2rem 3.8rem;
+  }
+}
+.open .input {
+  width: 9rem;
+}

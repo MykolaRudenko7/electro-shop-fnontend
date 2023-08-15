@@ -1,0 +1,46 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}

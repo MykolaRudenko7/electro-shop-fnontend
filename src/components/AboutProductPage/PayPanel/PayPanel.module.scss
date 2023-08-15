@@ -1,0 +1,33 @@
+.payPanel {
+  &__container {
+    @extend %mainDefaultContainerSettings;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2.6rem;
+    padding-bottom: 2.6rem;
+    @include onTablet() {
+      padding-top: 2.3rem;
+      padding-bottom: 2.3rem;
+      gap: 3rem;
+    }
+    @include onSmallTablet() {
+      flex-direction: column-reverse;
+      justify-content: center;
+      flex-wrap: wrap;
+      column-gap: 3rem;
+      row-gap: 2rem;
+    }
+    @include onPhone() {
+      display: none;
+    }
+  }
+}
+.pay {
+  display: flex;
+  align-items: center;
+  gap: 2.1rem;
+  @include onTablet() {
+    gap: 1.4rem;
+  }
+}

@@ -1,0 +1,16 @@
+.productChoiceLinkWrapper {
+  color: $mainBlackColor;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: $mainBlueColor;
+  }
+  &:last-child {
+    color: $activeProductChoiceLink;
+  }
+  &:not(:last-child)::after {
+    content: '›';
+    margin: 0 0.8rem;
+    color: $mainBlueColor;
+  }
+}

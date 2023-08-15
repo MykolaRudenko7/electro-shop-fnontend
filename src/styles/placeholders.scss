@@ -1,0 +1,16 @@
+%chooseProductColorButton {
+  cursor: pointer;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 100%;
+  transition: all 0.1s ease;
+  &:hover {
+    border: 0.3rem solid $mainBlueColor;
+  }
+}
+%mainDefaultContainerSettings {
+  margin: 0 auto;
+  max-width: 142rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

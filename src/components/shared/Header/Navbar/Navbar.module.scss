@@ -1,0 +1,125 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @extend %mainDefaultContainerSettings;
+  padding-top: 1.3rem;
+  padding-bottom: 1.3rem;
+  gap: 1.2rem;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    color: $mainBlackColor;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: $semiBoldFontWeight;
+  }
+  @include onDesktop() {
+    &__wrapper {
+      gap: 1rem;
+      font-size: 1.2rem;
+    }
+  }
+  @include onTablet() {
+    background-color: $mainBlueColor;
+    justify-content: flex-start;
+    gap: 5.3rem;
+  }
+  @include onPhone() {
+    gap: 1.1rem;
+  }
+}
+.logo {
+  padding: 1.4rem 2.6rem;
+  @include onDesktop() {
+    padding: 0.5rem;
+  }
+  @include onTablet() {
+    display: none;
+  }
+}
+.burger {
+  display: none;
+  &__line {
+    width: 2.6rem;
+    height: 0.3rem;
+    border-radius: 0.1rem;
+    border-radius: 2rem;
+    background-color: $mainWhiteColor;
+    transition: all 0.3s linear;
+  }
+  @include onTablet() {
+    padding-left: 2.6rem;
+    width: 2.6rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+  @include onPhone() {
+    padding-left: 0rem;
+  }
+}
+.navbarMenu {
+  @include flexible();
+  gap: 2.5rem;
+  text-align: center;
+  list-style: none;
+  @include onDesktop() {
+    gap: 2rem;
+  }
+  @include onTablet() {
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    position: fixed;
+    z-index: 4;
+    left: -100%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 56%;
+    height: 100vh;
+    background-color: $mainWhiteColor;
+    transition: left 0.5s ease-in-out;
+    font-size: 1.3rem;
+    font-weight: $regularFontWeight;
+    padding: 7.5rem 2.4rem 0 2.4rem;
+  }
+}
+.open {
+  left: 0%;
+}
+.leftComponent {
+  @include flexible();
+  gap: 2.5rem;
+  @include onDesktop() {
+    gap: 1.5rem;
+  }
+  @include onTablet() {
+    width: 100%;
+    gap: 2.6rem;
+  }
+  @include onPhone() {
+    gap: 0.9rem;
+  }
+}
+.leftComponentImage {
+  @include onDesktop() {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+}
+.leftComponentLinkProfile {
+  padding-left: 1.1rem;
+  @include onDesktop() {
+    padding-left: 0rem;
+  }
+}
