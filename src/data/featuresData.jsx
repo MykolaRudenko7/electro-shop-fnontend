@@ -1,7 +1,7 @@
-import intelPicture from 'images/AboutPage/main/Features/image0.png'
-import nvidiaPicture from 'images/AboutPage/main/Features/image1.png'
-import ssdPicture from 'images/AboutPage/main/Features/image2.png'
-import ddrPicture from 'images/AboutPage/main/Features/image3.png'
+import intelPicture from 'images/AboutPage/Features/image0.png'
+import nvidiaPicture from 'images/AboutPage/Features/image1.png'
+import ssdPicture from 'images/AboutPage/Features/image2.png'
+import ddrPicture from 'images/AboutPage/Features/image3.png'
 export const featuresData = [
   {
     imageSrc: intelPicture,

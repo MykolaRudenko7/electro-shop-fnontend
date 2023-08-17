@@ -3,7 +3,6 @@ import ProductChoice from 'components/AboutProductPage/ProductChoice'
 import ProductFeatures from 'components/AboutProductPage/ProductFeatures'
 import ProductOutplay from 'components/AboutProductPage/ProductOutplay'
 import ProductSupport from 'components/AboutProductPage/ProductSupport'
-import ProdutAdvantages from 'components/AboutProductPage/ProdutAdvantages'
 
 export const metadata = {
   title: 'About Proguct',
@@ -18,7 +17,6 @@ export default function AboutProduct() {
       <ProductOutplay />
       <ProductSupport />
       <ProductFeatures />
-      <ProdutAdvantages />
     </>
   )
 }

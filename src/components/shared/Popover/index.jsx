@@ -1,9 +1,10 @@
 'use client'
+
 import Image from 'next/image'
+import arrowPicture from 'images/header/arrow.svg'
+import mapPicture from 'images/header/map.svg'
+import timePicture from 'images/header/time.svg'
 import styles from 'components/shared/Popover/Popover.module.scss'
-import arrowPicture from 'images/AboutPage/header/arrow.svg'
-import mapPicture from 'images/AboutPage/header/map.svg'
-import timePicture from 'images/AboutPage/header/time.svg'
 
 export default function Popover() {
   return (

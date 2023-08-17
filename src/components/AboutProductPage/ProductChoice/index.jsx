@@ -1,4 +1,5 @@
 'use client'
+
 import { v4 as uuidv4 } from 'uuid'
 import { linksProductChoiceData } from 'data/productChoiceData'
 import CounterPrice from 'components/AboutProductPage/PayPanel/CounterPrice'

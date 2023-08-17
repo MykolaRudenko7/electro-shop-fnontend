@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import brandPicture from 'images/AboutPage/main/ProductChoice/zip.svg'
+import brandPicture from 'images/AboutPage/ProductChoice/zip.svg'
 import styles from 'components/AboutProductPage/ProductChoice/ProductChoiceSlider/ProductChoiceSliderItem/ProductSlideItem.module.scss'
 
 export default function ProductSlideItem({ imageSrc, text, linkText, href }) {

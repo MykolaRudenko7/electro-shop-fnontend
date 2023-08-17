@@ -1,15 +1,15 @@
 import Image from 'next/image'
-import buttonPicture from 'images/AboutPage/main/PayPanel/payPal.svg'
+import buttonPicture from 'images/AboutPage/PayPanel/payPal.svg'
 import styles from 'components/AboutProductPage/PayPanel/PayButtons/PayButtons.module.scss'
 
 export default function PayButtons() {
   return (
     <div className={styles.payButtons}>
-      <button type="button" aria-label="Add to Cart" className={styles.buttonAdd}>
+      <button className={styles.buttonAddToCart} type="button" area-label="add to cart button">
         Add to Cart
       </button>
-      <button type="button" aria-label="Pay with PayPal" className={styles.buttonPayPal}>
-        <Image src={buttonPicture} alt="PayPal logo picture" width={72} height={18} />
+      <button className={styles.buttonPayPal} type="button" aria-label="pay with payPal button">
+        <Image src={buttonPicture} alt="payPal logo picture" width={72} height={18} />
       </button>
     </div>
   )

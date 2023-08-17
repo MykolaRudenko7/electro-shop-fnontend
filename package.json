@@ -14,8 +14,6 @@
   "dependencies": {
     "@uidotdev/usehooks": "^2.1.0",
     "classnames": "^2.3.2",
-    "eslint": "8.46.0",
-    "eslint-config-next": "13.4.12",
     "next": "13.4.12",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -24,8 +22,13 @@
     "uuidv4": "^6.2.13"
   },
   "devDependencies": {
+    "eslint": "^8.47.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-next": "^13.4.16",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^3.0.1"
   }
 }

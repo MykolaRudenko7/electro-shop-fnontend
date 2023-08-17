@@ -1,10 +1,11 @@
-import sliderPicture from 'images/AboutPage/main/Productchoice/productSlider.png'
+import sliderPicture from 'images/AboutPage/Productchoice/productSlider.png'
+
 export const linksProductChoiceData = [
   { label: 'Home', href: '#' },
   { label: 'Laptops', href: '#' },
   { label: 'MSI WS Series', href: '#' },
 ]
-export const colorChoiceButtons = [
+export const colorChoiceButtonsData = [
   { id: 'Element 1', className: 'buttonChoiceProductGrey' },
   { id: 'Element 2', className: 'buttonChoiceProductIvory' },
   { id: 'Element 3', className: 'buttonChoiceProductLightGray' },

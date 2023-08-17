@@ -1,4 +1,5 @@
 'use client'
+
 import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -7,9 +8,9 @@ import { v4 as uuidv4 } from 'uuid'
 import { navbarLinks } from 'data/headerData'
 import NavbarLink from 'components/shared/Header/Navbar/NavbarLink'
 import Search from 'components/shared/Header/Navbar/NavbarSearchPanel'
-import logoPicture from 'images/AboutPage/header/Logo.svg'
-import basketPicture from 'images/AboutPage/header/basket.svg'
-import profilePicture from 'images/AboutPage/header/profile.svg'
+import logoPicture from 'images/header/Logo.svg'
+import basketPicture from 'images/header/basket.svg'
+import profilePicture from 'images/header/profile.svg'
 import styles from 'components/shared/Header/Navbar/Navbar.module.scss'
 
 export default function Navbar() {
@@ -30,7 +31,7 @@ export default function Navbar() {
       document.removeEventListener('click', handleOutsideClick)
     }
   }, [isNavbarMenuOpen])
-  
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbar__wrapper}>

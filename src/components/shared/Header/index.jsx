@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { v4 as uuidv4 } from 'uuid'
-import { headerTopSocialMediaLinks } from 'data/headerData'
 import Navbar from 'components/shared/Header/Navbar'
 import Popover from 'components/shared/Popover'
+import { headerTopSocialMediaLinks } from 'data/headerData'
 import style from 'components/shared/Header/Header.module.scss'
 
 export default function Header() {

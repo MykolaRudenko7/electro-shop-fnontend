@@ -1,0 +1,132 @@
+.footer {
+  background-color: $headerTopBackgroundColor;
+
+  &__container {
+    @extend %mainDefaultContainerSettings;
+    padding-top: 4.7rem;
+    padding-bottom: 1.7rem;
+  }
+
+  @include onSmallTablet() {
+    &__container {
+      padding: 3.5rem 5.5rem;
+    }
+  }
+
+  @include onPhone() {
+    &__container {
+      padding: 3.5rem 2rem;
+    }
+  }
+}
+
+.footerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $mainWhiteColor;
+  padding-bottom: 4.5rem;
+  gap: 3rem;
+
+  &__title {
+    font-size: 3.8rem;
+    font-weight: $mediumFontWeight;
+    line-height: 5rem;
+    padding-bottom: 0.9rem;
+  }
+
+  &__subtitle {
+    font-size: 1.6rem;
+    font-weight: $lightFontWeight;
+    line-height: 2.1rem;
+  }
+
+  @include onTablet() {
+    padding-bottom: 2.6rem;
+    align-items: flex-start;
+
+    &__title {
+      font-size: 1.8rem;
+      font-weight: $mediumFontWeight;
+      line-height: 2.3rem;
+      padding-bottom: 0.5rem;
+    }
+
+    &__subtitle {
+      font-size: 1.2rem;
+      font-weight: $lightFontWeight;
+      line-height: 1.6rem;
+    }
+  }
+
+  @include onSmallTablet() {
+    flex-wrap: wrap;
+    row-gap: 1.5rem;
+    padding-bottom: 1.6rem;
+  }
+  @include onPhone() {
+    justify-content: center;
+  }
+}
+
+.footerColumnsLinks {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  column-gap: 5rem;
+  row-gap: 5rem;
+  flex-wrap: wrap;
+  padding-bottom: 3.6rem;
+  border-bottom: 0.2rem solid $footerTitleColor;
+
+  @include onSmallTablet() {
+    padding-bottom: 0rem;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: none;
+  }
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  padding-top: 1.7rem;
+
+  &__imgWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+
+    @include onPhone() {
+      order: 1;
+    }
+  }
+}
+
+.aboutSite {
+  color: $footerTitleColor;
+  font-size: 1.2rem;
+  font-weight: $mediumFontWeight;
+  line-height: 1.6rem;
+
+  @include onSmallTablet() {
+    order: 1;
+    font-size: 1rem;
+  }
+}
+
+.bottomCards {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  list-style: none;
+
+  @include onPhone() {
+    order: 2;
+  }
+}

@@ -1,4 +1,5 @@
 import { Poppins } from 'next/font/google'
+import Footer from 'components/shared/Footer'
 import Header from 'components/shared/Header'
 import 'styles/global.scss'
 import 'styles/null.scss'
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
       <body className={poppins.className}>
         <Header />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )

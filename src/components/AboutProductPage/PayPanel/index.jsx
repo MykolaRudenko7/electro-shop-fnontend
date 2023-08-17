@@ -1,4 +1,5 @@
 'use client'
+
 import CounterPrice from 'components/AboutProductPage/PayPanel/CounterPrice'
 import Links from 'components/AboutProductPage/PayPanel/LinksPayPanel'
 import PayButtons from 'components/AboutProductPage/PayPanel/PayButtons'

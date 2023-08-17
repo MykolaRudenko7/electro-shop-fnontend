@@ -1,9 +1,10 @@
 'use client'
-import classNames from 'classnames'
-import styles from 'components/shared/Header/Navbar/NavbarSearchPanel/NavbarSearchPanel.module.scss'
-import searchPicture from 'images/AboutPage/header/search.svg'
-import Image from 'next/image'
+
 import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
+import classNames from 'classnames'
+import searchPicture from 'images/header/search.svg'
+import styles from 'components/shared/Header/Navbar/NavbarSearchPanel/NavbarSearchPanel.module.scss'
 
 export default function NavbarSearchPanel() {
   const [isProductSearchInputOpen, setIsProductSearchInputOpen] = useState(false)

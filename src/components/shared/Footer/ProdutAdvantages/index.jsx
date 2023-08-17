@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import { advantagesData } from 'data/advantagesData'
-import AdvantageCard from 'components/AboutProductPage/ProdutAdvantages/AdvantageCard/index.'
-import styles from 'components/AboutProductPage/ProdutAdvantages/ProductAdvantages.module.scss'
+import AdvantageCard from 'components/shared/Footer/ProdutAdvantages/AdvantageCard/index.'
+import styles from 'components/shared/Footer/ProdutAdvantages/ProductAdvantages.module.scss'
 
 export default function ProdutAdvantages() {
   return (

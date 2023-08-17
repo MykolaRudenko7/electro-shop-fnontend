@@ -1,4 +1,5 @@
 'use client'
+
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { v4 as uuidv4 } from 'uuid'

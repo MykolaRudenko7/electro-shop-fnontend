@@ -1,9 +1,10 @@
 'use client'
-import classNames from 'classnames'
-import styles from 'components/AboutProductPage/ProductChoice/ColorChoice/ColorChoice.module.scss'
-import { colorChoiceButtons } from 'data/productChoiceData'
+
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import classNames from 'classnames'
+import { colorChoiceButtonsData } from 'data/productChoiceData'
+import styles from 'components/AboutProductPage/ProductChoice/ColorChoice/ColorChoice.module.scss'
 
 export default function ColorChoice() {
   const [selectedElement, setSelectedElement] = useState(null)
@@ -13,7 +14,7 @@ export default function ColorChoice() {
 
   return (
     <div className={styles.buttons}>
-      {colorChoiceButtons.map(({ id, className }) => (
+      {colorChoiceButtonsData.map(({ id, className }) => (
         <button
           type="button"
           aria-label="select product color"

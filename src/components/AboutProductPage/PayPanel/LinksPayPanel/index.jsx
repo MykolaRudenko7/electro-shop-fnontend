@@ -1,8 +1,8 @@
-import classNames from 'classnames'
-import styles from 'components/AboutProductPage/PayPanel/LinksPayPanel/LinksPayPanel.module.scss'
-import { payPanelLinks } from 'data/payPanelData'
 import Link from 'next/link'
 import { v4 as uuidv4 } from 'uuid'
+import classNames from 'classnames'
+import { payPanelLinks } from 'data/payPanelData'
+import styles from 'components/AboutProductPage/PayPanel/LinksPayPanel/LinksPayPanel.module.scss'
 
 export default function LinksPayPanel() {
   return (

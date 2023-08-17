@@ -2,7 +2,7 @@
   background-color: $outpayBlockBackgroundColor;
   &__container {
     @extend %mainDefaultContainerSettings;
-    background: url('../../../images/AboutPage/main/Outplay/outplay.png'),
+    background: url('../../../images/AboutPage/Outplay/outplay.png'),
       linear-gradient(to bottom, lightgray -0.56rem -14.48rem, $outpayBlockBackgroundColor);
     background-size: 70% 100%;
     background-repeat: no-repeat;

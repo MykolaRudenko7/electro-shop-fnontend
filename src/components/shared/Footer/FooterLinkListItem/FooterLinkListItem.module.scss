@@ -1,0 +1,73 @@
+.title {
+  font-size: 1.4rem;
+  color: $footerTitleColor;
+  font-weight: $boldFontWeight;
+  padding-bottom: 2rem;
+  position: relative;
+
+  @include onSmallTablet() {
+    font-size: 1.1rem;
+    color: $mainWhiteColor;
+    padding: 1.1rem 0;
+
+    &::before {
+      position: absolute;
+      content: '';
+      background-image: url('../../../../images/footer/spoiller.svg');
+      top: 1rem;
+      right: 0;
+      width: 1.6rem;
+      height: 1.5rem;
+      transition: all 0.2s ease;
+    }
+
+    &.openAccordion::before {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.blockItem {
+  white-space: nowrap;
+}
+
+.blockLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  line-height: 1.4rem;
+  text-align: left;
+  list-style: none;
+
+  @include onSmallTablet() {
+    padding: 0 1.5rem;
+    max-height: 0.1rem;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+    border-bottom: 0.2rem solid $activeProductChoiceLink;
+  }
+
+  &.openAccordion {
+    padding-bottom: 1rem;
+    max-height: 30rem;
+  }
+}
+
+.blockLink {
+  color: $mainWhiteColor;
+  font-size: 1.3rem;
+
+  &:hover,
+  &:focus {
+    color: $footerTitleColor;
+  }
+
+  @include onSmallTablet() {
+    font-size: 1.2rem;
+    color: $mainWhiteColor;
+  }
+}
+
+.linkMarkText {
+  color: $mainBlueColor;
+}

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import styles from 'components/AboutProductPage/ProdutAdvantages/AdvantageCard/AdvantageCard.module.scss'
+import styles from 'components/shared/Footer/ProdutAdvantages/AdvantageCard/AdvantageCard.module.scss'
 
 export default function AdvantageCard({ imageSrc, title, subtitle }) {
   return (

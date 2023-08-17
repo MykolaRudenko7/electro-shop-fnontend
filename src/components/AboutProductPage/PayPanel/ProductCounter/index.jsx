@@ -1,8 +1,8 @@
-import styles from 'components/AboutProductPage/PayPanel/ProductCounter/ProductCounter.module.scss'
-import bottomPictureButton from 'images/AboutPage/main/PayPanel/bottom.svg'
-import topPictureButton from 'images/AboutPage/main/PayPanel/top.svg'
-import Image from 'next/image'
 import { useState } from 'react'
+import Image from 'next/image'
+import bottomPictureButton from 'images/AboutPage/PayPanel/bottom.svg'
+import topPictureButton from 'images/AboutPage/PayPanel/top.svg'
+import styles from 'components/AboutProductPage/PayPanel/ProductCounter/ProductCounter.module.scss'
 
 export default function ProductCounter() {
   const [productCount, setProductCount] = useState(1)
