@@ -1,5 +1,6 @@
 import facebookPic from 'images/header/facebook.svg'
 import instagramPic from 'images/header/instagram.svg'
+
 export const headerTopSocialMediaLinks = [
   {
     href: 'https://www.facebook.com/',

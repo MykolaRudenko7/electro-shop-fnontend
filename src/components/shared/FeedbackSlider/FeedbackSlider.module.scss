@@ -1,0 +1,49 @@
+.sliderContainer {
+  max-width: 116rem;
+  margin: 6.3rem auto;
+
+  :global {
+    .alice-carousel__dots {
+      position: absolute;
+      right: 11.9rem;
+      bottom: 6.9rem;
+      .alice-carousel__dots-item {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin-right: 1rem;
+        background-color: $sliderDotsBackgroundColor;
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+      .alice-carousel__dots-item.__active {
+        background-color: $mainBlueColor;
+      }
+    }
+  }
+}
+
+@include onSmallTablet {
+  .sliderContainer {
+    max-width: 72.8rem;
+
+    :global {
+      .alice-carousel__dots {
+        right: 4.6rem;
+        bottom: 3.5rem;
+
+        .alice-carousel__dots-item {
+          width: 0.9rem;
+          height: 0.9rem;
+          margin-right: 0.769rem;
+        }
+      }
+    }
+  }
+}
+
+@include onSmallPhone {
+  .sliderContainer {
+    max-width: 34.5rem;
+  }
+}

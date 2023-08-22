@@ -1,0 +1,114 @@
+.container {
+  padding: 3.9rem 3.3rem 4.8rem 4.9rem;
+}
+
+.container:nth-child(odd) {
+  background-color: $mainBlackColor;
+  color: $mainWhiteColor;
+}
+
+.container:nth-child(even) .infoBlock {
+  flex-direction: row-reverse;
+}
+
+.infoBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 116rem;
+  margin: 0 auto;
+  height: 68rem;
+}
+
+.imageContainer {
+  margin: 1rem;
+}
+
+.infoBlockImage {
+  max-width: 100%;
+  height: 100%;
+}
+
+.summary {
+  max-width: 46.5rem;
+}
+
+.header {
+  font-size: 4.4rem;
+  font-weight: $mediumFontWeight;
+  margin-bottom: 0.72em;
+}
+
+.paragraph {
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+  max-width: 43.6rem;
+  font-weight: $lightFontWeight;
+  margin-bottom: 1em;
+}
+
+@include onSmallTablet {
+  .container:nth-child(2) .badge {
+    width: 5.2rem;
+  }
+
+  .infoBlock {
+    height: auto;
+  }
+
+  .summary {
+    max-width: 46.5rem;
+  }
+
+  .header {
+    font-size: 3.2rem;
+    line-height: 4.14rem;
+  }
+
+  .paragraph {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+
+  .badge {
+    width: 3rem;
+    height: 100%;
+  }
+}
+
+@include onSmallPhone {
+  .container {
+    padding: 0;
+
+    &:not(:nth-child(1)) {
+      .infoBlockImage {
+        width: 100%;
+      }
+    }
+
+    &:first-of-type {
+      .imageContainer {
+        margin: 0;
+      }
+    }
+
+    &:nth-child(even) {
+      .infoBlock {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  .infoBlock {
+    padding: 0;
+    flex-direction: column-reverse;
+  }
+
+  .summary {
+    padding: 0.4rem 1.6rem 2.6rem 3.3rem;
+  }
+
+  .infoBlockImage:nth-of-type(1) {
+    height: 18.6rem;
+  }
+}
