@@ -1,0 +1,206 @@
+.sortPanel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.7rem;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+}
+
+.sortPanelTitle {
+  color: $activeLinkColor;
+  font-size: 1.3rem;
+  line-height: 2.7rem;
+
+  @include onTablet() {
+    font-size: 1.1rem;
+  }
+
+  @include onPhone() {
+    order: 3;
+  }
+}
+
+.sortPanelFilterOnMobileButton {
+  display: none;
+
+  @include onPhone() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: $mainBlackColor;
+    font-size: 1.1rem;
+    padding: 0.6rem 0;
+    font-weight: $boldFontWeight;
+    line-height: 2.7rem;
+    white-space: nowrap;
+    background-color: $mainWhiteColor;
+    border-radius: 0.2rem;
+    border: 0.2rem solid $sliderDotsBackgroundColor;
+    transition: all 0.3s ease-in-out;
+    flex: 0 0 47%;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $mainBlackColor;
+    }
+  }
+}
+
+.productSortButtons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @include onPhone() {
+    flex: 0 0 47%;
+  }
+}
+
+.setProductsViewButtonsBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  @include onPhone() {
+    display: none;
+  }
+}
+
+.setProductsGridViewButton {
+  @extend %setProductsViewButton;
+  background-image: url('../../../images/CatalogPage/filter/view1.svg');
+
+  &.changeView {
+    background-image: url('../../../images/CatalogPage/filter/view1fill.svg');
+  }
+}
+
+.setProductsListViewButton {
+  @extend %setProductsViewButton;
+  background-image: url('../../../images/CatalogPage/filter/view2.svg');
+
+  &.changeView {
+    background-image: url('../../../images/CatalogPage/filter/view2fill.svg');
+  }
+
+  @include onTablet {
+    display: none;
+  }
+}
+
+.selectedFiltersPanelClearButton {
+  @extend %filtersPanelButton;
+}
+
+.selectedFiltersPanel {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+
+  @include onSmallTablet() {
+    display: none;
+  }
+}
+
+.productSortButtonWrapper {
+  position: relative;
+
+  &:nth-child(2) {
+    @include onSmallTablet() {
+      display: none;
+    }
+  }
+
+  @include onPhone() {
+    width: 100%;
+  }
+}
+
+.selectedFiltersButton {
+  cursor: pointer;
+  color: $activeLinkColor;
+  font-size: 1.3rem;
+  font-weight: $boldFontWeight;
+  line-height: 2.7rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 3.5rem 1rem 2.5rem;
+  background-color: $mainWhiteColor;
+  border-radius: 0.2rem;
+  border: 0.2rem solid $sliderDotsBackgroundColor;
+  transition: all 0.3s ease-in-out;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: $mainBlackColor;
+  }
+
+  &::before {
+    position: absolute;
+    background-image: url('../../../images/CatalogPage/filter/bottom.svg');
+    content: '';
+    top: 31%;
+    right: 5%;
+    width: 1.6rem;
+    height: 1.5rem;
+    transition: all 0.5s ease;
+  }
+
+  &.openAccordion::before {
+    transform: rotate(180deg);
+  }
+
+  @include onTablet() {
+    font-size: 1.1rem;
+    padding: 0.6rem 2.8rem 0.6rem 1.5rem;
+  }
+
+  @include onPhone() {
+    width: 100%;
+  }
+}
+
+.selectedFiltersOption {
+  color: $mainBlackColor;
+}
+
+.dropdownList {
+  background-color: $mainWhiteColor;
+  display: none;
+  list-style: none;
+  position: absolute;
+  top: 98%;
+  left: 0;
+  width: 100%;
+  background-color: $mainWhiteColor;
+  border: 0.1rem solid $activeLinkColor;
+  z-index: 2;
+
+  &.openAccordion {
+    display: block;
+  }
+}
+
+.dropdownItem {
+  cursor: pointer;
+  padding: 1rem;
+  color: $mainBlackColor;
+  font-size: 1.3rem;
+  font-weight: $boldFontWeight;
+  line-height: 2.7rem;
+
+  &:hover {
+    background-color: $sliderBackgroundColor;
+  }
+
+  @include onSmallTablet() {
+    font-size: 1.1rem;
+  }
+}

@@ -9,7 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "component": "generate-react component"
   },
   "dependencies": {
     "@uidotdev/usehooks": "^2.1.0",
@@ -18,11 +19,13 @@
     "react": "18.2.0",
     "react-alice-carousel": "^2.7.1",
     "react-dom": "18.2.0",
+    "react-spring": "^9.7.2",
     "sass": "^1.64.2",
     "swiper": "^10.1.0",
     "uuidv4": "^6.2.13"
   },
   "devDependencies": {
+    "generate-react-cli": "^8.3.0",
     "eslint": "^8.47.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",

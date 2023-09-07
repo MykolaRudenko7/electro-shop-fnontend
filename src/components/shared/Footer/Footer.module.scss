@@ -77,7 +77,7 @@
   row-gap: 5rem;
   flex-wrap: wrap;
   padding-bottom: 3.6rem;
-  border-bottom: 0.2rem solid $footerTitleColor;
+  border-bottom: 0.2rem solid $sliderBtnShadowColor;
 
   @include onSmallTablet() {
     padding-bottom: 0rem;
@@ -108,7 +108,7 @@
 }
 
 .aboutSite {
-  color: $footerTitleColor;
+  color: $sliderBtnShadowColor;
   font-size: 1.2rem;
   font-weight: $mediumFontWeight;
   line-height: 1.6rem;

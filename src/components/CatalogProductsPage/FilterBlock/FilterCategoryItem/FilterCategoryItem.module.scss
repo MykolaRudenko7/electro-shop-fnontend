@@ -1,0 +1,33 @@
+.categoryTitle {
+  @extend %titleFilterCategory;
+
+  &::before {
+    background-image: url('../../../../images/CatalogPage/spoiller.svg');
+  }
+}
+
+.categoryItems {
+  list-style: none;
+  color: $mainBlackColor;
+  font-size: 1.3rem;
+  line-height: 2.7rem;
+  overflow: hidden;
+  height: 0;
+  transition: height 0.5s ease-in;
+}
+
+.openAccordion {
+  height: auto;
+}
+
+.categoryItemLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $activeLinkColor;
+  }
+}

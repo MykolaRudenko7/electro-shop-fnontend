@@ -1,6 +1,6 @@
 .title {
   font-size: 1.4rem;
-  color: $footerTitleColor;
+  color: $sliderBtnShadowColor;
   font-weight: $boldFontWeight;
   padding-bottom: 2rem;
   position: relative;
@@ -44,7 +44,7 @@
     max-height: 0.1rem;
     overflow: hidden;
     transition: all 0.2s ease-in;
-    border-bottom: 0.2rem solid $activeProductChoiceLink;
+    border-bottom: 0.2rem solid $activeLinkColor;
   }
 
   &.openAccordion {
@@ -59,7 +59,7 @@
 
   &:hover,
   &:focus {
-    color: $footerTitleColor;
+    color: $sliderBtnShadowColor;
   }
 
   @include onSmallTablet() {

@@ -3,14 +3,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { v4 as uuidv4 } from 'uuid'
-import { footerAllLinks, footerCardsPartnerImages } from 'data/footerData'
+import { footerAllLinksBlocks, footerCardsPartnerImages } from 'data/footerData'
 import FooterLinkListItem from 'components/shared/Footer/FooterLinkListItem'
 import SubscriptionForm from 'components/shared/Footer/FooterSubscriptionForm'
 import ProdutAdvantages from 'components/shared/Footer/ProdutAdvantages'
 import facebookPicture from 'images/footer/facebook-bottom.svg'
 import instagramPicture from 'images/footer/instagram-bottom.svg'
 import styles from 'components/shared/Footer/Footer.module.scss'
-import { footerAllLinksBlocks } from 'data/footerData'
 
 export default function Footer() {
   return (

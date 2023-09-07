@@ -1,6 +1,5 @@
 'use client'
-
-import classNames from 'classnames'
+import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
@@ -9,13 +8,13 @@ import { navbarLinks } from 'data/headerData'
 import NavbarLink from 'components/shared/Header/Navbar/NavbarLink'
 import Search from 'components/shared/Header/Navbar/NavbarSearchPanel'
 import logoPicture from 'images/header/Logo.svg'
-import basketPicture from 'images/header/basket.svg'
 import profilePicture from 'images/header/profile.svg'
 import styles from 'components/shared/Header/Navbar/Navbar.module.scss'
 
 export default function Navbar() {
   const [isNavbarMenuOpen, setIsNavbarMenuOpen] = useState(false)
   const navbarMenuRef = useRef(null)
+
   const handleMenuToggle = () => {
     setIsNavbarMenuOpen(!isNavbarMenuOpen)
   }
@@ -47,7 +46,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div
-          className={classNames(styles.burger, {
+          className={cn(styles.burger, {
             [styles.active]: isNavbarMenuOpen,
           })}
           onClick={handleMenuToggle}
@@ -57,7 +56,7 @@ export default function Navbar() {
           <span className={styles.burger__line} />
         </div>
         <ul
-          className={classNames(styles.navbarMenu, {
+          className={cn(styles.navbarMenu, {
             [styles.open]: isNavbarMenuOpen,
           })}
           ref={navbarMenuRef}
@@ -69,15 +68,7 @@ export default function Navbar() {
       </div>
       <ul className={styles.leftComponent}>
         <Search />
-        <Link className={styles.leftComponentLink} href="#">
-          <Image
-            className={styles.leftComponentImage}
-            src={basketPicture}
-            alt="logo picture"
-            width={25}
-            height={25}
-          />
-        </Link>
+        <Link className={styles.leftComponentLink} href="#" />
         <Link className={styles.leftComponentLinkProfile} href="#">
           <Image
             className={styles.leftComponentImage}

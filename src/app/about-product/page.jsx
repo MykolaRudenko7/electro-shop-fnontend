@@ -1,8 +1,8 @@
-import PayPanel from 'components/AboutProductPage/PayPanel'
-import ProductChoice from 'components/AboutProductPage/ProductChoice'
-import ProductFeatures from 'components/AboutProductPage/ProductFeatures'
-import ProductOutplay from 'components/AboutProductPage/ProductOutplay'
-import ProductSupport from 'components/AboutProductPage/ProductSupport'
+import PayPanelSection from 'components/AboutProductPage/PayPanel'
+import ProductChoiceSection from 'components/AboutProductPage/ProductChoiceSection'
+import ProductFeaturesSection from 'components/AboutProductPage/ProductFeaturesSection'
+import ProductOutplaySection from 'components/AboutProductPage/ProductOutplaySection'
+import ProductSupportSection from 'components/AboutProductPage/ProductSupportSection'
 
 export const metadata = {
   title: 'About Proguct',
@@ -12,11 +12,11 @@ export const metadata = {
 export default function AboutProduct() {
   return (
     <>
-      <PayPanel />
-      <ProductChoice />
-      <ProductOutplay />
-      <ProductSupport />
-      <ProductFeatures />
+      <PayPanelSection />
+      <ProductChoiceSection />
+      <ProductOutplaySection />
+      <ProductSupportSection />
+      <ProductFeaturesSection />
     </>
   )
 }

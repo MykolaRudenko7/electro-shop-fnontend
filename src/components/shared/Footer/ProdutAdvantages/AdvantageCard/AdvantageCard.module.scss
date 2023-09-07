@@ -9,7 +9,7 @@
   }
 }
 .advantageCardImageWrapper {
-  @include flexible();
+  @extend %flexCenter;
   width: 6.5rem;
   height: 6.5rem;
   padding: 2rem;

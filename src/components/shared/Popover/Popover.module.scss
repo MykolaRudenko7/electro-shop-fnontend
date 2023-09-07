@@ -1,48 +1,58 @@
 .popoverContainer {
   position: relative;
   display: inline-block;
+
   &:hover .popoverContent {
     display: block;
   }
 }
+
 .popoverTrigger {
-  @include flexible();
-  color: $activeProductChoiceLink;
+  @extend %flexCenter;
+  color: $activeLinkColor;
   background: none;
   border: none;
   cursor: pointer;
 }
+
 .popoverTriggerTextColor {
   color: $mainWhiteColor;
 }
+
 .popoverContent {
   display: none;
   position: absolute;
   left: 0;
   width: 26.2rem;
   background-color: $mainWhiteColor;
-  border: 0.2rem solid $productChoiceBlockBackgroundColor;
+  border: 0.2rem solid $activeLinkColor;
+  border-radius: 0.5rem;
   z-index: 3;
 }
+
 .time {
   display: flex;
   gap: 0.7rem;
   padding: 1.6rem 0.9rem;
-  border-bottom: 0.2rem solid $mainBorderColor;
+  border-bottom: 0.2rem solid $sliderDotsBackgroundColor;
+
   &__picture {
-    @include flexible();
+    @extend %flexCenter;
     flex-shrink: 0;
     width: 3.5rem;
     height: 3.5rem;
   }
+
   &__textBlock {
     line-height: 1.4rem;
   }
+
   &__textItems {
-    color: $activeProductChoiceLink;
+    color: $activeLinkColor;
     font-size: 1.3rem;
     font-weight: $semiBoldFontWeight;
     padding-bottom: 0.9rem;
+
     &:first-child {
       color: $mainBlackColor;
       font-size: 1.2rem;
@@ -50,25 +60,30 @@
       padding-bottom: 0.4rem;
       line-height: 1.6rem;
     }
+
     &:last-child {
       padding: 0;
     }
   }
+
   &__textItemsMark {
     color: $mainBlackColor;
   }
 }
+
 .map {
   display: flex;
   gap: 0.7rem;
   padding: 1.6rem 0.9rem;
-  border-bottom: 0.2rem solid $mainBorderColor;
+  border-bottom: 0.2rem solid $sliderDotsBackgroundColor;
+
   &__picture {
-    @include flexible();
+    @extend %flexCenter;
     flex-shrink: 0;
     width: 3.5rem;
     height: 3.5rem;
   }
+
   &__text {
     color: $mainBlackColor;
     font-size: 1.3rem;
@@ -76,14 +91,17 @@
     line-height: 1.6rem;
   }
 }
+
 .contacts {
   font-size: 1.3rem;
   font-weight: $regularFontWeight;
   line-height: 1.6rem;
   padding: 1.1rem 0 1.68rem 2.48rem;
+
   &__text {
     color: $mainBlackColor;
   }
+
   &__link {
     font-family: $mainFontFamily;
     cursor: pointer;

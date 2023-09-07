@@ -1,0 +1,33 @@
+.buttons {
+  display: flex;
+  gap: 1.8rem;
+  padding-bottom: 3rem;
+
+  @include onTablet() {
+    padding-bottom: 3.2rem;
+  }
+
+  @include onPhone() {
+    padding-bottom: 1.8rem;
+  }
+}
+
+.colorChoiceButton {
+  @extend %chooseProductColorButton;
+}
+
+.buttonChoiceProductGrey {
+  background-color: $colorProdutChoiceButtonGrey;
+}
+
+.buttonChoiceProductIvory {
+  background-color: $colorProdutChoiceButtonIvory;
+}
+
+.buttonChoiceProductLightGray {
+  background-color: $colorProdutChoiceButtonLightGray;
+}
+
+.selected {
+  border: 0.3rem solid $mainBlueColor;
+}

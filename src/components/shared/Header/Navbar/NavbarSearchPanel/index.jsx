@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import classNames from 'classnames'
+import cn from 'classnames'
 import searchPicture from 'images/header/search.svg'
 import styles from 'components/shared/Header/Navbar/NavbarSearchPanel/NavbarSearchPanel.module.scss'
 
@@ -10,6 +10,7 @@ export default function NavbarSearchPanel() {
   const [isProductSearchInputOpen, setIsProductSearchInputOpen] = useState(false)
   const [inputValue, setInputValue] = useState('')
   const containerRef = useRef(null)
+
   const handleIconClick = () => {
     setIsProductSearchInputOpen(!isProductSearchInputOpen)
   }
@@ -32,7 +33,7 @@ export default function NavbarSearchPanel() {
   return (
     <div
       ref={containerRef}
-      className={classNames(styles.search, { [styles.open]: isProductSearchInputOpen })}
+      className={cn(styles.search, { [styles.open]: isProductSearchInputOpen })}
     >
       <div className={styles.icon} onClick={handleIconClick}>
         <Image src={searchPicture} alt="Search icon picture" width={24} height={24} />

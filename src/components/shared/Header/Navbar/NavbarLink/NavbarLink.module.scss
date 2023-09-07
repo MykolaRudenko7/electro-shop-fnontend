@@ -1,5 +1,6 @@
 .navbarLinkWrapper {
-  @include flexible();
+  @extend %flexCenter;
+
   @include onTablet() {
     &::before {
       position: absolute;

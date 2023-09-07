@@ -1,9 +1,10 @@
 .top {
-  @include flexible();
+  @extend %flexCenter;
   padding: 1.2rem 0rem;
   background: $headerTopBackgroundColor;
   font-size: 1.2rem;
   font-weight: $semiBoldFontWeight;
+
   &__wrapper {
     @extend %mainDefaultContainerSettings;
     display: flex;
@@ -11,34 +12,42 @@
     align-items: center;
     flex: 1 1;
   }
+
   @include onTablet() {
     padding-top: 1.4rem;
     padding-bottom: 1.4rem;
     font-size: 1.1rem;
   }
 }
+
 .tell {
-  @include flexible();
+  @extend %flexCenter;
+
   gap: 1.4rem;
   color: $mainWhiteColor;
+
   @include onTablet() {
     display: none;
   }
 }
+
 .address {
-  @include flexible();
+  @extend %flexCenter;
   gap: 0.35rem;
-  color: $activeProductChoiceLink;
+  color: $activeLinkColor;
   text-align: center;
 }
+
 .addressText {
   @include onTablet() {
     display: none;
   }
 }
+
 .addressLink {
   color: $mainWhiteColor;
   position: relative;
+
   &::after {
     content: '';
     position: absolute;
@@ -50,13 +59,15 @@
     background-color: $mainWhiteColor;
   }
 }
+
 .data {
-  color: $activeProductChoiceLink;
+  color: $activeLinkColor;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
+
 .socials {
-  @include flexible();
+  @extend %flexCenter;
   gap: 0.8rem;
 }

@@ -17,7 +17,7 @@
 .count {
   width: 3.2rem;
   height: 3.4rem;
-  @include flexible();
+  @extend %flexCenter;
   color: $mainBlackColor;
   text-align: center;
   font-size: 1.1rem;
