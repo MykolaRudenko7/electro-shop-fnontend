@@ -1,0 +1,22 @@
+.cardsBlockGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, (minmax(22rem, 1fr)));
+  align-items: start;
+  justify-items: center;
+
+  @include onTablet() {
+    grid-template-columns: repeat(auto-fit, (minmax(16.5rem, 1fr)));
+  }
+}
+
+.cardsBlockList {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @include onPhone() {
+    display: none;
+  }
+}

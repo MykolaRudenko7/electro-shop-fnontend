@@ -12,6 +12,7 @@ import ProductsSortPanel from 'components/CatalogProductsPage/ProductsSortPanel'
 import FilterCountProductsButton from 'components/CatalogProductsPage/FilterBlock/FilteredProductCountButton'
 import bannerImage from 'images/CatalogPage/banner.png'
 import styles from 'app/products-catalog/ProductsCatalog.module.scss'
+import ProductCards from 'components/CatalogProductsPage/ProductCards'
 
 export const metadata = {
   title: 'Catalog page',
@@ -68,6 +69,7 @@ export default function ProductsCatalog() {
                 Clear All
               </Link>
             </div>
+            <ProductCards currentViewType={currentViewType} />
           </div>
         </section>
       </div>
