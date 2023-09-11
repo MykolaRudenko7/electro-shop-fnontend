@@ -5,7 +5,7 @@ export default function FeaturesCard({ imageSrc, alt, description }) {
   return (
     <figure className={styles.featureCard}>
       <div className={styles.featureImageWrapper}>
-        <Image className={styles.featureImage} src={imageSrc} alt={alt} />
+        <Image alt={alt} className={styles.featureImage} src={imageSrc} />
       </div>
       <figcaption className={styles.featureDescription}>{description}</figcaption>
     </figure>

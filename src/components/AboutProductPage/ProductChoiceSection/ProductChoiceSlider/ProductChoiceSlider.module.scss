@@ -8,7 +8,7 @@
     padding-left: 14rem;
   }
 
-  @include onSmallTablet() {
+  @include onTablet() {
     margin: 0 auto;
     padding-top: 0.627rem;
     padding-left: 0rem;
@@ -31,7 +31,7 @@
     margin: 0 1rem;
     background-color: $activeLinkColor;
     border-radius: 50%;
-    transition: background-color 0.3s ease;
+    transition: $transitionSetCubicBezier;
   }
 
   :global .swiper-pagination-bullet-active {

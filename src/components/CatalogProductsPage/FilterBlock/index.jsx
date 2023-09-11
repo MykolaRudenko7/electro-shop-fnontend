@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { v4 as uuidv4 } from 'uuid'
 import cn from 'classnames'
-import { filterBlockData } from 'data/filterBlockData'
+import { filterBlockData } from 'data/product-catalog/filterBlockData'
 import FilterCategoryItem from 'components/CatalogProductsPage/FilterBlock/FilterCategoryItem'
 import FilterBrandImageItem from 'components/CatalogProductsPage/FilterBlock/FilterBrandImageItem'
 import advertisingImage from 'images/CatalogPage/filter/advertising.png'
@@ -31,24 +31,24 @@ export default function FilterBlock({ toggleFilterMenuVisibility }) {
         <div className={styles.filters}>
           <div className={styles.filtersHeader}>
             <button
+              aria-label="close panel"
               className={styles.topButtonCloseOnMobile}
               onClick={toggleFilterMenuVisibility}
-              aria-label="close panel"
               type="button"
             >
               ✖
             </button>
             <h4 className={styles.title}>Filters</h4>
-            <button type="button" aria-label="clear filter" className={styles.clearFiltersButton}>
+            <button aria-label="clear filter" className={styles.clearFiltersButton} type="button">
               Clear Filter
             </button>
           </div>
           {filtersCategoryPriceBlock.map(({ title, info }) => (
             <FilterCategoryItem
-              key={uuidv4()}
-              title={title}
               info={info}
               isFilterCategoryOpen={isFilterCategoryOpen}
+              key={uuidv4()}
+              title={title}
               toggleFilterCategoryAccordionVisibility={toggleFilterCategoryAccordionVisibility}
             />
           ))}
@@ -58,6 +58,7 @@ export default function FilterBlock({ toggleFilterMenuVisibility }) {
                 [styles.openAccordion]: isFilterCategoryOpen,
               })}
               onClick={toggleFilterCategoryAccordionVisibility}
+              role="button"
             >
               Color
             </h5>
@@ -65,13 +66,12 @@ export default function FilterBlock({ toggleFilterMenuVisibility }) {
               <div className={styles.colorButtons}>
                 {colorChoiceButtonsCatalogFilters.map(({ productId, colorStyle }) => (
                   <button
-                    key={uuidv4()}
+                    aria-label="choose product color"
                     className={cn(styles.colorChoiceButton, styles[colorStyle], {
                       [styles.selectedElementColor]: selectedProductColor === productId,
                     })}
+                    key={uuidv4()}
                     onClick={() => handleColorElementSelection(productId)}
-                    type="button"
-                    aria-label="choose product color"
                   />
                 ))}
               </div>
@@ -79,14 +79,14 @@ export default function FilterBlock({ toggleFilterMenuVisibility }) {
           </div>
           {filtersNameBlock.map(({ title, info }) => (
             <FilterCategoryItem
-              key={uuidv4()}
-              title={title}
               info={info}
               isFilterCategoryOpen={isFilterCategoryOpen}
+              key={uuidv4()}
+              title={title}
               toggleFilterCategoryAccordionVisibility={toggleFilterCategoryAccordionVisibility}
             />
           ))}
-          <button className={styles.applyFiltersButton} type="button" aria-label="apply filters">
+          <button aria-label="apply filters" className={styles.applyFiltersButton} type="button">
             Apply Filters <span className={styles.filtersApplyButtonCount}>(2)</span>
           </button>
         </div>
@@ -94,13 +94,13 @@ export default function FilterBlock({ toggleFilterMenuVisibility }) {
       <div className={styles.brandsWrapper}>
         <div className={styles.brandsHeader}>
           <h4 className={styles.brandsTitle}>Filters</h4>
-          <button type="button" aria-label="clear filter" className={styles.brandsButton}>
+          <button aria-label="clear filter" className={styles.brandsButton} type="button">
             Clear Filter
           </button>
         </div>
         <div className={styles.brandsImages}>
           {filtersBrandsImage.map(({ alt, imageSrc, href }) => (
-            <FilterBrandImageItem key={uuidv4()} alt={alt} imageSrc={imageSrc} href={href} />
+            <FilterBrandImageItem alt={alt} href={href} imageSrc={imageSrc} key={uuidv4()} />
           ))}
         </div>
       </div>
@@ -116,10 +116,10 @@ export default function FilterBlock({ toggleFilterMenuVisibility }) {
         </div>
         <p className={styles.wishListSubtitle}>You have no items in your wish list.</p>
       </div>
-      <Link className={styles.advertisingImageWrapper} href="#" about="advertising link">
+      <Link about="advertising link" className={styles.advertisingImageWrapper} href="#">
         <Image
-          className={styles.advertisingImage}
           alt="advertising picture"
+          className={styles.advertisingImage}
           src={advertisingImage}
         />
       </Link>

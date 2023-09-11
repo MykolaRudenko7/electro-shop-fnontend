@@ -76,7 +76,7 @@
   width: 2.7rem;
   height: 2.7rem;
   border: 0.3rem solid $sliderBackgroundColor;
-  transition: border 0.2s ease-in-out;
+  transition: $transitionSetEase;
 
   &:hover {
     border-color: $activeLinkColor;

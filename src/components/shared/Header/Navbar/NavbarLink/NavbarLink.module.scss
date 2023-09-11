@@ -16,7 +16,7 @@
   white-space: nowrap;
   color: $mainBlackColor;
   font-weight: $semiBoldFontWeight;
-  transition: all 0.3s ease;
+  transition: $transitionSetEase;
   &:hover {
     color: $mainBlueColor;
     transform: scale(1.03);

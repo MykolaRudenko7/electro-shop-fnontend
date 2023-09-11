@@ -7,7 +7,7 @@
   border: 0.1rem solid $sliderDotsBackgroundColor;
   background: $mainWhiteColor;
   padding: 0.5rem 1.7rem;
-  transition: all 0.3s ease-in-out;
+  transition: $transitionSetEase;
 
   &:hover,
   &:active,
@@ -21,7 +21,7 @@
   @extend %flexCenter;
   width: 3.2rem;
   height: 3.2rem;
-  transition: all 0.3s ease;
+  transition: $transitionSetEase;
 }
 
 %clearFilterBlockButton {
@@ -34,7 +34,7 @@
   padding: 1rem 0;
   width: 100%;
   white-space: nowrap;
-  transition: all 0.2s ease-in-out;
+  transition: $transitionSetEase;
   background-color: transparent;
 
   &:hover,
@@ -55,13 +55,12 @@
   padding: 1.5rem 3.5rem;
   background-color: $mainBlueColor;
   border-radius: 5rem;
-  transition: all 0.2s ease-in;
+  transition: $transitionSetEase;
 
   &:hover,
   &:active,
   &:focus {
     transform: translate(0.1rem, 0.1rem);
-    background-color: $blueBorderSliderTextBlock;
   }
 
   @include onTablet() {
@@ -75,7 +74,7 @@
   width: 3.2rem;
   height: 3.2rem;
   border-radius: 100%;
-  transition: all 0.1s ease;
+  transition: $transitionSetEase;
 
   &:hover {
     border: 0.3rem solid $mainBlueColor;
@@ -107,7 +106,7 @@
   border: 0.2rem solid $mainBlueColor;
   border-radius: 5rem;
   margin-bottom: 1.7rem;
-  transition: all 0.3s ease-in-out;
+  transition: $transitionSetEase;
 
   &:hover {
     background-color: $sliderBackgroundColor;

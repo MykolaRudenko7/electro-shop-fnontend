@@ -1,18 +1,18 @@
 import Image from 'next/image'
 import brandPicture from 'images/AboutPage/ProductChoice/zip.svg'
-import styles from 'components/AboutProductPage/ProductChoiceSection/ProductChoiceSlider/ProductChoiceSliderItem/ProductSlideItem.module.scss'
+import styles from '@/ProductChoiceSection/ProductChoiceSlider/ProductChoiceSliderItem/ProductSlideItem.module.scss'
 
 export default function ProductSlideItem({ imageSrc, text, linkText, href }) {
   return (
     <div className={styles.slide}>
-      <Image className={styles.slideImage} src={imageSrc} alt="product slide" />
+      <Image alt="product slide" className={styles.slideImage} src={imageSrc} />
       <div className={styles.textBlock}>
         <Image
-          className={styles.textBlockImage}
-          src={brandPicture}
           alt="brand picture"
-          width={77}
+          className={styles.textBlockImage}
           height={27}
+          src={brandPicture}
+          width={77}
         />
         <p className={styles.textBlockSubtitle}>
           {text}

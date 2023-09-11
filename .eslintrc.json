@@ -1,6 +1,13 @@
 {
   "extends": ["airbnb-base", "prettier", "plugin:@next/next/recommended"],
-  "plugins": ["react"],
+  "plugins": ["react", "jsx-a11y"],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    },
+    "requireConfigFile": false
+  },
   "rules": {
     "@next/next/no-img-element": "off",
     "no-underscore-dangle": 0,
@@ -95,15 +102,7 @@
         "code": 120
       }
     ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "mjs": "never",
-        "jsx": "never"
-      }
-    ],
+    "import/extensions": "off",
     "object-curly-newline": [
       "error",
       {
@@ -142,6 +141,9 @@
     "no-continue": "off"
   },
   "settings": {
+    "react": {
+      "version": "detect"
+    },
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".json", ".vue"]

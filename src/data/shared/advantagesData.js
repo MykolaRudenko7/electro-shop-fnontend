@@ -1,6 +1,7 @@
 import accountPicture from 'images/AboutPage/Advantages/account.svg'
 import pricePicture from 'images/AboutPage/Advantages/price.svg'
 import supportPicture from 'images/AboutPage/Advantages/support.svg'
+
 export const advantagesData = [
   {
     imageSrc: supportPicture,

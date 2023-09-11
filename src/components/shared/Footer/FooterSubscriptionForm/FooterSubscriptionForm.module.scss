@@ -16,7 +16,7 @@
   width: 39rem;
   padding: 1.5rem 1rem;
   color: $mainWhiteColor;
-  transition: border 0.2s ease;
+  transition: $transitionSetEase;
 
   &::placeholder {
     font-weight: $semiBoldFontWeight;
@@ -36,8 +36,15 @@
     width: 18.6rem;
     padding: 1rem 1rem;
   }
+  @include onSmallPhone() {
+    width: 14rem;
+  }
 }
 
 .buttonSubscribe {
   @extend %universalBlueButton;
+  @include onSmallPhone() {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
 }

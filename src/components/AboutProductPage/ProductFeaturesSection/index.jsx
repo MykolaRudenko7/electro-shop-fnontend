@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { featuresData } from 'data/featuresData'
+import { featuresData } from 'data/about-product/featuresData'
 import FeaturesCard from 'components/AboutProductPage/ProductFeaturesSection/FeatureCard'
 import styles from 'components/AboutProductPage/ProductFeaturesSection/ProductFeaturesSection.module.scss'
 

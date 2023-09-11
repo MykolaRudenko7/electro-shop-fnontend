@@ -25,6 +25,7 @@ export default function NavbarSearchPanel() {
 
   useEffect(() => {
     window.addEventListener('click', handleOutsideClick)
+
     return () => {
       window.removeEventListener('click', handleOutsideClick)
     }
@@ -32,18 +33,18 @@ export default function NavbarSearchPanel() {
 
   return (
     <div
-      ref={containerRef}
       className={cn(styles.search, { [styles.open]: isProductSearchInputOpen })}
+      ref={containerRef}
     >
       <div className={styles.icon} onClick={handleIconClick}>
-        <Image src={searchPicture} alt="Search icon picture" width={24} height={24} />
+        <Image alt="Search icon picture" height={24} src={searchPicture} width={24} />
       </div>
       <input
-        type="text"
         className={styles.input}
-        value={inputValue}
         onChange={handleInputChange}
         placeholder="Search here"
+        type="text"
+        value={inputValue}
       />
     </div>
   )

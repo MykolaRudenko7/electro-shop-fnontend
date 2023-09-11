@@ -18,7 +18,7 @@
   height: 20px;
   border-radius: 100%;
   background-color: $deleteButtonColor;
-  transition: all 0.2s ease-in-out;
+  transition: $transitionSetEase;
 
   &:hover,
   &:active,

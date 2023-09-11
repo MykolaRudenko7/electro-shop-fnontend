@@ -11,7 +11,7 @@
       padding-bottom: 2.3rem;
       gap: 3rem;
     }
-    @include onSmallTablet() {
+    @include onTablet() {
       flex-direction: column-reverse;
       justify-content: center;
       flex-wrap: wrap;

@@ -7,7 +7,7 @@
     padding-bottom: 1.7rem;
   }
 
-  @include onSmallTablet() {
+  @include onTablet() {
     &__container {
       padding: 3.5rem 5.5rem;
     }
@@ -59,7 +59,7 @@
     }
   }
 
-  @include onSmallTablet() {
+  @include onTablet() {
     flex-wrap: wrap;
     row-gap: 1.5rem;
     padding-bottom: 1.6rem;
@@ -79,7 +79,7 @@
   padding-bottom: 3.6rem;
   border-bottom: 0.2rem solid $sliderBtnShadowColor;
 
-  @include onSmallTablet() {
+  @include onTablet() {
     padding-bottom: 0rem;
     align-items: stretch;
     flex-direction: column;
@@ -113,7 +113,7 @@
   font-weight: $mediumFontWeight;
   line-height: 1.6rem;
 
-  @include onSmallTablet() {
+  @include onTablet() {
     order: 1;
     font-size: 1rem;
   }

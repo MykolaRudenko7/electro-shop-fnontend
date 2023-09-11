@@ -22,20 +22,20 @@ export default function ProductCounter() {
         <div className={styles.count}>{productCount}</div>
         <div className={styles.controlButtons}>
           <button
-            type="button"
             aria-label="increase product count"
             className={styles.controlButton}
             onClick={incrementProductCount}
+            type="button"
           >
-            <Image src={topPictureButton} alt="increase product count picture" />
+            <Image alt="increase product count picture" src={topPictureButton} />
           </button>
           <button
-            type="button"
             aria-label="subtract product count"
             className={styles.controlButton}
             onClick={decrementProductCount}
+            type="button"
           >
-            <Image src={bottomPictureButton} alt="subtract product count picture" />
+            <Image alt="subtract product count picture" src={bottomPictureButton} />
           </button>
         </div>
       </div>

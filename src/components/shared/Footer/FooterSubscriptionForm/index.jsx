@@ -14,17 +14,17 @@ export default function FooterSubscriptionForm() {
       <label htmlFor="email">
         <input
           className={styles.input}
+          onChange={(e) => setEmailValue(e.target.value)}
           placeholder="Your Email"
           type="email"
           value={emailValue}
-          onChange={(e) => setEmailValue(e.target.value)}
           required
         />
       </label>
       <button
+        area-label="subscribe to the newsletter button"
         className={styles.buttonSubscribe}
         type="submit"
-        area-label="subscribe to the newsletter button"
       >
         Subscribe
       </button>

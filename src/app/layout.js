@@ -1,15 +1,8 @@
-import { Poppins } from 'next/font/google'
 import Footer from 'components/shared/Footer'
 import Header from 'components/shared/Header'
 import 'styles/global.scss'
 import 'styles/null.scss'
 
-const poppins = Poppins({
-  weight: ['300', '400', '500', '600', '700'],
-  style: ['normal'],
-  subsets: ['latin'],
-  display: 'swap',
-})
 export const metadata = {
   title: 'ITECHIE',
   description: 'Tech online store',
@@ -18,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body>
         <Header />
         <main>{children}</main>
         <Footer />

@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import styles from 'components/CatalogProductsPage/FilterBlock/FilteredProductCountButton/FilteredProductCountButton.module.scss'
+import styles from '@/FilterBlock/FilteredProductCountButton/FilteredProductCountButton.module.scss'
 
 export default function FilteredProductCountButton({ title, href, count }) {
   return (
-    <Link href={href} className={styles.selectedFiltersButton}>
+    <Link className={styles.selectedFiltersButton} href={href}>
       {title}
       <span className={styles.selectedFiltersCount}>({count})</span>
       <span className={styles.selectedFiltersButtonDelete}>×</span>

@@ -1,7 +1,7 @@
 'use client'
 
 import { v4 as uuidv4 } from 'uuid'
-import { linksProductChoiceData } from 'data/productChoiceData'
+import { linksProductChoiceData } from 'data/about-product/productChoiceData'
 import NavigationLink from 'components/shared/NavigationLink'
 import PayButtons from 'components/AboutProductPage/PayPanel/PayButtons'
 import CounterPrice from 'components/AboutProductPage/PayPanel/CounterPrice'

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { v4 as uuidv4 } from 'uuid'
 import Popover from 'components/shared/Popover'
 import Navbar from 'components/shared/Header/Navbar'
-import { headerTopSocialMediaLinks } from 'data/headerData'
+import { headerTopSocialMediaLinks } from 'data/shared/headerData'
 import style from 'components/shared/Header/Header.module.scss'
 
 export default function Header() {
@@ -26,13 +26,13 @@ export default function Header() {
             <a href="(00) 1234 5678">Call Us: (00) 1234 5678</a>
             <figure className={style.socials}>
               {headerTopSocialMediaLinks.map(({ href, src, alt, width, height }) => (
-                <Link className={style.socialsLink} key={uuidv4()} href={href}>
+                <Link className={style.socialsLink} href={href} key={uuidv4()}>
                   <Image
-                    className={style.socialsLinkImage}
-                    src={src}
                     alt={alt}
-                    width={width}
+                    className={style.socialsLinkImage}
                     height={height}
+                    src={src}
+                    width={width}
                   />
                 </Link>
               ))}

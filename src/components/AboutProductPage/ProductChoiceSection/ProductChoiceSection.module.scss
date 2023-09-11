@@ -10,7 +10,7 @@
       padding-bottom: 4.6rem;
     }
   }
-  @include onSmallTablet() {
+  @include onTablet() {
     background: $mainWhiteColor;
     &__container {
       flex-direction: column-reverse;
@@ -58,7 +58,7 @@
       padding-bottom: 1.6rem;
     }
   }
-  @include onSmallTablet() {
+  @include onTablet() {
     width: 100%;
     padding: 1.3rem 0.5rem 0 0.5rem;
     &__links {

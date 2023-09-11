@@ -18,6 +18,7 @@ export default function FilterCategoryItem({
           [styles.openAccordion]: isFilterCategoryOpen,
         })}
         onClick={toggleFilterCategoryAccordionVisibility}
+        role="button"
       >
         {title}
       </h5>

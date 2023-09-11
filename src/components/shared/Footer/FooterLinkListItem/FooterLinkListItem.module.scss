@@ -5,7 +5,7 @@
   padding-bottom: 2rem;
   position: relative;
 
-  @include onSmallTablet() {
+  @include onTablet() {
     font-size: 1.1rem;
     color: $mainWhiteColor;
     padding: 1.1rem 0;
@@ -18,7 +18,7 @@
       right: 0;
       width: 1.6rem;
       height: 1.5rem;
-      transition: all 0.2s ease;
+      transition: $transitionSetEase;
     }
 
     &.openAccordion::before {
@@ -39,11 +39,11 @@
   text-align: left;
   list-style: none;
 
-  @include onSmallTablet() {
+  @include onTablet() {
     padding: 0 1.5rem;
     max-height: 0.1rem;
     overflow: hidden;
-    transition: all 0.2s ease-in;
+    transition: $transitionSetEase;
     border-bottom: 0.2rem solid $activeLinkColor;
   }
 
@@ -62,7 +62,7 @@
     color: $sliderBtnShadowColor;
   }
 
-  @include onSmallTablet() {
+  @include onTablet() {
     font-size: 1.2rem;
     color: $mainWhiteColor;
   }

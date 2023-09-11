@@ -38,7 +38,7 @@
     background-color: $mainWhiteColor;
     border-radius: 0.2rem;
     border: 0.2rem solid $sliderDotsBackgroundColor;
-    transition: all 0.3s ease-in-out;
+    transition: $transitionSetEase;
     flex: 0 0 47%;
 
     &:hover,
@@ -73,7 +73,11 @@
 .setProductsGridViewButton {
   @extend %setProductsViewButton;
   background-image: url('../../../images/CatalogPage/filter/view1.svg');
+  transition: $transitionSetEase;
 
+  &:hover {
+    transform: scale(0.9);
+  }
   &.changeView {
     background-image: url('../../../images/CatalogPage/filter/view1fill.svg');
   }
@@ -81,13 +85,17 @@
 
 .setProductsListViewButton {
   @extend %setProductsViewButton;
+  transition: $transitionSetEase;
   background-image: url('../../../images/CatalogPage/filter/view2.svg');
 
+  &:hover {
+    transform: scale(0.9);
+  }
   &.changeView {
     background-image: url('../../../images/CatalogPage/filter/view2fill.svg');
   }
 
-  @include onTablet {
+  @include onPhone {
     display: none;
   }
 }
@@ -101,7 +109,7 @@
   align-items: center;
   gap: 0.7rem;
 
-  @include onSmallTablet() {
+  @include onTablet() {
     display: none;
   }
 }
@@ -110,7 +118,7 @@
   position: relative;
 
   &:nth-child(2) {
-    @include onSmallTablet() {
+    @include onTablet() {
       display: none;
     }
   }
@@ -134,7 +142,7 @@
   background-color: $mainWhiteColor;
   border-radius: 0.2rem;
   border: 0.2rem solid $sliderDotsBackgroundColor;
-  transition: all 0.3s ease-in-out;
+  transition: $transitionSetEase;
 
   &:hover,
   &:active,
@@ -150,7 +158,7 @@
     right: 5%;
     width: 1.6rem;
     height: 1.5rem;
-    transition: all 0.5s ease;
+    transition: $transitionSetCubicBezier;
   }
 
   &.openAccordion::before {
@@ -200,7 +208,7 @@
     background-color: $sliderBackgroundColor;
   }
 
-  @include onSmallTablet() {
+  @include onTablet() {
     font-size: 1.1rem;
   }
 }

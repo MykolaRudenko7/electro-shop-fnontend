@@ -5,11 +5,11 @@ import styles from 'components/AboutProductPage/PayPanel/PayButtons/PayButtons.m
 export default function PayButtons() {
   return (
     <div className={styles.payButtons}>
-      <button className={styles.buttonAddToCart} type="button" area-label="add to cart">
+      <button area-label="add to cart" className={styles.buttonAddToCart} type="button">
         Add to Cart
       </button>
-      <button className={styles.buttonPayPal} type="button" aria-label="pay with payPal">
-        <Image src={buttonPicture} alt="payPal logo picture" width={72} height={18} />
+      <button aria-label="pay with payPal" className={styles.buttonPayPal} type="button">
+        <Image alt="payPal logo picture" height={18} src={buttonPicture} width={72} />
       </button>
     </div>
   )

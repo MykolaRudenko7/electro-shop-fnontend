@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { v4 as uuidv4 } from 'uuid'
-import { footerAllLinksBlocks, footerCardsPartnerImages } from 'data/footerData'
+import { footerAllLinksBlocks, footerCardsPartnerImages } from 'data/shared/footerData'
 import FooterLinkListItem from 'components/shared/Footer/FooterLinkListItem'
 import SubscriptionForm from 'components/shared/Footer/FooterSubscriptionForm'
 import ProdutAdvantages from 'components/shared/Footer/ProdutAdvantages'
@@ -27,22 +27,22 @@ export default function Footer() {
         </div>
         <div className={styles.footerColumnsLinks}>
           {footerAllLinksBlocks.map(({ title, links }) => (
-            <FooterLinkListItem key={uuidv4()} title={title} links={links} />
+            <FooterLinkListItem key={uuidv4()} links={links} title={title} />
           ))}
         </div>
         <div className={styles.bottom}>
           <div className={styles.bottom__imgWrapper}>
             <Link href="#">
-              <Image src={facebookPicture} alt="facebook picture and link" />
+              <Image alt="facebook picture and link" src={facebookPicture} />
             </Link>
             <Link href="#">
-              <Image src={instagramPicture} alt="instagram picture and link" />
+              <Image alt="instagram picture and link" src={instagramPicture} />
             </Link>
           </div>
           <ul className={styles.bottomCards}>
             {footerCardsPartnerImages.map(({ src, alt }) => (
-              <li key={uuidv4()} className={styles.cardWrapper}>
-                <Image className={styles.cardImage} src={src} alt={alt} />
+              <li className={styles.cardWrapper} key={uuidv4()}>
+                <Image alt={alt} className={styles.cardImage} src={src} />
               </li>
             ))}
           </ul>

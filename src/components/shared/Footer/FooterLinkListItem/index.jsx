@@ -25,7 +25,7 @@ export default function FooterLinkListItem({ title, links }) {
         })}
       >
         {links.map((link) => (
-          <li key={uuidv4()} className={styles.blockItem}>
+          <li className={styles.blockItem} key={uuidv4()}>
             <Link className={styles.blockLink} href={link.href}>
               {link.label} <span className={styles.linkMarkText}>{link.linkMarkText}</span>
             </Link>

@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import { infoSectionData } from 'data/infoSectionData'
+import { infoSectionData } from 'data/about-us/infoSectionData'
 import AbouUsInfoSection from 'components/AboutUsPage/AbouUsInfoSection'
 import Slider from 'components/shared/FeedbackSlider'
 

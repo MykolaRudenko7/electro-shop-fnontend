@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import cn from 'classnames'
-import { filterBlockData } from 'data/filterBlockData'
+import { filterBlockData } from 'data/product-catalog/filterBlockData'
 import styles from 'components/CatalogProductsPage/ProductsSortPanel/ProductsSortPanel.module.scss'
 
 export default function ProductsSortPanel({
@@ -53,22 +53,22 @@ export default function ProductsSortPanel({
     <div className={styles.sortPanel}>
       <p className={styles.sortPanelTitle}>Items 1-35 of 61</p>
       <button
-        className={styles.sortPanelFilterOnMobileButton}
-        type="button"
         aria-label="filter products"
+        className={styles.sortPanelFilterOnMobileButton}
         onClick={toggleFilterMenuVisibility}
+        type="button"
       >
         Filter
       </button>
       <div className={styles.productSortButtons}>
         <div className={styles.productSortButtonWrapper}>
           <button
-            type="button"
             className={cn(styles.selectedFiltersButton, {
               [styles.openAccordion]: isSortingByDropdownOpen,
             })}
             onClick={toggleSortingByDropdownVisible}
             ref={triggerSortingByButtonRef}
+            type="button"
           >
             Sort By: <span className={styles.selectedFiltersOption}>{currentSortingByOption}</span>
           </button>
@@ -79,8 +79,8 @@ export default function ProductsSortPanel({
           >
             {sortPanelOptions.sortBy.map((option) => (
               <li
-                key={uuidv4()}
                 className={styles.dropdownItem}
+                key={uuidv4()}
                 onClick={() => selectSortingByOption(option)}
               >
                 {option}
@@ -90,12 +90,12 @@ export default function ProductsSortPanel({
         </div>
         <div className={styles.productSortButtonWrapper}>
           <button
-            type="button"
             className={cn(styles.selectedFiltersButton, {
               [styles.openAccordion]: isProductsPerPageDropdownOpen,
             })}
             onClick={toggleProductPerPageDropdownVisibility}
             ref={triggerProductsPerPageButtonRef}
+            type="button"
           >
             Show: <span className={styles.selectedFiltersOption}>{currentProductsPerPage}</span>
           </button>
@@ -106,8 +106,8 @@ export default function ProductsSortPanel({
           >
             {sortPanelOptions.show.map((option) => (
               <li
-                key={uuidv4()}
                 className={styles.dropdownItem}
+                key={uuidv4()}
                 onClick={() => selectProductsPerPageOption(option)}
               >
                 {option}
@@ -117,20 +117,20 @@ export default function ProductsSortPanel({
         </div>
         <div className={styles.setProductsViewButtonsBlock}>
           <button
-            onClick={() => handleViewTypeChange('grid')}
-            type="button"
             aria-label="set products view style to cards"
             className={cn(styles.setProductsGridViewButton, {
               [styles.changeView]: currentViewType === 'grid',
             })}
+            onClick={() => handleViewTypeChange('grid')}
+            type="button"
           />
           <button
-            onClick={() => handleViewTypeChange('list')}
-            type="button"
             aria-label="set products view style to list"
             className={cn(styles.setProductsListViewButton, {
               [styles.changeView]: currentViewType === 'list',
             })}
+            onClick={() => handleViewTypeChange('list')}
+            type="button"
           />
         </div>
       </div>

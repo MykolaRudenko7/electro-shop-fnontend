@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { advantagesData } from 'data/advantagesData'
+import { advantagesData } from 'data/shared/advantagesData'
 import AdvantageCard from 'components/shared/Footer/ProdutAdvantages/AdvantageCard/index.'
 import styles from 'components/shared/Footer/ProdutAdvantages/ProductAdvantages.module.scss'
 

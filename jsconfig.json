@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "paths": {
-      "*": ["./src/*"]
+      "*": ["./src/*"],
+      "@/ProductChoiceSection/*": ["./src/components/AboutProductPage/ProductChoiceSection/*"],
+      "@/FilterBlock/*": ["./src/components/CatalogProductsPage/FilterBlock/*"]
     }
   }
 }

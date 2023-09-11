@@ -21,7 +21,7 @@
   padding: 1.6rem 3.9rem;
   border-radius: 5rem;
   background: #ffb800;
-  transition: all 0.2s ease-in;
+  transition: $transitionSetEase;
 
   &:hover {
     transform: translate(0.1rem, 0.1rem);

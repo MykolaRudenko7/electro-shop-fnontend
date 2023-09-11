@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { v4 as uuidv4 } from 'uuid'
 import cn from 'classnames'
-import { filterBlockData } from 'data/filterBlockData'
+import { filterBlockData } from 'data/product-catalog/filterBlockData'
 import LinksPanel from 'components/shared/NavigationLink'
 import FilterBlock from 'components/CatalogProductsPage/FilterBlock'
 import ProductsSortPanel from 'components/CatalogProductsPage/ProductsSortPanel'
@@ -30,11 +30,11 @@ export default function ProductsCatalog() {
     <div className={styles.catalog}>
       <div className={styles.catalogContainer}>
         <div className={styles.catalogBannerWrapper}>
-          <Link href="#" about="banner picture link">
+          <Link about="banner picture link" href="#">
             <Image
+              alt="banner image"
               className={styles.catalogBannerImage}
               src={bannerImage}
-              alt="banner image"
               priority
             />
           </Link>
@@ -49,22 +49,22 @@ export default function ProductsCatalog() {
         </h2>
         <section className={styles.productsWrapper}>
           <div className={cn(styles.filterPart, { [styles.openFilterMenu]: isFilterMenuOpen })}>
-            <Link href="#" className={styles.whiteBackButton} about="back button" role="button">
+            <Link about="back button" className={styles.whiteBackButton} href="#" role="button">
               ‹ Back
             </Link>
             <FilterBlock toggleFilterMenuVisibility={toggleFilterMenuVisibility} />
           </div>
           <div className={styles.productsPart}>
             <ProductsSortPanel
-              toggleFilterMenuVisibility={toggleFilterMenuVisibility}
               currentViewType={currentViewType}
               handleViewTypeChange={handleViewTypeChange}
+              toggleFilterMenuVisibility={toggleFilterMenuVisibility}
             />
             <div className={styles.selectedFiltersPanel}>
               {selectedFiltersDataButtons.map((item) => (
                 <FilterCountProductsButton key={uuidv4()} {...item} />
               ))}
-              <Link href="#" className={styles.selectedFiltersPanelClearButton}>
+              <Link className={styles.selectedFiltersPanelClearButton} href="#">
                 Clear All
               </Link>
             </div>

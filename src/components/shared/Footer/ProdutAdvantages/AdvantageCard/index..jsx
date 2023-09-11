@@ -5,7 +5,7 @@ export default function AdvantageCard({ imageSrc, title, subtitle }) {
   return (
     <li className={styles.advantageCard}>
       <div className={styles.advantageCardImageWrapper}>
-        <Image className={styles.advantageCardImage} src={imageSrc} alt={`${title} picture`} />
+        <Image alt={`${title} picture`} className={styles.advantageCardImage} src={imageSrc} />
       </div>
       <div className={styles.advantageTextBlock}>
         <p className={styles.advantageTitle}>{title}</p>

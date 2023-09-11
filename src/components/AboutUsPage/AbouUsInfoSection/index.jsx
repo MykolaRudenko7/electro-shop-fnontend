@@ -7,7 +7,7 @@ export default function AbouUsInfoSection({ imageSrc, title, badge, doubleSubtit
     <div className={styles.container}>
       <div className={styles.infoBlock}>
         <div className={styles.summary}>
-          {badge && <Image className={styles.badge} src={badge} alt="badge" />}
+          {badge && <Image alt="badge" className={styles.badge} src={badge} />}
           <h2 className={styles.header}>{title}</h2>
           {doubleSubtitle &&
             doubleSubtitle.map((subs) => (
@@ -18,7 +18,7 @@ export default function AbouUsInfoSection({ imageSrc, title, badge, doubleSubtit
           <p className={styles.paragraph}>{subtitle}</p>
         </div>
         <div className={styles.imageContainer}>
-          <Image src={imageSrc} alt="picture" className={styles.infoBlockImage} />
+          <Image alt="picture" className={styles.infoBlockImage} src={imageSrc} />
         </div>
       </div>
     </div>

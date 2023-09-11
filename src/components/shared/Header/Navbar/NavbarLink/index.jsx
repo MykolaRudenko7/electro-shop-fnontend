@@ -6,10 +6,10 @@ export default function NavbarLink({ href, isActiveLink, label }) {
   return (
     <li className={styles.navbarLinkWrapper}>
       <Link
-        href={href}
         className={cn(styles.navbarLink, {
           [styles.activeLink]: isActiveLink,
         })}
+        href={href}
       >
         {label}
       </Link>
