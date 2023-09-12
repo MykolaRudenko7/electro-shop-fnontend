@@ -1,0 +1,18 @@
+.slideContainer {
+  height: 32.8rem;
+  @include onSmallTablet {
+    height: 17.3rem;
+  }
+  @include onSmallPhone {
+    height: 8.2rem;
+  }
+}
+
+.sliderContainer {
+  @include onSmallTablet {
+    margin-top: 1.9rem;
+  }
+  @include onSmallPhone {
+    margin-top: 1.2rem;
+  }
+}

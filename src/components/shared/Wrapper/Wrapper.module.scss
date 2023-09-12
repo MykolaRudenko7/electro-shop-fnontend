@@ -1,0 +1,11 @@
+.container {
+  max-width: 142rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  @include onSmallTablet {
+    padding: 0 2rem;
+  }
+  @include onSmallPhone {
+    padding: 0 1.5rem;
+  }
+}

@@ -7,4 +7,7 @@ module.exports = {
   sassOptions: {
     additionalData: `@import "src/styles/_app.scss";`,
   },
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
 }
