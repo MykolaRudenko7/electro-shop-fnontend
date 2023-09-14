@@ -1,0 +1,253 @@
+.card {
+  overflow: hidden;
+}
+
+.cardWrapper {
+  position: relative;
+  display: flex;
+  padding: 0.9rem 3rem 3.5rem 5.3rem;
+  gap: 4.5rem;
+
+  &:hover {
+    .interactionWithProductBlock {
+      bottom: 15%;
+      right: 10%;
+
+      @include onTablet() {
+        bottom: 18%;
+        right: 5%;
+      }
+    }
+  }
+
+  @include onDesktop() {
+    gap: 2.5rem;
+    padding: 1.2rem 1.3rem 2.3rem 2.8rem;
+  }
+
+  @include onTablet() {
+    gap: 1.8rem;
+  }
+}
+
+.productImageRatingBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.productImageWrapper {
+  width: 25rem;
+  height: 25rem;
+  display: block;
+  text-align: center;
+  overflow: hidden;
+
+  @include onTablet() {
+    width: 14.5rem;
+    height: 14.5rem;
+  }
+}
+
+.productImage {
+  @extend %productImage;
+}
+
+.ratingReviews {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0;
+  white-space: nowrap;
+
+  @include onTablet() {
+    padding: 0 0;
+    gap: 0.3rem;
+  }
+}
+
+.reviews {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.descriptionBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  width: 30%;
+
+  @include onTablet() {
+    width: 40%;
+  }
+}
+
+.slug {
+  margin-bottom: 2.1rem;
+  color: $mainBlackColor;
+  font-size: 1.2rem;
+  font-weight: $lightFontWeight;
+
+  @include onPhone() {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
+.description {
+  color: $mainBlackColor;
+  font-size: 1.3rem;
+  margin-bottom: 1.6rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: $activeLinkColor;
+  }
+
+  @include onPhone() {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.prices {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 5.7rem;
+
+  @include onTablet() {
+    margin-bottom: 2rem;
+  }
+}
+
+.previousPrice {
+  color: $filterCleanButtonColor;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  text-decoration: line-through;
+
+  @include onTablet() {
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+  }
+}
+
+.price {
+  font-size: 1.8rem;
+  line-height: 1.4rem;
+  color: $mainBlackColor;
+  font-weight: $semiBoldFontWeight;
+
+  @include onTablet() {
+    font-size: 1.4rem;
+    line-height: 1.3rem;
+  }
+}
+
+.addToBasketButton {
+  @extend %addToBasketButton;
+  opacity: 1;
+  max-width: 16rem;
+  margin-bottom: 0;
+
+  @include onTablet() {
+    max-width: 13rem;
+  }
+}
+
+.inStock {
+  @extend %inStockElementProductCard;
+
+  &::before {
+    content: url('../../../../images/CatalogPage/checkAviability.svg');
+    position: absolute;
+    top: 0.8rem;
+    left: 10%;
+  }
+  @include onDesktop {
+    text-wrap: wrap;
+    line-height: 1rem;
+  }
+
+  &.inStockTrue {
+    color: $mainGreenTextColor;
+
+    &::before {
+      position: absolute;
+      left: 15%;
+      content: url('../../../../images/CatalogPage/cardsBlock/inStock.svg');
+    }
+  }
+}
+
+.interactionWithProductBlock {
+  position: absolute;
+  z-index: 3;
+  bottom: 15%;
+  right: -30%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.5s ease-in-out;
+
+  @include onTablet() {
+    bottom: 18%;
+  }
+
+  @include onPhone() {
+    flex-direction: column;
+  }
+}
+
+.addToWishlistButton {
+  background-image: url('../../../../images/CatalogPage/cardsBlock/heart.svg');
+  @extend %interactWithProductButton;
+}
+
+.addToComparisonListButton {
+  background-image: url('../../../../images/CatalogPage/cardsBlock/rating.svg');
+  @extend %interactWithProductButton;
+}
+
+.addReviewButton {
+  background-image: url('../../../../images/CatalogPage/cardsBlock/message.svg');
+  @extend %interactWithProductButton;
+}
+
+.productCharacteristics {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include onTablet() {
+    display: none;
+  }
+}
+
+.productCharacteristicsCategory {
+  display: flex;
+  padding: 0.6rem 1.5rem;
+  align-items: flex-start;
+  font-size: 1.2rem;
+
+  &:nth-child(2) {
+    background-color: $sliderBackgroundColor;
+  }
+}
+
+.productCharacteristicsCategoryName {
+  width: 12rem;
+  color: $mainBlackColor;
+}
+
+.productAvailability {
+  color: $filterCleanButtonColor;
+}
