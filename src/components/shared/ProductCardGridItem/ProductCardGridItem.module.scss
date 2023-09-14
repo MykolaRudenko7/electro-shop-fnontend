@@ -1,0 +1,176 @@
+.card {
+  padding: 0 2.5rem;
+  width: 100%;
+
+  @include onPhone() {
+    padding: 0 0.9rem;
+  }
+}
+
+.cardWrapper {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  justify-items: start;
+  align-items: stretch;
+  text-align: center;
+
+  &:hover {
+    .addToBasketButton {
+      opacity: 1;
+    }
+
+    .additionalAppearPanel {
+      right: 0%;
+    }
+  }
+}
+
+.inStock {
+  @extend %inStockElementProductCard;
+
+  &::before {
+    content: url('../../../images/CatalogPage/checkAviability.svg');
+    position: absolute;
+    top: 25%;
+    left: 8%;
+  }
+
+  &.inStockTrue {
+    color: $mainGreenTextColor;
+
+    &::before {
+      position: absolute;
+      left: 15%;
+      content: url('../../../images/CatalogPage/cardsBlock/inStock.svg');
+    }
+  }
+}
+
+.cardImageWrapper {
+  margin: 0 auto;
+  display: block;
+  width: 15rem;
+  height: 15rem;
+  text-align: center;
+  overflow: hidden;
+
+  @include onTablet() {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+.cardImage {
+  @extend %productImage;
+}
+
+.ratingReviewsBlock {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0;
+  white-space: nowrap;
+  flex-wrap: wrap;
+
+  @include onTablet() {
+    padding: 0 0;
+    gap: 0.3rem;
+  }
+}
+
+.reviews {
+  color: $activeLinkColor;
+  text-align: left;
+  font-size: 1.2rem;
+  line-height: 2.5rem;
+
+  &:hover {
+    text-decoration: underline;
+    color: $mainBlackColor;
+  }
+
+  @include onTablet() {
+    font-size: 1rem;
+  }
+}
+
+.name {
+  color: $mainBlackColor;
+  font-size: 1.3rem;
+  text-align: left;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: $activeLinkColor;
+  }
+
+  @include onTablet() {
+    font-size: 1.1rem;
+  }
+}
+
+.prices {
+  padding: 1.5rem 0;
+  text-align: left;
+  font-size: 1.4rem;
+
+  @include onTablet() {
+    padding: 1rem 0;
+    font-size: 1.2rem;
+  }
+}
+
+.previousPrice {
+  color: $filterCleanButtonColor;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  text-decoration: line-through;
+  margin-bottom: 1rem;
+
+  @include onTablet() {
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+  }
+}
+
+.price {
+  font-size: 1.8rem;
+  line-height: 1.4rem;
+  color: $mainBlackColor;
+  font-weight: $semiBoldFontWeight;
+
+  @include onTablet() {
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+  }
+}
+
+.addToBasketButton {
+  margin: 0 auto;
+  @extend %addToBasketButton;
+}
+
+.additionalAppearPanel {
+  position: absolute;
+  z-index: 3;
+  top: 10%;
+  right: -100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.additionalAppearPanelLikeButton {
+  background-image: url('../../../images/CatalogPage/cardsBlock/heart.svg');
+  @extend %interactWithProductButton;
+}
+
+.additionalAppearPanelRatingButton {
+  background-image: url('../../../images/CatalogPage/cardsBlock/rating.svg');
+  @extend %interactWithProductButton;
+}

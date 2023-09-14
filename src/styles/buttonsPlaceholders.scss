@@ -1,4 +1,5 @@
 %filtersPanelButton {
+  @extend %transparentTap;
   color: $mainBlackColor;
   font-size: 1.3rem;
   font-weight: $semiBoldFontWeight;
@@ -9,15 +10,16 @@
   padding: 0.5rem 1.7rem;
   transition: $transitionSetEase;
 
-  &:hover,
-  &:active,
-  &:focus {
-    border-color: $mainBlackColor;
+  &:hover {
     background-color: $productChoiceBlockBackgroundColor;
+  }
+  &:active {
+    border-color: $mainBlackColor;
   }
 }
 
 %setProductsViewButton {
+  @extend %transparentTap;
   @extend %flexCenter;
   width: 3.2rem;
   height: 3.2rem;
@@ -25,6 +27,7 @@
 }
 
 %clearFilterBlockButton {
+  @extend %transparentTap;
   color: $filterCleanButtonColor;
   text-align: center;
   font-size: 1.4rem;
@@ -37,16 +40,17 @@
   transition: $transitionSetEase;
   background-color: transparent;
 
-  &:hover,
-  &:active,
-  &:focus {
-    transform: translate(0.1rem, 0.1rem);
+  &:hover {
     color: $mainWhiteColor;
     background-color: $filterCleanButtonColor;
+  }
+  &:active {
+    transform: translate(0.1rem, 0.1rem);
   }
 }
 
 %universalBlueButton {
+  @extend %transparentTap;
   cursor: pointer;
   font-size: 1.4rem;
   color: $mainWhiteColor;
@@ -57,9 +61,7 @@
   border-radius: 5rem;
   transition: $transitionSetEase;
 
-  &:hover,
-  &:active,
-  &:focus {
+  &:active {
     transform: translate(0.1rem, 0.1rem);
   }
 
@@ -70,6 +72,7 @@
 }
 
 %chooseProductColorButton {
+  @extend %transparentTap;
   cursor: pointer;
   width: 3.2rem;
   height: 3.2rem;
@@ -79,9 +82,13 @@
   &:hover {
     border: 0.3rem solid $mainBlueColor;
   }
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 %interactWithProductButton {
+  @extend %transparentTap;
   width: 3rem;
   height: 3rem;
   background-color: transparent;
@@ -90,9 +97,13 @@
   &:hover {
     background-color: $filterChoiceColorProductRed;
   }
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 %addToBasketButton {
+  @extend %transparentTap;
   cursor: pointer;
   @extend %flexCenter;
   font-size: 1.4rem;
@@ -111,7 +122,9 @@
   &:hover {
     background-color: $sliderBackgroundColor;
   }
-
+  &:active {
+    transform: scale(0.9);
+  }
   @include onTablet() {
     padding: 0.5rem 1rem;
     gap: 0.7rem;

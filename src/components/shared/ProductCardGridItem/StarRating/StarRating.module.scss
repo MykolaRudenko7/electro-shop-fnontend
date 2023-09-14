@@ -1,0 +1,16 @@
+.ratingBlock {
+  display: flex;
+  align-items: center;
+
+  :global {
+    .p-rating {
+      display: flex;
+      align-items: center;
+    }
+
+    .p-rating-item {
+      width: 1.3rem;
+      height: 1.3rem;
+    }
+  }
+}

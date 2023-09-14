@@ -6,6 +6,7 @@
 }
 
 %universalLink {
+  @extend %transparentTap;
   font-size: 1.2rem;
   color: $mainBlackColor;
   text-decoration: none;
@@ -36,6 +37,7 @@
 }
 
 %underlineLinkHoverEffect {
+  @extend %transparentTap;
   position: relative;
   cursor: pointer;
   transition: $transitionSetEase;
@@ -85,6 +87,7 @@
 }
 
 %titleFilterCategory {
+  @extend %transparentTap;
   color: $mainBlackColor;
   font-size: 1.4rem;
   font-weight: $semiBoldFontWeight;
@@ -129,6 +132,7 @@
 }
 
 %inStockElementProductCard {
+  @extend %transparentTap;
   white-space: nowrap;
   padding: 0.7rem 0.5rem 0.7rem 2.7rem;
   color: $deleteButtonColor;
@@ -149,4 +153,8 @@
   height: 100%;
   aspect-ratio: 1/1;
   transition: $transitionSetEase;
+}
+
+%transparentTap {
+  -webkit-tap-highlight-color: transparent;
 }
