@@ -99,6 +99,6 @@ export const filterBlockData = {
 
   sortPanelOptions: {
     sortBy: ['Position', 'By ABC', 'Newest', 'Oldest', 'Alphabetical'],
-    show: ['35 per page', '40 per page', '45 per page'],
+    show: ['20 per page', '25 per page', '35 per page'],
   },
 }

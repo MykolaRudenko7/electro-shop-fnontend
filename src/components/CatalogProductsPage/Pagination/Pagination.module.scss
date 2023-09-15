@@ -1,0 +1,51 @@
+.paginationContainer {
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 0;
+  gap: 1.2rem;
+
+  @include onTablet() {
+    padding: 1.5rem 0;
+  }
+  @include onPhone() {
+    padding: 2rem 0;
+  }
+}
+
+.paginateElements,
+.nextButton,
+.prevButton {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50rem;
+  border: 0.3rem solid $activeLinkColor;
+  width: 3.8rem;
+  height: 3.8rem;
+
+  color: $activeLinkColor;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: $semiBoldFontWeight;
+
+  &:hover {
+    color: $mainBlackColor;
+  }
+  &:active {
+    background-color: $activeLinkColor;
+  }
+}
+
+.active {
+  color: $mainBlackColor;
+  background-color: $payCounterBackgroundColor;
+  border: none;
+  width: 4rem;
+  height: 4rem;
+}
