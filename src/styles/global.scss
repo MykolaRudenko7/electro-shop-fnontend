@@ -46,7 +46,7 @@ a {
 .alice-carousel__prev-btn,
 .alice-carousel__next-btn {
   position: absolute;
-  top: 50%;
+  top: calc(50% - 2rem);
   transform: translateY(-50%);
 }
 
@@ -84,7 +84,9 @@ a {
   border-top-right-radius: 3rem;
   border-bottom-right-radius: 3rem;
   @include onSmallTablet {
-    padding: 1.2rem 1.1rem 1.2rem 0.7rem;
+    padding: 1.2rem 1rem 1.2rem 0.9rem;
+    border-top-right-radius: 1.8rem;
+    border-bottom-right-radius: 1.8rem;
   }
 }
 
@@ -93,6 +95,8 @@ a {
   border-top-left-radius: 3rem;
   border-bottom-left-radius: 3rem;
   @include onSmallTablet {
-    padding: 1.2rem 0.7rem 1.2rem 1.1rem;
+    padding: 1.2rem 0.9rem 1.2rem 1rem;
+    border-top-left-radius: 1.8rem;
+    border-bottom-left-radius: 1.8rem;
   }
 }

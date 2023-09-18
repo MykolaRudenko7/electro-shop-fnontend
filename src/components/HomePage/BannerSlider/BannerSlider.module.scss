@@ -9,7 +9,7 @@
 }
 
 .sliderContainer {
-  @include onSmallTablet {
+  @include onTablet {
     margin-top: 1.9rem;
   }
   @include onSmallPhone {
