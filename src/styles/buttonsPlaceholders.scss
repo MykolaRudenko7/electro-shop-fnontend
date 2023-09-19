@@ -27,6 +27,7 @@
 }
 
 %clearFilterBlockButton {
+  cursor: pointer;
   @extend %transparentTap;
   color: $filterCleanButtonColor;
   text-align: center;

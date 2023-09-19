@@ -6,12 +6,14 @@ import Link from 'next/link'
 import { v4 as uuidv4 } from 'uuid'
 import cn from 'classnames'
 import { filterBlockData } from 'data/product-catalog/filterBlockData'
+import { textBlockData } from 'data/product-catalog/textBlockData'
 import data from 'data/shared/db.json'
 import LinksPanel from 'components/shared/NavigationLink'
 import Pagination from 'components/CatalogProductsPage/Pagination'
 import FilterBlock from 'components/CatalogProductsPage/FilterBlock'
 import ProductCards from 'components/CatalogProductsPage/ProductCards'
 import ProductsSortPanel from 'components/CatalogProductsPage/ProductsSortPanel'
+import TextBlockAboutCompany from 'components/CatalogProductsPage/TextBlockAboutCompany'
 import FilterCountProductsButton from 'components/CatalogProductsPage/FilterBlock/FilteredProductCountButton'
 import bannerImage from 'images/CatalogPage/banner.png'
 import styles from 'app/products-catalog/ProductsCatalog.module.scss'
@@ -25,6 +27,7 @@ export default function ProductsCatalog() {
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false)
   const [currentViewType, setCurrentViewType] = useState('grid')
   const { filtersCategoryLinks, selectedFiltersDataButtons } = filterBlockData
+  const { text } = textBlockData
   const [currentPage, setCurrentPage] = useState(0)
   const currentProductsPerPage = 20
   const offsetProducts = currentPage * currentProductsPerPage
@@ -88,6 +91,7 @@ export default function ProductsCatalog() {
               onPageChange={handlePageChange}
               pageCount={pageCount}
             />
+            <TextBlockAboutCompany text={text} />
           </div>
         </section>
       </div>
