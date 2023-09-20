@@ -3,11 +3,11 @@
   align-items: flex-start;
   flex-wrap: nowrap;
   max-width: 27rem;
-  margin-top: 3.2rem;
   color: $mainBlackColor;
   font-size: 1.2rem;
   font-weight: $lightFontWeight;
   line-height: 1.4rem;
+
   @include onTablet() {
     margin-top: 0.5rem;
   }
@@ -35,4 +35,18 @@
 .textBlockLink {
   text-decoration-line: underline;
   color: $mainBlueColor;
+}
+
+.slideImage {
+  @include onTablet() {
+    object-fit: contain;
+    height: 20rem;
+    width: auto;
+  }
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

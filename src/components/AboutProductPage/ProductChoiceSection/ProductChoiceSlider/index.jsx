@@ -1,6 +1,6 @@
 'use client'
 
-import { Pagination } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { v4 as uuidv4 } from 'uuid'
 import 'swiper/css'
@@ -12,7 +12,15 @@ import styles from '@/ProductChoiceSection/ProductChoiceSlider/ProductChoiceSlid
 export default function ProductChoiceSlider() {
   return (
     <div className={styles.wrapper}>
-      <Swiper className={styles.swiper} modules={[Pagination]} pagination={{ clickable: true }}>
+      <Swiper
+        className={styles.swiper}
+        modules={[Pagination, Autoplay]}
+        pagination={{ clickable: true }}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+      >
         {slidesProductChoice.map(({ imageSrc, text, linkText, href }) => (
           <SwiperSlide key={uuidv4()}>
             <ProductSlideItem href={href} imageSrc={imageSrc} linkText={linkText} text={text} />
