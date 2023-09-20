@@ -1,20 +1,13 @@
 .search {
   position: relative;
   display: inline-flex;
+  justify-content: flex-end;
   align-items: center;
-  cursor: pointer;
-
-  @include onTablet() {
-    width: 100%;
-    padding-right: 1.2rem;
-  }
-
-  @include onPhone() {
-    padding-right: 0rem;
-  }
+  width: 100%;
 }
 
 .icon {
+  cursor: pointer;
   @extend %flexCenter;
   transition: $transitionSetCubicBezier;
 
@@ -22,21 +15,28 @@
     width: 3.2rem;
     height: 3.2rem;
   }
-
   @include onTablet() {
+    display: none;
+  }
+  &.openSearchInput {
     display: none;
   }
 }
 
 .input {
-  border: none;
+  position: relative;
+  opacity: 0;
+  border: 0.2rem solid transparent;
   outline: none;
   border-radius: 2.5rem;
   overflow: hidden;
   width: 0;
   white-space: nowrap;
   transition: $transitionSetEase;
-  padding: 0.5rem 1rem;
+  background-color: $payCounterBackgroundColor;
+  background-image: url('../../../../../images/header/searchGray.svg');
+  background-position: 1.5rem center;
+  background-repeat: no-repeat;
 
   &::placeholder {
     font-family: $mainFontFamily;
@@ -47,18 +47,27 @@
       font-size: 1.1rem;
     }
   }
-  @include onDesktop() {
-    padding: 0;
-  }
+
   @include onTablet() {
-    width: 100%;
-    background-image: url('../../../../../images/header/searchGray.svg');
-    background-position: 1rem center;
-    background-repeat: no-repeat;
     padding: 1.2rem 1.2rem 1.2rem 3.8rem;
+    opacity: 1;
+    width: 100%;
+  }
+
+  &.openSearchInput {
+    padding: 1.5rem 3rem 1.5rem 4rem;
+    width: 100%;
+    opacity: 1;
+    border-radius: 3.1rem;
+    background-color: $payCounterBackgroundColor;
   }
 }
 
-.open .input {
-  width: 9rem;
+.searchClean {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translate(-200%, -50%);
+  cursor: pointer;
+  font-size: 1.4rem;
 }

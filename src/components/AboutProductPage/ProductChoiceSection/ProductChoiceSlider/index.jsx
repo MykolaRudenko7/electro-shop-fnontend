@@ -13,13 +13,13 @@ export default function ProductChoiceSlider() {
   return (
     <div className={styles.wrapper}>
       <Swiper
-        className={styles.swiper}
-        modules={[Pagination, Autoplay]}
-        pagination={{ clickable: true }}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
         }}
+        className={styles.swiper}
+        modules={[Pagination, Autoplay]}
+        pagination={{ clickable: true }}
       >
         {slidesProductChoice.map(({ imageSrc, text, linkText, href }) => (
           <SwiperSlide key={uuidv4()}>

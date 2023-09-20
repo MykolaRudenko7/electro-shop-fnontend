@@ -18,12 +18,12 @@ export const headerTopSocialMediaLinks = [
   },
 ]
 export const navbarLinks = [
-  { label: 'Laptops', href: '/about' },
-  { label: 'Desktop PCs', href: '#' },
-  { label: 'Networking Devices', href: '#' },
+  { label: 'Home', href: '/' },
+  { label: 'Laptops', href: '/products-catalog' },
+  { label: 'About Us', href: '/about-us' },
+  { label: 'About Product', href: '/about-product' },
   { label: 'Printers & Scanners', href: '#' },
   { label: 'PC Parts', href: '#' },
   { label: 'All Other Products', href: '#' },
   { label: 'Repairs', href: '#' },
-  { label: 'Our Deals', href: '#', isActiveLink: true },
 ]

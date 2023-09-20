@@ -12,15 +12,18 @@
     }
   }
 }
+
 .navbarLink {
   white-space: nowrap;
   color: $mainBlackColor;
   font-weight: $semiBoldFontWeight;
   transition: $transitionSetEase;
+
   &:hover {
     color: $mainBlueColor;
     transform: scale(1.03);
   }
+
   @include onTablet() {
     font-size: 2.4rem;
     font-weight: $regularFontWeight;
@@ -36,13 +39,11 @@
     font-weight: $regularFontWeight;
     position: relative;
   }
-}
-.activeLink {
-  color: $mainBlueColor;
-  padding: 0.8rem 2.6rem;
-  border-radius: 5rem;
-  border: 0.2rem solid $mainBlueColor;
-  @include onTablet() {
-    padding: 0.25rem 0.8rem;
+
+  &.activeLink {
+    color: $mainBlueColor;
+    padding: 0.8rem 2.6rem;
+    border-radius: 5rem;
+    border: 0.2rem solid $mainBlueColor;
   }
 }

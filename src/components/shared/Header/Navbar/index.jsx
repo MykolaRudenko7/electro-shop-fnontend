@@ -3,17 +3,21 @@
 import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { navbarLinks } from 'data/shared/headerData'
 import NavbarLink from 'components/shared/Header/Navbar/NavbarLink'
-import Search from 'components/shared/Header/Navbar/NavbarSearchPanel'
+import NavbarSearchPanel from 'components/shared/Header/Navbar/NavbarSearchPanel'
 import logoPicture from 'images/header/Logo.svg'
 import profilePicture from 'images/header/profile.svg'
+import basket from 'images/header/basket.svg'
 import styles from 'components/shared/Header/Navbar/Navbar.module.scss'
 
 export default function Navbar() {
+  const [isProductSearchInputOpen, setIsProductSearchInputOpen] = useState(false)
   const [isNavbarMenuOpen, setIsNavbarMenuOpen] = useState(false)
+  const pathname = usePathname()
   const navbarMenuRef = useRef(null)
 
   const handleMenuToggle = () => {
@@ -60,17 +64,23 @@ export default function Navbar() {
         <ul
           className={cn(styles.navbarMenu, {
             [styles.open]: isNavbarMenuOpen,
+            [styles.hiden]: isProductSearchInputOpen,
           })}
           ref={navbarMenuRef}
         >
           {navbarLinks.map((link) => (
-            <NavbarLink key={uuidv4()} {...link} />
+            <NavbarLink key={uuidv4()} {...link} activeLink={pathname === link.href} />
           ))}
         </ul>
       </div>
       <ul className={styles.leftComponent}>
-        <Search />
-        <Link className={styles.leftComponentLink} href="#" />
+        <NavbarSearchPanel
+          isProductSearchInputOpen={isProductSearchInputOpen}
+          setIsProductSearchInputOpen={setIsProductSearchInputOpen}
+        />
+        <Link className={styles.leftComponentLink} href="#">
+          <Image alt="basket picture" src={basket} />
+        </Link>
         <Link className={styles.leftComponentLinkProfile} href="#">
           <Image
             alt="profile picture"

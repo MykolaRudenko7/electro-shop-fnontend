@@ -89,7 +89,6 @@
   }
 
   @include onTablet() {
-    gap: 1rem;
     flex-direction: column;
     justify-content: start;
     align-items: flex-start;
@@ -113,9 +112,14 @@
   left: 0%;
 }
 
+.hiden {
+  display: none;
+}
+
 .leftComponent {
+  width: 100%;
   @extend %flexCenter;
-  gap: 2.5rem;
+  gap: 3rem;
 
   @include onDesktop() {
     gap: 1rem;
@@ -133,14 +137,12 @@
 
 .leftComponentLink {
   @extend %flexCenter;
-  background-image: url('../../../../images/header/basket.svg');
   width: 2.5rem;
   height: 2.5rem;
 
   @include onTablet() {
     width: 3.2rem;
     height: 3.2rem;
-    background-image: url('../../../../images/header/whiteBasket.svg');
   }
 }
 

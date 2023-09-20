@@ -6,24 +6,38 @@ import cn from 'classnames'
 import searchPicture from 'images/header/search.svg'
 import styles from 'components/shared/Header/Navbar/NavbarSearchPanel/NavbarSearchPanel.module.scss'
 
-export default function NavbarSearchPanel() {
-  const [isProductSearchInputOpen, setIsProductSearchInputOpen] = useState(false)
-  const [inputValue, setInputValue] = useState('')
+export default function NavbarSearchPanel({
+  isProductSearchInputOpen,
+  setIsProductSearchInputOpen,
+}) {
+  const [searchInputValue, setSearchInputValue] = useState('')
   const containerRef = useRef(null)
 
   const handleIconClick = () => {
     setIsProductSearchInputOpen(!isProductSearchInputOpen)
   }
   const handleInputChange = (event) => {
-    setInputValue(event.target.value)
+    setSearchInputValue(event.target.value)
+    localStorage.setItem('searchValue', event.target.value)
   }
   const handleOutsideClick = (event) => {
     if (containerRef.current && !containerRef.current.contains(event.target)) {
       setIsProductSearchInputOpen(false)
     }
   }
+  const onClickClearSearch = () => {
+    setSearchInputValue('')
+    localStorage.removeItem('searchTerm')
+    containerRef.current?.focus()
+  }
 
   useEffect(() => {
+    const storedSearchValue = localStorage.getItem('searchValue')
+
+    if (storedSearchValue) {
+      setSearchInputValue(storedSearchValue)
+    }
+
     window.addEventListener('click', handleOutsideClick)
 
     return () => {
@@ -32,20 +46,26 @@ export default function NavbarSearchPanel() {
   }, [])
 
   return (
-    <div
-      className={cn(styles.search, { [styles.open]: isProductSearchInputOpen })}
-      ref={containerRef}
-    >
-      <div className={styles.icon} onClick={handleIconClick}>
+    <div className={styles.search} ref={containerRef}>
+      <div
+        className={cn(styles.icon, { [styles.openSearchInput]: isProductSearchInputOpen })}
+        onClick={handleIconClick}
+      >
         <Image alt="Search icon picture" height={24} src={searchPicture} width={24} />
       </div>
       <input
-        className={styles.input}
+        className={cn(styles.input, {
+          [styles.openSearchInput]: isProductSearchInputOpen,
+        })}
         onChange={handleInputChange}
-        placeholder="Search here"
+        placeholder="Search entiere store here..."
         type="text"
-        value={inputValue}
+        value={searchInputValue}
       />
+      {searchInputValue && (
+        <span className={styles.searchClean} onClick={onClickClearSearch}>
+          ×
+        </span>)}
     </div>
   )
 }

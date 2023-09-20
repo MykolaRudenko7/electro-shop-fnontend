@@ -8,10 +8,10 @@ export const footerAllLinksBlocks = [
   {
     title: 'Information',
     links: [
-      { label: 'About Us', href: '#' },
-      { label: 'About Zip', href: '#' },
-      { label: 'Privacy Policy', href: '#' },
-      { label: 'Search', href: '#' },
+      { label: 'Home', href: '/' },
+      { label: 'Laptops', href: '/products-catalog' },
+      { label: 'About Us', href: '/about-us' },
+      { label: 'About Product', href: '/about-product' },
       { label: 'Terms', href: '#' },
       { label: 'Orders and Returns', href: '#' },
       { label: 'Contact Us', href: '#' },
