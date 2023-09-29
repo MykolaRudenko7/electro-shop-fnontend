@@ -5,16 +5,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { v4 as uuidv4 } from 'uuid'
 import cn from 'classnames'
+import { observer } from 'mobx-react-lite'
 import { filterBlockData } from 'data/product-catalog/filterBlockData'
-import { textBlockData } from 'data/product-catalog/textBlockData'
-import data from 'data/shared/db.json'
-import LinksPanel from 'components/shared/NavigationLink'
-import Pagination from 'components/CatalogProductsPage/Pagination'
+import productsStore from 'stores/productsStore'
+import NavigationLink from 'components/shared/NavigationLink'
+import ProductsPagination from 'components/CatalogProductsPage/ProductsPagination'
 import FilterBlock from 'components/CatalogProductsPage/FilterBlock'
-import ProductCards from 'components/CatalogProductsPage/ProductCards'
+import ProductsCatalog from 'components/CatalogProductsPage/ProductsCatalog'
 import ProductsSortPanel from 'components/CatalogProductsPage/ProductsSortPanel'
 import TextBlockAboutCompany from 'components/CatalogProductsPage/TextBlockAboutCompany'
-import FilterCountProductsButton from 'components/CatalogProductsPage/FilterBlock/FilteredProductCountButton'
+import FilterCountProductsButton from 'components/CatalogProductsPage/FilterBlock/FilteredResultsCountTabButton'
 import bannerImage from 'images/CatalogPage/banner.png'
 import styles from 'app/products-catalog/ProductsCatalog.module.scss'
 
@@ -23,25 +23,12 @@ export const metadata = {
   description: 'Catalog products. Tech online store',
 }
 
-export default function ProductsCatalog() {
+const ProductsCatalogPage = observer(() => {
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false)
-  const [currentViewType, setCurrentViewType] = useState('grid')
-  const { filtersCategoryLinks, selectedFiltersDataButtons } = filterBlockData
-  const { text } = textBlockData
-  const [currentPage, setCurrentPage] = useState(0)
-  const currentProductsPerPage = 20
-  const offsetProducts = currentPage * currentProductsPerPage
-  const {
-    laptops: { list },
-  } = data
-  const pageCount = Math.ceil(list.length / currentProductsPerPage)
-  const displayedProducts = list.slice(offsetProducts, offsetProducts + currentProductsPerPage)
+  const { filtersCategoryLinks } = filterBlockData
+  const { selectedSidebarFilters } = productsStore
 
   const toggleFilterMenuVisibility = () => setIsFilterMenuOpen(!isFilterMenuOpen)
-  const handleViewTypeChange = (type) => setCurrentViewType(type)
-  const handlePageChange = (selectedPage) => {
-    setCurrentPage(selectedPage.selected)
-  }
 
   return (
     <div className={styles.catalog}>
@@ -58,7 +45,7 @@ export default function ProductsCatalog() {
         </div>
         <ul className={styles.linksWrapper}>
           {filtersCategoryLinks.map((link) => (
-            <LinksPanel key={uuidv4()} {...link} />
+            <NavigationLink key={uuidv4()} {...link} />
           ))}
         </ul>
         <h2 className={styles.titleProducts}>
@@ -66,35 +53,34 @@ export default function ProductsCatalog() {
         </h2>
         <section className={styles.productsWrapper}>
           <div className={cn(styles.filterPart, { [styles.openFilterMenu]: isFilterMenuOpen })}>
-            <Link about="back button" className={styles.whiteBackButton} href="#" role="button">
+            <Link about="back button" className={styles.whiteBackButton} href="/" role="button">
               ‹ Back
             </Link>
             <FilterBlock toggleFilterMenuVisibility={toggleFilterMenuVisibility} />
           </div>
           <div className={styles.productsPart}>
-            <ProductsSortPanel
-              currentViewType={currentViewType}
-              handleViewTypeChange={handleViewTypeChange}
-              toggleFilterMenuVisibility={toggleFilterMenuVisibility}
-            />
+            <ProductsSortPanel toggleFilterMenuVisibility={toggleFilterMenuVisibility} />
             <div className={styles.selectedFiltersPanel}>
-              {selectedFiltersDataButtons.map((item) => (
-                <FilterCountProductsButton key={uuidv4()} {...item} />
-              ))}
-              <Link className={styles.selectedFiltersPanelClearButton} href="#">
+              {selectedSidebarFilters &&
+                selectedSidebarFilters.map(({ title }) => (
+                  <FilterCountProductsButton key={uuidv4()} title={title} />
+                ))}
+              <button
+                className={styles.selectedFiltersPanelClearButton}
+                onClick={() => productsStore.resetToDefaultFilters()}
+                type="button"
+              >
                 Clear All
-              </Link>
+              </button>
             </div>
-            <ProductCards currentViewType={currentViewType} products={displayedProducts} />
-            <Pagination
-              currentPage={currentPage}
-              onPageChange={handlePageChange}
-              pageCount={pageCount}
-            />
-            <TextBlockAboutCompany text={text} />
+            <ProductsCatalog />
+            <ProductsPagination />
+            <TextBlockAboutCompany />
           </div>
         </section>
       </div>
     </div>
   )
-}
+})
+
+export default ProductsCatalogPage

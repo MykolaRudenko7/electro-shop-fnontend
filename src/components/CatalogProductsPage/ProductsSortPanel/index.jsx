@@ -1,36 +1,33 @@
 import { useEffect, useRef, useState } from 'react'
+import { observer } from 'mobx-react-lite'
 import { v4 as uuidv4 } from 'uuid'
 import cn from 'classnames'
+import productsStore from 'stores/productsStore'
 import { filterBlockData } from 'data/product-catalog/filterBlockData'
 import styles from 'components/CatalogProductsPage/ProductsSortPanel/ProductsSortPanel.module.scss'
 
-export default function ProductsSortPanel({
-  toggleFilterMenuVisibility,
-  handleViewTypeChange,
-  currentViewType,
-}) {
+const ProductsSortPanel = observer(({ toggleFilterMenuVisibility }) => {
+  const { sortPanelOptions } = filterBlockData
+  const { formattedItemsRange } = productsStore
+
   const [isSortingByDropdownOpen, setIsSortingByDropdownOpen] = useState(false)
   const [isProductsPerPageDropdownOpen, setIsProductsPerPageDropdownOpen] = useState(false)
-
-  const { sortPanelOptions } = filterBlockData
-  const [currentSortingByOption, setCurrentSortingByOption] = useState(sortPanelOptions.sortBy[0])
-  const [currentProductsPerPage, setCurrentProductsPerPage] = useState(sortPanelOptions.show[0])
   const triggerSortingByButtonRef = useRef(null)
   const triggerProductsPerPageButtonRef = useRef(null)
+
+  useEffect(() => {
+    window.addEventListener('mousedown', handleDropdownOutsideClick)
+
+    return () => {
+      window.removeEventListener('mousedown', handleDropdownOutsideClick)
+    }
+  }, [])
 
   const toggleSortingByDropdownVisible = () => setIsSortingByDropdownOpen((prevState) => !prevState)
   const toggleProductPerPageDropdownVisibility = () =>
     setIsProductsPerPageDropdownOpen((prevState) => !prevState)
 
-  const selectSortingByOption = (option) => {
-    setCurrentSortingByOption(option)
-    setIsSortingByDropdownOpen(false)
-  }
-  const selectProductsPerPageOption = (option) => {
-    setCurrentProductsPerPage(option)
-    setIsProductsPerPageDropdownOpen(false)
-  }
-  const dropdownOutsideClick = (event) => {
+  const handleDropdownOutsideClick = (event) => {
     if (
       !triggerSortingByButtonRef.current?.contains(event.target) &&
       !triggerProductsPerPageButtonRef.current?.contains(event.target) &&
@@ -41,17 +38,21 @@ export default function ProductsSortPanel({
     }
   }
 
-  useEffect(() => {
-    window.addEventListener('mousedown', dropdownOutsideClick)
-
-    return () => {
-      window.removeEventListener('mousedown', dropdownOutsideClick)
-    }
-  }, [])
+  const handleSortingProductsByOption = (option) => {
+    setIsSortingByDropdownOpen(false)
+    productsStore.setSortingByOption(option)
+    productsStore.sortProductsBySelectedOption()
+    productsStore.resetCurrentPageNumber()
+  }
+  const handleProductsPerPageSelection = (option) => {
+    setIsProductsPerPageDropdownOpen(false)
+    productsStore.setProductsPerPage(option)
+    productsStore.resetCurrentPageNumber()
+  }
 
   return (
     <div className={styles.sortPanel}>
-      <p className={styles.sortPanelTitle}>Items 1-35 of 61</p>
+      <p className={styles.sortPanelTitle}>{formattedItemsRange}</p>
       <button
         aria-label="filter products"
         className={styles.sortPanelFilterOnMobileButton}
@@ -70,7 +71,8 @@ export default function ProductsSortPanel({
             ref={triggerSortingByButtonRef}
             type="button"
           >
-            Sort By: <span className={styles.selectedFiltersOption}>{currentSortingByOption}</span>
+            Sort By:{' '}
+            <span className={styles.selectedFiltersOption}>{productsStore.currentSortOption}</span>
           </button>
           <ul
             className={cn(styles.dropdownList, {
@@ -81,7 +83,7 @@ export default function ProductsSortPanel({
               <li
                 className={styles.dropdownItem}
                 key={uuidv4()}
-                onClick={() => selectSortingByOption(option)}
+                onClick={() => handleSortingProductsByOption(option)}
               >
                 {option}
               </li>
@@ -97,7 +99,10 @@ export default function ProductsSortPanel({
             ref={triggerProductsPerPageButtonRef}
             type="button"
           >
-            Show: <span className={styles.selectedFiltersOption}>{currentProductsPerPage}</span>
+            Show:
+            <span className={styles.selectedFiltersOption}>
+              {productsStore.productsPerPage} per page
+            </span>
           </button>
           <ul
             className={cn(styles.dropdownList, {
@@ -108,7 +113,7 @@ export default function ProductsSortPanel({
               <li
                 className={styles.dropdownItem}
                 key={uuidv4()}
-                onClick={() => selectProductsPerPageOption(option)}
+                onClick={() => handleProductsPerPageSelection(option)}
               >
                 {option}
               </li>
@@ -119,21 +124,23 @@ export default function ProductsSortPanel({
           <button
             aria-label="set products view style to cards"
             className={cn(styles.setProductsGridViewButton, {
-              [styles.changeView]: currentViewType === 'grid',
+              [styles.changeView]: productsStore.currentProductsViewType === 'grid',
             })}
-            onClick={() => handleViewTypeChange('grid')}
+            onClick={() => productsStore.setCurrentViewType('grid')}
             type="button"
           />
           <button
             aria-label="set products view style to list"
             className={cn(styles.setProductsListViewButton, {
-              [styles.changeView]: currentViewType === 'list',
+              [styles.changeView]: productsStore.currentProductsViewType === 'list',
             })}
-            onClick={() => handleViewTypeChange('list')}
+            onClick={() => productsStore.setCurrentViewType('list')}
             type="button"
           />
         </div>
       </div>
     </div>
   )
-}
+})
+
+export default ProductsSortPanel

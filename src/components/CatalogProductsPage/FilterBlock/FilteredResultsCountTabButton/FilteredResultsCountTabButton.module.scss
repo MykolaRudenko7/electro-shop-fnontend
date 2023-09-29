@@ -1,4 +1,5 @@
 .selectedFiltersButton {
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -19,10 +20,14 @@
   border-radius: 100%;
   background-color: $deleteButtonColor;
   transition: $transitionSetEase;
+  border: solid 0.1rem transparent;
 
-  &:hover,
-  &:active,
-  &:focus {
+  &:active {
     transform: translate(0.1rem 0.1rem);
+    border: solid 0.1rem $mainBlackColor;
   }
+}
+
+.currentFilterCategory {
+  border-bottom: none;
 }

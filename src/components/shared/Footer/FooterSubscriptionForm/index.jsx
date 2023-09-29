@@ -13,7 +13,10 @@ export default function FooterSubscriptionForm() {
     <form className={styles.form} onSubmit={handleSubmit}>
       <label htmlFor="email">
         <input
+          autoComplete="email"
           className={styles.input}
+          id="email"
+          name="email input"
           onChange={(e) => setEmailValue(e.target.value)}
           placeholder="Your Email"
           type="email"

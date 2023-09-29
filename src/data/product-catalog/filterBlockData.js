@@ -40,65 +40,70 @@ export const filterBlockData = {
   ],
 
   filtersCategoryLinks: [
-    { label: 'Home', href: '#' },
-    { label: 'Laptops', href: '#' },
+    { label: 'Home', href: '/' },
+    { label: 'Laptops', href: '/products-catalog' },
     { label: 'Everyday Use Notebooks', href: '#' },
     { label: 'MSI Prestige Series', href: '#' },
     { label: 'MSI WS Series', href: '#' },
   ],
 
-  filtersCategoryPriceBlock: [
+  filtersCategoriesBlocks: [
     {
-      title: 'Category',
-      info: [
-        { category: 'CUSTOM PCS', link: '#', amount: 15 },
-        { category: 'MSI ALL-IN-ONE', link: '#', amount: 45 },
-        { category: 'CUSTOM PCS', link: '#', amount: 1 },
+      titleSortCategory: 'Category',
+      sortCategories: [
+        { label: 'CUSTOM PCS' },
+        { label: 'MSI ALL-IN-ONE' },
+        { label: 'CUSTOM PCS' },
       ],
     },
     {
-      title: 'Price',
-      info: [
-        { category: '$0.00 - $1,000.00', link: '#', amount: 19 },
-        { category: '$1,000.00 - $2,000.00', link: '#', amount: 21 },
-        { category: '$2,000.00 - $3,000.00', link: '#', amount: 9 },
-        { category: '$3,000.00 - $4,000.00', link: '#', amount: 6 },
-        { category: '$4,000.00 - $5,000.00', link: '#', amount: 3 },
-        { category: '$5,000.00 - $6,000.00', link: '#', amount: 1 },
-        { category: '$6,000.00 - $7,000.00', link: '#', amount: 1 },
-        { category: '$7,000.00 And Above', link: '#', amount: 1 },
+      titleSortCategory: 'Price',
+      sortCategories: [
+        { label: '$0.00 - $5,000.00' },
+        { label: '$5,000.00 - $10,000.00' },
+        { label: '$10,000.00 - $15,000.00' },
+        { label: '$15,000.00 - $20,000.00' },
+        { label: '$20,000.00 - $25,000.00' },
+        { label: '$25,000.00 - $30,000.00' },
+        { label: '$30,000.00 And Above' },
+        { label: 'All' },
       ],
     },
-  ],
-
-  filtersNameBlock: [
     {
-      title: 'Filter Name',
-      info: [
-        { category: '1', link: '#', amount: 197 },
-        { category: '2', link: '#', amount: 271 },
-        { category: '3', link: '#', amount: 97 },
-        { category: '4', link: '#', amount: 76 },
-        { category: '5', link: '#', amount: 37 },
-        { category: '6', link: '#', amount: 71 },
-        { category: '7', link: '#', amount: 17 },
-        { category: '8', link: '#', amount: 71 },
+      titleSortCategory: 'Filter Name',
+      sortCategories: [
+        { category: '1' },
+        { category: '2' },
+        { category: '3' },
+        { category: '4' },
+        { category: '5' },
+        { category: '6' },
+        { category: '7' },
+        { category: '8' },
       ],
     },
-  ],
-
-  colorChoiceButtonsCatalogFilters: [
-    { productId: 'Element 1', colorStyle: 'buttonSetProductColorRed' },
-    { productId: 'Element 2', colorStyle: 'buttonSetProductColorBlack' },
-  ],
-
-  selectedFiltersDataButtons: [
-    { title: 'CUSTOM PCS', count: 24, href: '#' },
-    { title: 'HP/COMPAQ PCS', count: 24, href: '#' },
+    {
+      titleSortCategory: 'Color',
+      colorChoiceFilter: [
+        { productId: 'Element 1', colorStyle: 'buttonSetProductColorRed' },
+        { productId: 'Element 2', colorStyle: 'buttonSetProductColorBlack' },
+      ],
+    },
   ],
 
   sortPanelOptions: {
-    sortBy: ['Position', 'By ABC', 'Newest', 'Oldest', 'Alphabetical'],
-    show: ['20 per page', '25 per page', '35 per page'],
+    sortBy: ['Alphabetical', 'Rating', 'Price', 'Reviews Count'],
+    show: [20, 25, 35],
   },
 }
+
+export const priceRanges = [
+  { label: '$0.00 - $5,000.00', min: 0, max: 5000 },
+  { label: '$5,000.00 - $10,000.00', min: 5000, max: 10000 },
+  { label: '$10,000.00 - $15,000.00', min: 10000, max: 15000 },
+  { label: '$15,000.00 - $20,000.00', min: 15000, max: 20000 },
+  { label: '$20,000.00 - $25,000.00', min: 20000, max: 25000 },
+  { label: '$25,000.00 - $30,000.00', min: 25000, max: 30000 },
+  { label: '$30,000.00 And Above', min: 30000, max: Infinity },
+  { label: 'All', min: -Infinity, max: Infinity },
+]

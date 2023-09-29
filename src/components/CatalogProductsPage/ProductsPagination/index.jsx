@@ -1,17 +1,19 @@
 import React from 'react'
+import { observer } from 'mobx-react-lite'
 import ReactPaginate from 'react-paginate'
-import styles from 'components/CatalogProductsPage/Pagination/Pagination.module.scss'
+import productsStore from 'stores/productsStore'
+import styles from 'components/CatalogProductsPage/ProductsPagination/ProductsPagination.module.scss'
 
-export default function Pagination({ pageCount, onPageChange, currentPage }) {
+const ProductsPagination = observer(() => {
+  const { numberOfPaginationPages, currentPageNumber } = productsStore
+
   const scrollToTop = () => {
-    window.scroll({
-      top: 0,
-      behavior: 'smooth',
-    })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
-  const handlePageChange = (selectedPage) => {
+
+  const handlePageChange = (page) => {
     scrollToTop()
-    onPageChange(selectedPage)
+    productsStore.setCurrentPage(page.selected)
   }
 
   return (
@@ -21,17 +23,19 @@ export default function Pagination({ pageCount, onPageChange, currentPage }) {
         breakLabel={'...'}
         className={styles.paginate}
         containerClassName={styles.pagination}
-        initialPage={currentPage}
+        forcePage={currentPageNumber}
         marginPagesDisplayed={2}
         nextClassName={styles.nextButton}
         nextLabel={'>'}
         onPageChange={handlePageChange}
         pageClassName={styles.paginateElements}
-        pageCount={pageCount}
+        pageCount={numberOfPaginationPages}
         pageRangeDisplayed={2}
         previousClassName={styles.prevButton}
         previousLabel={'<'}
       />
     </div>
   )
-}
+})
+
+export default ProductsPagination

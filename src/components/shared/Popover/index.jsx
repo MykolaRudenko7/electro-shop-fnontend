@@ -17,7 +17,13 @@ export default function Popover() {
         <p className={styles.popoverTriggerText}>
           Mon-Thu: <span className={styles.popoverTriggerTextColor}> 9:00 AM - 5:30 PM</span>
         </p>
-        <Image alt="arrow picture" height={15} src={arrowPicture} width={16} />
+        <Image
+          alt="arrow picture"
+          className={styles.popoverTriggerImage}
+          height={15}
+          src={arrowPicture}
+          width={16}
+        />
       </button>
       <div className={styles.popoverContent}>
         <div className={styles.time}>

@@ -2,9 +2,19 @@
   position: relative;
   display: inline-block;
 
-  &:hover .popoverContent {
-    display: block;
+  &:hover {
+    .popoverContent {
+      display: block;
+    }
+    .popoverTriggerImage {
+      rotate: 180deg;
+      transform: translateY(10%);
+    }
   }
+}
+
+.popoverTriggerImage {
+  transition: $transitionSetEase;
 }
 
 .popoverTrigger {
@@ -25,8 +35,7 @@
   left: 0;
   width: 26.2rem;
   background-color: $mainWhiteColor;
-  border: 0.2rem solid $activeLinkColor;
-  border-radius: 0.5rem;
+  border: 0.1rem solid $activeLinkColor;
   z-index: 3;
 }
 
@@ -34,7 +43,7 @@
   display: flex;
   gap: 0.7rem;
   padding: 1.6rem 0.9rem;
-  border-bottom: 0.2rem solid $sliderDotsBackgroundColor;
+  border-bottom: 0.1rem solid $sliderDotsBackgroundColor;
 
   &__picture {
     @extend %flexCenter;
@@ -75,7 +84,7 @@
   display: flex;
   gap: 0.7rem;
   padding: 1.6rem 0.9rem;
-  border-bottom: 0.2rem solid $sliderDotsBackgroundColor;
+  border-bottom: 0.1rem solid $sliderDotsBackgroundColor;
 
   &__picture {
     @extend %flexCenter;

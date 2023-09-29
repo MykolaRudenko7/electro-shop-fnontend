@@ -33,5 +33,11 @@
   flex-direction: column;
 }
 .controlButton {
+  cursor: pointer;
   background: $payCounterBackgroundColor;
+  &:active {
+    .controlButtonIcon {
+      filter: invert(1);
+    }
+  }
 }

@@ -57,15 +57,17 @@ export default function NavbarSearchPanel({
         className={cn(styles.input, {
           [styles.openSearchInput]: isProductSearchInputOpen,
         })}
+        name="search input"
         onChange={handleInputChange}
         placeholder="Search entiere store here..."
         type="text"
         value={searchInputValue}
       />
-      {searchInputValue && (
+      {searchInputValue && isProductSearchInputOpen && (
         <span className={styles.searchClean} onClick={onClickClearSearch}>
           ×
-        </span>)}
+        </span>
+      )}
     </div>
   )
 }

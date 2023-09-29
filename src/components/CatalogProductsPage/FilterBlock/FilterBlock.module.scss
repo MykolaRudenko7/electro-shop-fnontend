@@ -58,44 +58,8 @@
   margin-top: 1.6rem;
 }
 
-.colorTitle {
-  @extend %titleFilterCategory;
-
-  &::before {
-    background-image: url('../../../images/CatalogPage/spoiller.svg');
-  }
-}
-
-.colorButtons {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.colorChoiceButton {
-  width: 2.7rem;
-  height: 2.7rem;
-  border: 0.3rem solid $sliderBackgroundColor;
-  transition: $transitionSetEase;
-
-  &:hover {
-    border-color: $activeLinkColor;
-  }
-}
-
-.buttonSetProductColorRed {
-  background-color: $filterChoiceColorProductRed;
-}
-
-.buttonSetProductColorBlack {
-  background-color: $mainBlackColor;
-}
-
-.selectedElementColor {
-  border: 0.3rem solid $mainBlueColor;
-}
-
 .applyFiltersButton {
+  margin-top: 1rem;
   @extend %universalBlueButton;
   width: 100%;
   white-space: nowrap;
@@ -130,7 +94,7 @@
   justify-items: center;
 }
 
-.compareProductsWrapper {
+.selectedList {
   @extend %wrapperFilterBlock;
 
   @include onPhone() {
@@ -138,28 +102,24 @@
   }
 }
 
-.compareProductsTitle {
+.listTitle {
   @extend %filtersTitle;
 }
 
-.compareProductsSubtitle {
+.listSubtitle {
   @extend %subtitleFilterText;
+  margin-bottom: 1rem;
+  text-align: left;
 }
 
-.wishListWrapper {
-  @extend %wrapperFilterBlock;
-
-  @include onPhone() {
-    display: none;
-  }
-}
-
-.wishListTitle {
-  @extend %filtersTitle;
-}
-
-.wishListSubtitle {
+.listNoItems {
   @extend %subtitleFilterText;
+  text-align: center;
+}
+
+.resetListButton {
+  @extend %clearFilterBlockButton;
+  padding: 0.5rem 0;
 }
 
 .advertisingImageWrapper {

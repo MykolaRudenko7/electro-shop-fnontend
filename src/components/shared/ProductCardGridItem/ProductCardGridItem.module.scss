@@ -174,3 +174,7 @@
   background-image: url('../../../images/CatalogPage/cardsBlock/rating.svg');
   @extend %interactWithProductButton;
 }
+
+.activeButton {
+  background-color: $filterChoiceColorProductRed;
+}
