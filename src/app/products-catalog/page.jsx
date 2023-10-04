@@ -38,8 +38,8 @@ const ProductsCatalogPage = observer(() => {
             <Image
               alt="banner image"
               className={styles.catalogBannerImage}
+              placeholder="blur"
               src={bannerImage}
-              priority
             />
           </Link>
         </div>

@@ -8,7 +8,7 @@ const ProductsPagination = observer(() => {
   const { numberOfPaginationPages, currentPageNumber } = productsStore
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    document.body.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const handlePageChange = (page) => {
@@ -27,12 +27,15 @@ const ProductsPagination = observer(() => {
         marginPagesDisplayed={2}
         nextClassName={styles.nextButton}
         nextLabel={'>'}
+        nextLinkClassName={styles.nextButtonLink}
         onPageChange={handlePageChange}
         pageClassName={styles.paginateElements}
         pageCount={numberOfPaginationPages}
+        pageLinkClassName={styles.paginateLink}
         pageRangeDisplayed={2}
         previousClassName={styles.prevButton}
         previousLabel={'<'}
+        previousLinkClassName={styles.prevButtonLink}
       />
     </div>
   )

@@ -19,6 +19,7 @@ class ProductsStore {
   selectedSidebarFilters = []
   productsWishList = []
   productsRatingList = []
+  productSearchQuery = ''
 
   get productsToShowOnPage() {
     const startIndex = this.currentPageNumber * this.productsPerPage
@@ -213,7 +214,7 @@ class ProductsStore {
   resetProductsInWishList() {
     this.productsWishList = []
   }
-  
+
   resetProductsRatingList() {
     this.productsRatingList = []
   }
@@ -224,6 +225,58 @@ class ProductsStore {
     this.filterProductsByPrice()
     this.sortProductsBySelectedOption()
     this.resetCurrentPageNumber()
+  }
+
+  getSearchQueryFromLocalStorage() {
+    return localStorage.getItem('productSearchQuery') || ''
+  }
+
+  setSearchQueryFromLocalStorage() {
+    const searchQueryFromLocalStorage = this.getSearchQueryFromLocalStorage()
+
+    if (searchQueryFromLocalStorage) {
+      this.productSearchQuery = searchQueryFromLocalStorage
+    }
+  }
+
+  setProductSearchQuery(searchQuery) {
+    this.productSearchQuery = searchQuery
+  }
+
+  resetProductSearchQuery() {
+    this.productSearchQuery = ''
+  }
+
+  filterProductsBySearchQuery() {
+    this.filteredLaptops = this.laptops.filter(this.isProductMatchingSearch)
+  }
+
+  isProductMatchingSearch = (product) => {
+    const { name, description } = product
+
+    const productSearchQuery = this.productSearchQuery.toLowerCase()
+    const productName = name.toLowerCase()
+    const productDescription = description.toLowerCase()
+
+    const productNameMatches = this.doesProductNameMatchSearch(productName, productSearchQuery)
+    const productDescriptionMatches = this.doesProductDescriptionMatchSearch(
+      productDescription,
+      productSearchQuery,
+    )
+
+    return productNameMatches || productDescriptionMatches
+  }
+
+  doesProductNameMatchSearch(productName, productSearchQuery) {
+    const productNameIncludesSearchQuery = productName.includes(productSearchQuery)
+
+    return productNameIncludesSearchQuery
+  }
+
+  doesProductDescriptionMatchSearch(productDescription, productSearchQuery) {
+    const productDescriptionIncludesSearchQuery = productDescription.includes(productSearchQuery)
+
+    return productDescriptionIncludesSearchQuery
   }
 }
 
