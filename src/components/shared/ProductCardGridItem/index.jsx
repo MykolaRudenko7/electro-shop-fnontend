@@ -37,7 +37,13 @@ const ProductCardGridItem = observer(
             {inStock ? 'in stock' : 'check availability'}
           </p>
           <Link className={styles.cardImageWrapper} href="#">
-            <img alt="product image" className={styles.cardImage} src={url} />
+            <Image
+              alt="product image"
+              className={styles.cardImage}
+              height={150}
+              src={url}
+              width={150}
+            />
           </Link>
           <div className={styles.ratingReviewsBlock}>
             <StarRating value={rating} />

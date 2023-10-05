@@ -1,11 +1,19 @@
 $mainFontFamily: 'Poppins';
+
 $lightFontWeight: 300;
 $regularFontWeight: 400;
 $mediumFontWeight: 500;
 $semiBoldFontWeight: 600;
 $boldFontWeight: 700;
-$mainFontSize: 10px;
+
 $minWidth: 32rem;
 $maxWidthContainer: 142rem;
+
 $transitionSetCubicBezier: all 0.5s cubic-bezier(0.25, 0.75, 0.5, 1.1);
 $transitionSetEase: all 0.35s ease;
+
+$mainFontSize: 10px;
+$largeTitleFontSize: 3.2rem;
+$regularTitleFontSize: 1.8rem;
+$shoppingCartCategoryLargeFontSize: 1.4rem;
+$shoppingCartCategoryRegularFontSize: 1.1rem;

@@ -29,21 +29,7 @@
 }
 
 .titleProducts {
-  color: $mainBlackColor;
-  text-align: left;
-  font-size: 3.2rem;
-  font-weight: $semiBoldFontWeight;
-  padding-bottom: 1.9rem;
-
-  @include onTablet() {
-    font-size: 1.8rem;
-    font-weight: $semiBoldFontWeight;
-    padding-bottom: 1.6rem;
-  }
-
-  @include onPhone() {
-    padding-bottom: 1.3rem;
-  }
+  @extend %pageTitle;
 }
 
 .productsWrapper {

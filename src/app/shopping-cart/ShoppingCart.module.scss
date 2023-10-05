@@ -1,0 +1,62 @@
+.shoppingCart {
+  @extend %mainDefaultContainerSettings;
+}
+
+.shoppingCartWrapper {
+  padding-bottom: 3rem;
+}
+
+.shoppingCartLinks {
+  padding: 2rem 0;
+  display: flex;
+  @include onTablet() {
+    flex-wrap: wrap;
+  }
+}
+
+.shoppingCartTitle {
+  @extend %pageTitle;
+  padding-bottom: 3rem;
+}
+
+.shoppingCartBlocsWrapper {
+  display: flex;
+  gap: 3.5rem;
+
+  @include onPhone() {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+}
+
+.shoppingCartItems {
+  width: 68%;
+  @include onTablet() {
+    width: 55%;
+  }
+  @include onPhone() {
+    width: 100%;
+  }
+}
+
+.shoppingCartCategories {
+  padding-bottom: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.1rem solid $activeLinkColor;
+}
+
+.shoppingCartItem {
+  @extend %shoppingCartItem;
+}
+
+.shoppingCartPayPanel {
+  width: 32%;
+  @include onTablet() {
+    width: 45%;
+  }
+  @include onPhone() {
+    width: 100%;
+  }
+}

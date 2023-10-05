@@ -158,3 +158,30 @@
 %transparentTap {
   -webkit-tap-highlight-color: transparent;
 }
+
+%pageTitle {
+  color: $mainBlackColor;
+  text-align: left;
+  font-size: $largeTitleFontSize;
+  font-weight: $semiBoldFontWeight;
+  padding-bottom: 2rem;
+
+  @include onTablet() {
+    font-size: $regularTitleFontSize;
+    font-weight: $semiBoldFontWeight;
+    padding-bottom: 1.6rem;
+  }
+
+  @include onPhone() {
+    padding-bottom: 1.3rem;
+  }
+}
+
+%shoppingCartItem {
+  font-size: $shoppingCartCategoryLargeFontSize;
+  font-style: normal;
+  font-weight: $semiBoldFontWeight;
+  @include onTablet() {
+    font-size: $shoppingCartCategoryRegularFontSize;
+  }
+}

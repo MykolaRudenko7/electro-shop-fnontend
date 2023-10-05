@@ -24,13 +24,14 @@ const ProductsCatalog = observer(() => {
         [styles.cardsBlockList]: currentProductsViewType === 'list',
       })}
     >
-      {productsToShowOnPage.map((item) =>
-        currentProductsViewType === 'grid' ? (
-          <ProductCardGridItem key={uuidv4()} {...item} />
-        ) : (
-          <ProductCardListItem key={uuidv4()} {...item} />
-        ),
-      )}
+      {(productsToShowOnPage &&
+        productsToShowOnPage.map((item) =>
+          currentProductsViewType === 'grid' ? (
+            <ProductCardGridItem key={uuidv4()} {...item} />
+          ) : (
+            <ProductCardListItem key={uuidv4()} {...item} />
+          ),
+        )) || <p>Sorry, no products available</p>}
     </div>
   )
 })

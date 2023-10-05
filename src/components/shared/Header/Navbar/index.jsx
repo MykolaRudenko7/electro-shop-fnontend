@@ -78,7 +78,7 @@ export default function Navbar() {
           isProductSearchInputOpen={isProductSearchInputOpen}
           setIsProductSearchInputOpen={setIsProductSearchInputOpen}
         />
-        <Link className={styles.leftComponentLink} href="#">
+        <Link className={styles.leftComponentLink} href="/shopping-cart">
           <Image alt="basket picture" src={basket} />
         </Link>
         <Link className={styles.leftComponentLinkProfile} href="#">

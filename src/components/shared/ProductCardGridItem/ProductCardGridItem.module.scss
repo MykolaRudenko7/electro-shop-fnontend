@@ -63,6 +63,10 @@
 
 .cardImage {
   @extend %productImage;
+  transition: $transitionSetEase;
+  &:hover {
+    scale: 1.02;
+  }
 }
 
 .ratingReviewsBlock {

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import cn from 'classnames'
 import { observer } from 'mobx-react-lite'
@@ -15,7 +16,13 @@ const ProductCardListItem = observer(
         <div className={styles.cardWrapper}>
           <div className={styles.productImageRatingBlock}>
             <Link className={styles.productImageWrapper} href="#">
-              <img alt="product image" className={styles.productImage} src={url} />
+              <Image
+                alt="product image"
+                className={styles.productImage}
+                height={150}
+                src={url}
+                width={150}
+              />
             </Link>
             <div className={styles.ratingReviews}>
               <StarRating value={rating} />
