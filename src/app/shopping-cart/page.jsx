@@ -10,7 +10,7 @@ export const metadata = {
 }
 
 export default function ShoppingCart() {
-  const { products, productsCategories } = shoppingCartData
+  const { productsInCart, productsCategories } = shoppingCartData
 
   return (
     <div className={styles.shoppingCart}>
@@ -23,7 +23,7 @@ export default function ShoppingCart() {
         <h3 className={styles.shoppingCartTitle}>Shopping Cart</h3>
         <section className={styles.shoppingCartBlocsWrapper}>
           <div className={styles.shoppingCartItems}>
-            {products ? (
+            {productsInCart ? (
               <div className={styles.shoppingCartCategories}>
                 {productsCategories.map((category) => (
                   <p className={styles.shoppingCartItem} key={uuidv4()}>
@@ -34,7 +34,7 @@ export default function ShoppingCart() {
             ) : (
               <div>Empty</div>
             )}
-            {products?.map((product) => (
+            {productsInCart?.map((product) => (
               <ShoppingCartProductItem {...product} key={uuidv4()} />
             ))}
           </div>

@@ -17,6 +17,9 @@
 .shoppingCartTitle {
   @extend %pageTitle;
   padding-bottom: 3rem;
+  @include onTablet() {
+    padding-bottom: 0;
+  }
 }
 
 .shoppingCartBlocsWrapper {
@@ -43,12 +46,25 @@
   padding-bottom: 1.3rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   border-bottom: 0.1rem solid $activeLinkColor;
+  @include onTablet() {
+    display: none;
+  }
 }
 
 .shoppingCartItem {
   @extend %shoppingCartItem;
+
+  &:first-child {
+    width: 58%;
+  }
+  &:not(:first-child) {
+    width: 15%;
+  }
+  &:nth-child(3) {
+    width: 10%;
+  }
 }
 
 .shoppingCartPayPanel {
