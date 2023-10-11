@@ -1,0 +1,23 @@
+.discountArea {
+  @extend %cardFormBlock;
+  padding-bottom: 0;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.title {
+  @extend %shoppingCartPrice;
+  line-height: 2.3rem;
+}
+
+.input {
+  @extend %cartPaymentInput;
+}
+.applyDiscountButton {
+  @extend %blueButton;
+}

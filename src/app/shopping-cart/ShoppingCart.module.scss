@@ -26,9 +26,11 @@
   display: flex;
   gap: 3.5rem;
 
-  @include onPhone() {
-    flex-direction: column-reverse;
+  @include onTablet() {
     gap: 2rem;
+  }
+  @include onPhone {
+    flex-direction: column-reverse;
   }
 }
 
@@ -54,7 +56,8 @@
 }
 
 .shoppingCartItem {
-  @extend %shoppingCartItem;
+  text-align: left;
+  @extend %shoppingCartPrice;
 
   &:first-child {
     width: 58%;

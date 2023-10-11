@@ -1,0 +1,48 @@
+.shippingArea {
+  @extend %cardFormBlock;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.radioInputTitle {
+  @extend %shoppingCartPrice;
+  line-height: 2.3rem;
+}
+
+.postalInput {
+  @extend %cartPaymentInput;
+}
+
+.blockRadioInput {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.radioInputWrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.radioInputText {
+  @extend %transparentTap;
+  cursor: pointer;
+  font-size: $shoppingCartCategoryDesktopSize;
+  line-height: 2rem;
+
+  @include onTablet() {
+    font-size: $shoppingCartCategoryTabletSize;
+  }
+}
+
+.inputRadio {
+  cursor: pointer;
+}

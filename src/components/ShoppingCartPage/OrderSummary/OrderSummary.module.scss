@@ -1,0 +1,81 @@
+.paymentForm {
+  width: 32%;
+  @include onTablet() {
+    width: 45%;
+  }
+  @include onPhone() {
+    width: 100%;
+  }
+}
+
+.paymentFormWrapper {
+  width: 100%;
+  background-color: $productChoiceBlockBackgroundColor;
+  padding: 1.7rem 3rem;
+  @include onTablet() {
+    padding: 1.7rem 1.5rem;
+  }
+}
+
+.title {
+  @extend %paymentFormTitle;
+}
+.priceList {
+  padding: 1rem 0;
+}
+.price {
+  @extend %paymentPrice;
+}
+
+.clarification {
+  color: $activeLinkColor;
+  font-size: $inStockElementProductCard;
+  line-height: 1.8rem;
+  font-weight: $regularFontWeight;
+}
+
+.payButtons {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.proceed {
+  @extend %blueButton;
+}
+
+.checkOutWithPayPal {
+  @extend %yellowButton;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.checkOutWithMultiple {
+  @extend %universalButton;
+  white-space: wrap;
+}
+
+.service {
+  padding: 1rem 0;
+  margin: 0 auto;
+  @extend %flexCenter;
+}
+
+.serviceImage {
+  border-right: 0.2rem solid $blueBorderSliderTextBlock;
+  padding-right: 0.8rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.serviceText {
+  padding-left: 0.8rem;
+
+  @extend %cartServiceText;
+}
+.serviceLink {
+  text-decoration: underline;
+}

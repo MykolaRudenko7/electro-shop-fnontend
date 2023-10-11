@@ -1,7 +1,8 @@
 import { v4 as uuidv4 } from 'uuid'
 import NavigationLink from 'components/shared/NavigationLink'
-import ShoppingCartProductItem from 'components/ShoppingCartPage/ShoppingCartProductItem'
 import { shoppingCartData } from 'data/shopping-cart'
+import ShoppingCartProductItem from 'components/ShoppingCartPage/ShoppingCartProductItem'
+import CartPaymentForm from 'components/ShoppingCartPage/CartPaymentForm'
 import styles from 'app/shopping-cart/ShoppingCart.module.scss'
 
 export const metadata = {
@@ -38,7 +39,7 @@ export default function ShoppingCart() {
               <ShoppingCartProductItem {...product} key={uuidv4()} />
             ))}
           </div>
-          <div className={styles.shoppingCartPayPanel} />
+          <CartPaymentForm />
         </section>
       </div>
     </div>

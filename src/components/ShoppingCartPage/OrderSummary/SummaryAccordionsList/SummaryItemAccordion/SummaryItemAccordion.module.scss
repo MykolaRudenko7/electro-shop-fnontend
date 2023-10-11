@@ -1,0 +1,37 @@
+.triggerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.title {
+  cursor: pointer;
+  @extend %accordionTitle;
+  @extend %transparentTap;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subtitle {
+  @extend %accordionTitle;
+  color: $activeLinkColor;
+}
+
+.content {
+  height: 0;
+  overflow: hidden;
+  transition: $transitionSetEase;
+
+  &.activeAccordion {
+    height: auto;
+  }
+}
+
+.arrowPic {
+  transition: $transitionSetEase;
+  &.rotateArrow {
+    transform: rotate(180deg);
+  }
+}

@@ -7,7 +7,7 @@
 
 %universalLink {
   @extend %transparentTap;
-  font-size: 1.2rem;
+  font-size: $accordionTitleTablet;
   color: $mainBlackColor;
   text-decoration: none;
   transition: $transitionSetEase;
@@ -69,7 +69,7 @@
 %filtersTitle {
   color: $mainBlackColor;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: $filtersTitle;
   font-weight: $boldFontWeight;
   padding: 1.4rem 0;
 }
@@ -82,14 +82,14 @@
 %subtitleFilterText {
   color: $mainBlackColor;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: $buttonTextTablet;
   line-height: 1.7rem;
 }
 
 %titleFilterCategory {
   @extend %transparentTap;
   color: $mainBlackColor;
-  font-size: 1.4rem;
+  font-size: $shoppingCartCategoryTabletSize;
   font-weight: $semiBoldFontWeight;
   text-align: left;
   position: relative;
@@ -112,9 +112,9 @@
 
 %starRatingElementProductCard {
   display: block;
+  position: relative;
   width: 1.3rem;
   height: 1.3rem;
-  position: relative;
 
   &::before {
     content: '';
@@ -124,7 +124,6 @@
     top: 0;
     left: 0;
   }
-
   @include onTablet() {
     width: 0.9rem;
     height: 0.9rem;
@@ -136,7 +135,7 @@
   white-space: nowrap;
   padding: 0.7rem 0.5rem 0.7rem 2.7rem;
   color: $deleteButtonColor;
-  font-size: 1rem;
+  font-size: $inStockElementProductCard;
   line-height: 2.1rem;
   position: relative;
 }
@@ -155,43 +154,101 @@
   transition: $transitionSetEase;
 }
 
-%transparentTap {
-  -webkit-tap-highlight-color: transparent;
-}
-
 %pageTitle {
   color: $mainBlackColor;
   text-align: left;
-  font-size: $largeTitleFontSize;
   font-weight: $semiBoldFontWeight;
   padding-bottom: 2rem;
+  font-size: $desktopTitleFontSize;
 
   @include onTablet() {
-    font-size: $regularTitleFontSize;
-    font-weight: $semiBoldFontWeight;
-    padding-bottom: 1.6rem;
-  }
-
-  @include onPhone() {
     padding-bottom: 1.3rem;
-  }
-}
-
-%shoppingCartItem {
-  font-size: $shoppingCartCategoryLargeFontSize;
-  font-style: normal;
-  font-weight: $semiBoldFontWeight;
-  @include onTablet() {
-    font-size: $shoppingCartCategoryRegularFontSize;
+    font-size: $tabletTitleFontSize;
   }
 }
 
 %shoppingCartPrice {
   white-space: nowrap;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: $shoppingCartCategoryDesktopSize;
   font-weight: $semiBoldFontWeight;
+
   @include onTablet() {
-    font-size: 1.2rem;
+    font-size: $shoppingCartCategoryTabletSize;
+  }
+}
+
+%paymentFormTitle {
+  font-size: $paymentFormTitleDesktopSize;
+  font-weight: $semiBoldFontWeight;
+
+  @include onTablet() {
+    font-size: $shoppingCartCategoryDesktopSize;
+  }
+}
+
+%paymentPrice {
+  font-size: $buttonTextTablet;
+  font-weight: $semiBoldFontWeight;
+  line-height: 2.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include onTablet() {
+    font-size: $shoppingCartCategoryTabletSize;
+  }
+}
+
+%accordionTitle {
+  text-align: left;
+  font-size: $tabletTitleFontSize;
+  @include onTablet() {
+    font-size: $accordionTitleTablet;
+  }
+}
+
+%cartServiceText {
+  color: $supportLinksColor;
+  font-size: $accordionTitleTablet;
+  font-weight: $semiBoldFontWeight;
+  line-height: 1.45rem;
+
+  @include onTablet() {
+    color: $mainBlackColor;
+    font-size: $inStockElementProductCard;
+  }
+}
+
+%cartPaymentInput {
+  font-size: $shoppingCartCategoryDesktopSize;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+  padding: 1.5rem 1.7rem;
+  border-radius: 0.4rem;
+  border: 0.1rem solid $activeLinkColor;
+  background-color: $mainWhiteColor;
+
+  @include onTablet() {
+    padding: 1.1rem 1.3rem;
+    font-size: $shoppingCartCategoryTabletSize;
+  }
+
+  &:active,
+  &:focus {
+    border: 0.1rem solid $mainBlackColor;
+  }
+}
+
+%cardFormBlock {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @include onTablet() {
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
   }
 }

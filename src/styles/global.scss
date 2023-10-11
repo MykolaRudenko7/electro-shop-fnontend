@@ -100,3 +100,11 @@ a {
     border-bottom-left-radius: 1.8rem;
   }
 }
+
+.dropdown {
+  @extend %cartPaymentInput;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+}

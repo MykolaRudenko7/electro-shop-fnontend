@@ -6,6 +6,11 @@ $mediumFontWeight: 500;
 $semiBoldFontWeight: 600;
 $boldFontWeight: 700;
 
+$onDesktopSize: 130rem;
+$onTabletSize: 102.4rem;
+$onSmallTabletSize: 76.8rem;
+$onPhoneSize: 60rem;
+
 $minWidth: 32rem;
 $maxWidthContainer: 142rem;
 
@@ -13,7 +18,13 @@ $transitionSetCubicBezier: all 0.5s cubic-bezier(0.25, 0.75, 0.5, 1.1);
 $transitionSetEase: all 0.35s ease;
 
 $mainFontSize: 10px;
-$largeTitleFontSize: 3.2rem;
-$regularTitleFontSize: 1.8rem;
-$shoppingCartCategoryLargeFontSize: 1.4rem;
-$shoppingCartCategoryRegularFontSize: 1.1rem;
+
+$inStockElementProductCard: 1rem;
+$shoppingCartCategoryTabletSize: 1.1rem;
+$accordionTitleTablet: 1.2rem;
+$buttonTextTablet: 1.3rem;
+$shoppingCartCategoryDesktopSize: 1.4rem;
+$filtersTitle: 1.6rem;
+$tabletTitleFontSize: 1.8rem;
+$paymentFormTitleDesktopSize: 2.4rem;
+$desktopTitleFontSize: 3.2rem;

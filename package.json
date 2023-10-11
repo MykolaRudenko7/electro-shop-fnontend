@@ -13,24 +13,25 @@
     "component": "generate-react component"
   },
   "dependencies": {
-    "@uidotdev/usehooks": "^2.1.0",
     "classnames": "^2.3.2",
+    "lodash": "^4.17.21",
     "mobx": "^6.10.2",
     "mobx-react-lite": "^4.0.4",
-    "next": "13.4.12",
+    "next": "^13.5.4",
     "primereact": "^9.6.2",
     "react": "18.2.0",
     "react-alice-carousel": "^2.7.1",
+    "react-country-region-selector": "^3.6.1",
     "react-dom": "18.2.0",
     "react-paginate": "^8.2.0",
     "sass": "^1.64.2",
     "swiper": "^10.1.0",
-    "uuid": "^9.0.0",
-    "uuidv4": "^6.2.13"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.15",
     "@babel/preset-react": "^7.22.15",
+    "depcheck": "^1.4.6",
     "eslint": "^8.47.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",

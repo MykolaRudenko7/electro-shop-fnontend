@@ -1,7 +1,11 @@
+%transparentTap {
+  -webkit-tap-highlight-color: transparent;
+}
+
 %filtersPanelButton {
   @extend %transparentTap;
   color: $mainBlackColor;
-  font-size: 1.3rem;
+  font-size: $buttonTextTablet;
   font-weight: $semiBoldFontWeight;
   line-height: 2.7rem;
   border-radius: 0.2rem;
@@ -26,49 +30,104 @@
   transition: $transitionSetEase;
 }
 
-%clearFilterBlockButton {
+%universalButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  white-space: nowrap;
   cursor: pointer;
   @extend %transparentTap;
-  color: $filterCleanButtonColor;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: $shoppingCartCategoryDesktopSize;
   font-weight: $semiBoldFontWeight;
   border-radius: 5rem;
   border: 0.2rem solid $filterCleanButtonColor;
-  padding: 1rem 0;
-  width: 100%;
+  padding: 1rem;
   white-space: nowrap;
   transition: $transitionSetEase;
-  background-color: transparent;
 
   &:hover {
     color: $mainWhiteColor;
     background-color: $filterCleanButtonColor;
   }
   &:active {
-    transform: translate(0.1rem, 0.1rem);
-  }
-}
-
-%universalBlueButton {
-  @extend %transparentTap;
-  cursor: pointer;
-  font-size: 1.4rem;
-  color: $mainWhiteColor;
-  text-align: center;
-  font-weight: $semiBoldFontWeight;
-  padding: 1.5rem 3.5rem;
-  background-color: $mainBlueColor;
-  border-radius: 5rem;
-  transition: $transitionSetEase;
-
-  &:active {
-    transform: translate(0.1rem, 0.1rem);
+    transform: translateY(0.1rem);
   }
 
   @include onTablet() {
-    padding: 1rem 3rem;
-    font-size: 1.3rem;
+    font-size: $buttonTextTablet;
+  }
+}
+
+%clearFilterBlockButton {
+  @extend %universalButton;
+  background-color: transparent;
+  color: $filterCleanButtonColor;
+  width: 100%;
+}
+
+%blueButton {
+  width: 100%;
+  @extend %universalButton;
+  background-color: $mainBlueColor;
+  color: $mainWhiteColor;
+  border: 0.2rem solid $mainBlueColor;
+  font-size: $shoppingCartCategoryDesktopSize;
+
+  &:hover {
+    color: $mainBlueColor;
+    background-color: $mainWhiteColor;
+    border: 0.2rem solid $mainBlueColor;
+  }
+
+  @include onTablet() {
+    font-size: $buttonTextTablet;
+  }
+}
+
+%blackButton {
+  padding: 1rem 3rem;
+  @extend %universalButton;
+  background-color: $mainBlackColor;
+  color: $mainWhiteColor;
+  border: 0.2rem solid $mainBlackColor;
+  font-size: $shoppingCartCategoryDesktopSize;
+
+  &:hover {
+    color: $mainBlackColor;
+    background-color: $mainWhiteColor;
+    border: 0.2rem solid $mainBlackColor;
+  }
+
+  &:disabled {
+    cursor: default;
+    color: $mainBlackColor;
+    background-color: $mainWhiteColor;
+    border: 0.2rem solid $mainBlackColor;
+  }
+
+  @include onTablet() {
+    font-size: $buttonTextTablet;
+    width: 100%;
+  }
+}
+
+%yellowButton {
+  @extend %universalButton;
+  background-color: $payPallButtonBackground;
+  color: $supportLinksColor;
+  border: 0.2rem solid $payPallButtonBackground;
+  font-size: $shoppingCartCategoryDesktopSize;
+
+  &:hover {
+    color: $supportLinksColor;
+    background-color: $payPallButtonBackground;
+    border: 0.2rem solid $mainBlackColor;
+  }
+
+  @include onTablet() {
+    font-size: $buttonTextTablet;
   }
 }
 
@@ -111,23 +170,24 @@
   font-weight: $boldFontWeight;
   opacity: 0;
   white-space: nowrap;
-  padding: 0.8rem 2rem;
   background-color: $mainWhiteColor;
   color: $mainBlueColor;
   gap: 1rem;
+  padding: 0rem 1rem;
   border: 0.2rem solid $mainBlueColor;
   border-radius: 5rem;
-  margin-bottom: 1.7rem;
   transition: $transitionSetEase;
+  height: 3.5rem;
 
   &:hover {
     background-color: $sliderBackgroundColor;
   }
   &:active {
-    transform: scale(0.9);
+    transform: scale(0.99);
   }
   @include onTablet() {
-    padding: 0.5rem 1rem;
+    height: 3rem;
+    opacity: 1;
     gap: 0.7rem;
     margin-bottom: 1rem;
     font-size: 1.1rem;

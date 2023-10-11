@@ -18,11 +18,6 @@ import FilterCountProductsButton from 'components/CatalogProductsPage/FilterBloc
 import bannerImage from 'images/CatalogPage/banner.png'
 import styles from 'app/products-catalog/ProductsCatalog.module.scss'
 
-export const metadata = {
-  title: 'Catalog page',
-  description: 'Catalog products. Tech online store',
-}
-
 const ProductsCatalogPage = observer(() => {
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false)
   const { filtersCategoryLinks } = filterBlockData
