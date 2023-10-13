@@ -11,23 +11,35 @@
 }
 
 .buttonAddToCart {
-  @extend %universalBlueButton;
+  font-size: $buttonTextTablet;
+  padding: 1.4rem 3.9rem;
+  @extend %blueButton;
+  @include onTablet() {
+    padding: 0.8rem 3.1rem;
+  }
+  @include onPhone() {
+    padding: 0.8rem 1.8rem;
+  }
 }
 
 .buttonPayPal {
+  @extend %transparentTap;
   cursor: pointer;
   display: flex;
   align-items: center;
   padding: 1.6rem 3.9rem;
   border-radius: 5rem;
-  background: #ffb800;
+  background: $payPallButtonBackground;
   transition: $transitionSetEase;
 
-  &:hover {
-    transform: translate(0.1rem, 0.1rem);
+  &:active {
+    transform: translateY(0.1rem);
   }
 
   @include onTablet() {
     padding: 1.1rem 3.1rem;
+  }
+  @include onPhone() {
+    padding: 1.1rem 1.8rem;
   }
 }

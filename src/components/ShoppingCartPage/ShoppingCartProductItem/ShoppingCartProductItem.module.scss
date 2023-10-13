@@ -12,14 +12,13 @@
   gap: 2rem;
   @include onTablet() {
     flex-direction: column;
-    gap: 0.5rem;
   }
 }
 
 .description {
   display: flex;
   gap: 3rem;
-  align-items: start;
+  align-items: flex-start;
   justify-content: flex-start;
   width: 62%;
   @include onTablet() {
@@ -65,7 +64,7 @@
 .amount {
   width: 48%;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 2rem;
   @include onTablet() {
@@ -75,16 +74,18 @@
 
 .price {
   @extend %shoppingCartPrice;
+  width: 10rem;
 }
 
 .subtotalPrice {
   @extend %shoppingCartPrice;
+  width: 10rem;
 }
 
 .editingButtons {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   gap: 0.6rem;
 }

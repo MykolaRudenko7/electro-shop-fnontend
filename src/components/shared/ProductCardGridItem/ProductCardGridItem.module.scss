@@ -1,19 +1,23 @@
 .card {
   padding: 0 2.5rem;
-  width: 100%;
 
+  @include onTablet() {
+    padding: 0 1.25rem;
+  }
   @include onPhone() {
     padding: 0 0.9rem;
   }
 }
 
 .cardWrapper {
+  height: 100%;
   position: relative;
   overflow: hidden;
   display: grid;
   justify-items: start;
   align-items: stretch;
   text-align: center;
+  align-content: space-between;
 
   &:hover {
     .addToBasketButton {
@@ -158,6 +162,9 @@
   @extend %addToBasketButton;
 }
 
+.countOfProduct {
+  @extend %countOfProduct;
+}
 .additionalAppearPanel {
   position: absolute;
   z-index: 3;

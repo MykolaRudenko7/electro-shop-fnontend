@@ -3,8 +3,7 @@
   align-items: center;
   justify-content: space-between;
   @extend %mainDefaultContainerSettings;
-  padding-top: 1.3rem;
-  padding-bottom: 1.3rem;
+  padding: 1.3rem 0;
   gap: 1.2rem;
 
   &__wrapper {
@@ -26,13 +25,15 @@
   }
 
   @include onTablet() {
+    padding: 1.3rem 2.6rem;
     background-color: $mainBlueColor;
     justify-content: flex-start;
-    gap: 5.3rem;
+    gap: 2.6rem;
   }
 
   @include onPhone() {
-    gap: 1.1rem;
+    gap: 1rem;
+    padding: 1.2rem;
   }
 }
 
@@ -50,6 +51,7 @@
 
 .burger {
   display: none;
+  cursor: pointer;
 
   &__line {
     width: 2.6rem;
@@ -61,7 +63,6 @@
   }
 
   @include onTablet() {
-    padding-left: 2.6rem;
     width: 2.6rem;
     position: relative;
     z-index: 2;
@@ -70,7 +71,6 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 0.5rem;
-    cursor: pointer;
   }
 
   @include onPhone() {
@@ -131,18 +131,43 @@
   }
 
   @include onPhone() {
-    gap: 0.9rem;
+    gap: 1rem;
   }
 }
 
 .leftComponentLink {
   @extend %flexCenter;
+  position: relative;
   width: 2.5rem;
   height: 2.5rem;
+  background: no-repeat url('../../../../images/header/basket.svg');
+  background-position: center center;
 
   @include onTablet() {
+    background: no-repeat url('../../../../images/header/whiteBasket.svg');
+    background-position: center center;
     width: 3.2rem;
     height: 3.2rem;
+  }
+}
+
+.countProductsInCart {
+  @extend %flexCenter;
+  position: absolute;
+  right: -0.5rem;
+  top: -0.5rem;
+  font-family: $mainFontFamily;
+  font-size: $inStockElementProductCard;
+  font-weight: $boldFontWeight;
+  color: $mainWhiteColor;
+  background-color: $mainBlueColor;
+  border-radius: 50%;
+  width: 1.7rem;
+  height: 1.7rem;
+
+  @include onTablet() {
+    background-color: $mainWhiteColor;
+    color: $mainBlueColor;
   }
 }
 

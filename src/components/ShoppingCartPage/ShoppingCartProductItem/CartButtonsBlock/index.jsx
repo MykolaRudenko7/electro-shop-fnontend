@@ -12,7 +12,7 @@ const CartButtonsBlock = observer(() => {
         <Link
           aria-label="continue shopping"
           className={styles.continueButton}
-          href="/"
+          href="/products-catalog"
           role="button"
           type="button"
         >

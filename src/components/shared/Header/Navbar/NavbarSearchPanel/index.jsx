@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import { debounce } from 'lodash'
 import cn from 'classnames'
 import { observer } from 'mobx-react-lite'
 import productsStore from 'stores/productsStore'
@@ -24,16 +25,21 @@ const NavbarSearchPanel = observer(({ isProductSearchInputOpen, setIsProductSear
   const updateLocalStorage = (keySearchQuery, searchQuery) => {
     localStorage.setItem(keySearchQuery, searchQuery)
   }
+  const filterProductsBySearchQueryDebounce = debounce((searchQuery) => {
+    productsStore.filterProductsBySearchQuery()
+  }, 1000)
   const handleInputChange = (event) => {
     updateLocalStorage('productSearchQuery', event.target.value)
     productsStore.setProductSearchQuery(event.target.value)
-    productsStore.filterProductsBySearchQuery()
+    filterProductsBySearchQueryDebounce(event.target.value)
+    setIsProductSearchInputOpen(true)
   }
   const handleClearSearchButtonClick = () => {
     updateLocalStorage('productSearchQuery', '')
     productsStore.resetProductSearchQuery()
     containerRef.current?.focus()
     productsStore.filterProductsBySearchQuery()
+    setIsProductSearchInputOpen(false)
   }
 
   useEffect(() => {
@@ -63,7 +69,7 @@ const NavbarSearchPanel = observer(({ isProductSearchInputOpen, setIsProductSear
         type="text"
         value={productSearchQuery}
       />
-      {productSearchQuery && (
+      {productSearchQuery && isProductSearchInputOpen && (
         <span className={styles.searchClean} onClick={handleClearSearchButtonClick}>
           ×
         </span>

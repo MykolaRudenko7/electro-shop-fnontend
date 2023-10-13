@@ -259,3 +259,7 @@
 .activeButton {
   background-color: $filterChoiceColorProductRed;
 }
+
+.countOfProduct {
+  @extend %countOfProduct;
+}

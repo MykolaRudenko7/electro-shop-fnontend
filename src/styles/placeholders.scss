@@ -88,8 +88,8 @@
 
 %titleFilterCategory {
   @extend %transparentTap;
+  font-size: $shoppingCartCategoryDesktopSize;
   color: $mainBlackColor;
-  font-size: $shoppingCartCategoryTabletSize;
   font-weight: $semiBoldFontWeight;
   text-align: left;
   position: relative;
@@ -195,7 +195,7 @@
   align-items: center;
   justify-content: space-between;
   @include onTablet() {
-    font-size: $shoppingCartCategoryTabletSize;
+    font-size: $accordionTitleTablet;
   }
 }
 
@@ -250,5 +250,19 @@
   @include onTablet() {
     padding-top: 1.3rem;
     padding-bottom: 1.3rem;
+  }
+}
+
+%countOfProduct {
+  @extend %flexCenter;
+  color: $mainWhiteColor;
+  background-color: $mainBlueColor;
+  border-radius: 50%;
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: $shoppingCartCategoryDesktopSize;
+
+  @include onTablet() {
+    font-size: $shoppingCartCategoryTabletSize;
   }
 }

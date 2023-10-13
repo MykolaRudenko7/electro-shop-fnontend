@@ -1,7 +1,6 @@
 'use client'
 
-import { useState } from 'react'
-import Link from 'next/link'
+import { useRef, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import cn from 'classnames'
 import { observer } from 'mobx-react-lite'
@@ -11,6 +10,7 @@ import styles from 'components/CatalogProductsPage/FilterBlock/FilterCategoryIte
 const FilterCategoryItem = observer(({ titleSortCategory, sortCategories, colorChoiceFilter }) => {
   const [selectedProductColor, setSelectedProductColor] = useState(null)
   const [isFilterCategoryOpen, setIsFilterCategoryOpen] = useState(true)
+  const filterCategoriesRef = useRef(null)
 
   const handleColorElementSelection = (productId) => setSelectedProductColor(productId)
   const toggleFilterCategoryAccordionVisibility = () =>
@@ -41,6 +41,12 @@ const FilterCategoryItem = observer(({ titleSortCategory, sortCategories, colorC
         className={cn(styles.categoryItems, {
           [styles.openAccordion]: isFilterCategoryOpen,
         })}
+        ref={filterCategoriesRef}
+        style={
+          isFilterCategoryOpen
+            ? { height: filterCategoriesRef?.current?.scrollHeight }
+            : { height: '0px' }
+        }
       >
         {sortCategories?.map(({ label }) => (
           <li
@@ -54,7 +60,7 @@ const FilterCategoryItem = observer(({ titleSortCategory, sortCategories, colorC
             </span>
           </li>
         ))}
-        {colorChoiceFilter && isFilterCategoryOpen && (
+        {colorChoiceFilter && (
           <div className={styles.chooseProductColorButtonsWrapper}>
             {colorChoiceFilter.map(({ productId, colorStyle }) => (
               <button

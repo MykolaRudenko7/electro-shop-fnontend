@@ -24,6 +24,7 @@
 }
 
 .input {
+  font-size: $shoppingCartCategoryTabletSize;
   position: relative;
   opacity: 0;
   border: 0.2rem solid transparent;
@@ -38,21 +39,23 @@
   background-position: 1.5rem center;
   background-repeat: no-repeat;
 
-  &::placeholder {
-    font-family: $mainFontFamily;
-    color: $sliderDotsBackgroundColor;
-    font-size: 1.4rem;
-
-    @include onTablet() {
-      font-size: 1.1rem;
-    }
-  }
-
   @include onTablet() {
-    padding: 1.2rem 1.2rem 1.2rem 3.8rem;
+    font-size: $shoppingCartCategoryTabletSize;
+    height: 4.5rem;
+    padding: 0rem 1.2rem 0rem 3.8rem;
     opacity: 1;
     width: 100%;
     background-color: $mainWhiteColor;
+  }
+
+  &::placeholder {
+    font-family: $mainFontFamily;
+    color: $sliderDotsBackgroundColor;
+    font-size: $shoppingCartCategoryDesktopSize;
+
+    @include onTablet() {
+      font-size: $shoppingCartCategoryTabletSize;
+    }
   }
 
   &.openSearchInput {
@@ -65,10 +68,14 @@
 }
 
 .searchClean {
+  cursor: pointer;
   position: absolute;
   top: 50%;
   right: 0%;
   transform: translate(-200%, -50%);
-  cursor: pointer;
-  font-size: 1.4rem;
+  font-size: $desktopTitleFontSize;
+
+  @include onTablet() {
+    font-size: $tabletTitleFontSize;
+  }
 }

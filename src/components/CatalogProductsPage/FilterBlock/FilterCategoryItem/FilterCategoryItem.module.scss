@@ -7,17 +7,15 @@
 }
 
 .categoryItems {
+  font-weight: $regularFontWeight;
   list-style: none;
-  color: $mainBlackColor;
-  font-size: 1.3rem;
   line-height: 2.7rem;
   overflow: hidden;
   height: 0;
-  transition: $transitionSetCubicBezier;
-}
-
-.openAccordion {
-  height: auto;
+  transition: $transitionSetEase;
+  &.openAccordion {
+    height: auto;
+  }
 }
 
 .categoryItemLink {
@@ -25,10 +23,13 @@
   align-items: center;
   justify-content: space-between;
   background-color: none;
-  colo &:hover,
+  font-size: $buttonTextTablet;
+  &:hover,
   &:focus,
   &:active {
     color: $activeLinkColor;
+  }
+  @include onTablet() {
   }
 }
 

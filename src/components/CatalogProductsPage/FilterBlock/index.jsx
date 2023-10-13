@@ -42,7 +42,7 @@ const FilterBlock = observer(({ toggleFilterMenuVisibility }) => {
             <FilterCategoryItem {...item} key={uuidv4()} />
           ))}
           <button aria-label="apply filters" className={styles.applyFiltersButton} type="button">
-            Apply Filters <span className={styles.filtersApplyButtonCount}>(2)</span>
+            Apply Filters
           </button>
         </div>
       </div>

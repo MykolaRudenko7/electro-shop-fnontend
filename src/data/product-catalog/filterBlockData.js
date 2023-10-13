@@ -71,16 +71,7 @@ export const filterBlockData = {
     },
     {
       titleSortCategory: 'Filter Name',
-      sortCategories: [
-        { category: '1' },
-        { category: '2' },
-        { category: '3' },
-        { category: '4' },
-        { category: '5' },
-        { category: '6' },
-        { category: '7' },
-        { category: '8' },
-      ],
+      sortCategories: [{ label: 'Some' }, { label: 'Any' }],
     },
     {
       titleSortCategory: 'Color',
