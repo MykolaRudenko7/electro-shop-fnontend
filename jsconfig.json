@@ -4,7 +4,7 @@
       "*": ["./src/*"],
       "@/ProductChoiceSection/*": ["./src/components/AboutProductPage/ProductChoiceSection/*"],
       "@/FilterBlock/*": ["./src/components/CatalogProductsPage/FilterBlock/*"],
-      "@/CartPaymentForm/*": ["./src/components/ShoppingCartPage/CartPaymentForm/*"]
+      "@/OrderSummary/*": ["./src/components/ShoppingCartPage/OrderSummary/*"]
     }
   }
 }

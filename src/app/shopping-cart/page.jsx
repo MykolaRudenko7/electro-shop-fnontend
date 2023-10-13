@@ -1,17 +1,18 @@
+'use client'
+
 import { v4 as uuidv4 } from 'uuid'
-import NavigationLink from 'components/shared/NavigationLink'
+import { observer } from 'mobx-react-lite'
+import productsStore from 'stores/productsStore'
 import { shoppingCartData } from 'data/shopping-cart'
+import NavigationLink from 'components/shared/NavigationLink'
+import OrderSummary from 'components/ShoppingCartPage/OrderSummary'
 import ShoppingCartProductItem from 'components/ShoppingCartPage/ShoppingCartProductItem'
-import CartPaymentForm from 'components/ShoppingCartPage/CartPaymentForm'
+import CartButtonsBlock from 'components/ShoppingCartPage/ShoppingCartProductItem/CartButtonsBlock'
 import styles from 'app/shopping-cart/ShoppingCart.module.scss'
 
-export const metadata = {
-  title: 'Shopping Cart',
-  description: 'Shopping Cart. Tech online store',
-}
-
-export default function ShoppingCart() {
-  const { productsInCart, productsCategories } = shoppingCartData
+const ShoppingCart = observer(() => {
+  const { productsInCart } = productsStore
+  const areProductsInCart = productsStore.productsInCart.length > 0
 
   return (
     <div className={styles.shoppingCart}>
@@ -24,24 +25,27 @@ export default function ShoppingCart() {
         <h3 className={styles.shoppingCartTitle}>Shopping Cart</h3>
         <section className={styles.shoppingCartBlocsWrapper}>
           <div className={styles.shoppingCartItems}>
-            {productsInCart ? (
+            {areProductsInCart ? (
               <div className={styles.shoppingCartCategories}>
-                {productsCategories.map((category) => (
+                {shoppingCartData.productsCategories.map((category) => (
                   <p className={styles.shoppingCartItem} key={uuidv4()}>
                     {category}
                   </p>
                 ))}
               </div>
             ) : (
-              <div>Empty</div>
+              <p className={styles.emptyCartMessage}>Cart Is Empty 😐</p>
             )}
-            {productsInCart?.map((product) => (
+            {productsInCart.map((product) => (
               <ShoppingCartProductItem {...product} key={uuidv4()} />
             ))}
+            <CartButtonsBlock />
           </div>
-          <CartPaymentForm />
+          <OrderSummary />
         </section>
       </div>
     </div>
   )
-}
+})
+
+export default ShoppingCart

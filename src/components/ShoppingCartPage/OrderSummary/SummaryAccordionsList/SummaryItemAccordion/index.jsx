@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import { useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import cn from 'classnames'
 import arrowUp from 'images/ShoppingCart/arrow.svg'
 import styles from '@/OrderSummary/SummaryAccordionsList/SummaryItemAccordion/SummaryItemAccordion.module.scss'
 
-export default function SummaryItemAccordion({ title, subtitle, content }) {
+function SummaryItemAccordion({ title, subtitle, content }) {
   const [activeAccordion, setActiveAccordion] = useState(null)
   const contentAccordionRef = useRef(null)
 
@@ -44,3 +44,5 @@ export default function SummaryItemAccordion({ title, subtitle, content }) {
     </li>
   )
 }
+
+export default React.memo(SummaryItemAccordion)

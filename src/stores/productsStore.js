@@ -3,7 +3,6 @@ import data from 'data/shared/db.json'
 import { priceRanges } from 'data/product-catalog/filterBlockData'
 
 class ProductsStore {
-  productsQuantity = 0
   currentPageNumber = 0
 
   currentSortOption = 'Alphabetical'
@@ -20,6 +19,10 @@ class ProductsStore {
   productsWishList = []
   productsRatingList = []
   productSearchQuery = ''
+
+  productsInCart = []
+  productsQuantities = {}
+  productsSums = {}
 
   get productsToShowOnPage() {
     const startIndex = this.currentPageNumber * this.productsPerPage
@@ -50,6 +53,14 @@ class ProductsStore {
     return `Items ${this.startPaginationNumberPage}-${this.endPaginationNumberPage} of ${this.filteredLaptops.length}`
   }
 
+  get totalCartSum() {
+    return Object.values(this.productsSums).reduce((total, price) => total + price, 0)
+  }
+
+  get totalQuantityOfAddedProducts() {
+    return Object.keys(this.productsQuantities).length
+  }
+
   constructor() {
     makeAutoObservable(this)
   }
@@ -59,16 +70,6 @@ class ProductsStore {
       laptops: { list },
     } = data
     this.laptops = list
-  }
-
-  increaseProductQuantity() {
-    this.productsQuantity += 1
-  }
-
-  subtractProductQuantity() {
-    if (this.productsQuantity > 0) {
-      this.productsQuantity -= 1
-    }
   }
 
   resetCurrentPageNumber() {
@@ -99,6 +100,28 @@ class ProductsStore {
     this.currentPageNumber = page
   }
 
+  sortProductsBySelectedOption() {
+    const copyLaptops = [...this.filteredLaptops]
+
+    switch (this.currentSortOption) {
+      case 'Alphabetical':
+        this.filteredLaptops = this.sortProductsByAlphabetical(copyLaptops)
+        break
+      case 'Rating':
+        this.filteredLaptops = this.sortProductsByRating(copyLaptops)
+        break
+      case 'Price':
+        this.filteredLaptops = this.sortProductsByPrice(copyLaptops)
+        break
+      case 'Reviews productQuantity':
+        this.filteredLaptops = this.sortProductsByReviewsCount(copyLaptops)
+        break
+      default:
+        this.filteredLaptops = this.sortProductsByAlphabetical(copyLaptops)
+        break
+    }
+  }
+
   sortProductsByAlphabetical(products) {
     return products.sort((a, b) => a.name.localeCompare(b.name))
   }
@@ -115,37 +138,8 @@ class ProductsStore {
     return products.sort((a, b) => b.reviewsCount - a.reviewsCount)
   }
 
-  sortProductsBySelectedOption() {
-    const copyLaptops = [...this.filteredLaptops]
-
-    switch (this.currentSortOption) {
-      case 'Alphabetical':
-        this.filteredLaptops = this.sortProductsByAlphabetical(copyLaptops)
-        break
-      case 'Rating':
-        this.filteredLaptops = this.sortProductsByRating(copyLaptops)
-        break
-      case 'Price':
-        this.filteredLaptops = this.sortProductsByPrice(copyLaptops)
-        break
-      case 'Reviews Count':
-        this.filteredLaptops = this.sortProductsByReviewsCount(copyLaptops)
-        break
-      default:
-        this.filteredLaptops = this.sortProductsByAlphabetical(copyLaptops)
-        break
-    }
-  }
-
   setFilterPriceRange(option) {
     this.selectedFilterPriceRange = option
-  }
-
-  isPriceRangeValid() {
-    const currentPriceRange =
-      priceRanges.find((range) => range.label === this.selectedFilterPriceRange) || priceRanges[0]
-
-    return currentPriceRange
   }
 
   filterProductsByPrice() {
@@ -159,7 +153,16 @@ class ProductsStore {
     this.filteredLaptops = filteredLaptops
   }
 
+  isPriceRangeValid() {
+    const currentPriceRange =
+      priceRanges.find((range) => range.label === this.selectedFilterPriceRange) || priceRanges[0]
+
+    return currentPriceRange
+  }
+
   setNumbersOfProductsInPriceCategories() {
+    this.numbersOfProductsInPriceCategories = {}
+
     this.laptops.forEach((laptop) => {
       const priceCategory = priceRanges.find(
         (range) => laptop.price >= range.min && laptop.price < range.max,
@@ -171,10 +174,6 @@ class ProductsStore {
     this.numbersOfProductsInPriceCategories.All = this.laptops.length
   }
 
-  isSidebarFilterAlreadySelected(category) {
-    return this.selectedSidebarFilters.some((item) => item.title === category)
-  }
-
   addCurrentFilterToSidebarPanel(category) {
     const doesCategoryExist = this.isSidebarFilterAlreadySelected(category)
 
@@ -184,12 +183,20 @@ class ProductsStore {
     }
   }
 
+  isSidebarFilterAlreadySelected(category) {
+    return this.selectedSidebarFilters.some((item) => item.title === category)
+  }
+
   removeSidebarFilterByTitle(title) {
     this.selectedSidebarFilters = this.selectedSidebarFilters.filter((item) => item.title !== title)
   }
 
-  isProductAlreadyInList(name, list) {
-    return list.indexOf(name) !== -1
+  toggleProductInWishList(name) {
+    this.toggleProductInList(name, this.productsWishList)
+  }
+
+  toggleProductInRatingList(name) {
+    this.toggleProductInList(name, this.productsRatingList)
   }
 
   toggleProductInList(name, list) {
@@ -203,12 +210,8 @@ class ProductsStore {
     }
   }
 
-  toggleProductInWishList(name) {
-    this.toggleProductInList(name, this.productsWishList)
-  }
-
-  toggleProductInRatingList(name) {
-    this.toggleProductInList(name, this.productsRatingList)
+  isProductAlreadyInList(name, list) {
+    return list.indexOf(name) !== -1
   }
 
   resetProductsInWishList() {
@@ -227,16 +230,16 @@ class ProductsStore {
     this.resetCurrentPageNumber()
   }
 
-  getSearchQueryFromLocalStorage() {
-    return localStorage.getItem('productSearchQuery') || ''
-  }
-
   setSearchQueryFromLocalStorage() {
     const searchQueryFromLocalStorage = this.getSearchQueryFromLocalStorage()
 
     if (searchQueryFromLocalStorage) {
       this.productSearchQuery = searchQueryFromLocalStorage
     }
+  }
+
+  getSearchQueryFromLocalStorage() {
+    return localStorage.getItem('productSearchQuery') || ''
   }
 
   setProductSearchQuery(searchQuery) {
@@ -277,6 +280,49 @@ class ProductsStore {
     const productDescriptionIncludesSearchQuery = productDescription.includes(productSearchQuery)
 
     return productDescriptionIncludesSearchQuery
+  }
+
+  addProductToCart(product) {
+    const { slug, price } = product
+    const isProductInCart = this.isProductInCart(slug)
+
+    if (isProductInCart) {
+      this.incrementProductQuantity(slug, price)
+    } else {
+      this.productsQuantities[slug] = 1
+      this.productsSums[slug] = price
+      this.productsInCart.push(product)
+    }
+  }
+
+  isProductInCart(slug) {
+    return this.productsQuantities[slug] !== undefined && this.productsSums[slug] !== undefined
+  }
+
+  incrementProductQuantity(slug, price) {
+    this.productsQuantities[slug] += 1
+    this.productsSums[slug] += price
+  }
+
+  decrementProductQuantity(slug, price) {
+    this.productsQuantities[slug] -= 1
+    this.productsSums[slug] -= price
+
+    if (this.productsQuantities[slug] < 1) {
+      this.removeProductFromCart(slug)
+    }
+  }
+
+  removeProductFromCart(slug) {
+    delete this.productsQuantities[slug]
+    delete this.productsSums[slug]
+    this.productsInCart = this.productsInCart.filter((item) => item.slug !== slug)
+  }
+
+  clearCart() {
+    this.productsInCart = []
+    this.productsQuantities = {}
+    this.productsSums = {}
   }
 }
 

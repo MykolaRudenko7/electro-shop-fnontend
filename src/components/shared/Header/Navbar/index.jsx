@@ -1,24 +1,26 @@
 'use client'
 
-import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
+import cn from 'classnames'
 import { v4 as uuidv4 } from 'uuid'
+import { observer } from 'mobx-react-lite'
 import { navbarLinks } from 'data/shared/headerData'
+import productsStore from 'stores/productsStore'
 import NavbarLink from 'components/shared/Header/Navbar/NavbarLink'
 import NavbarSearchPanel from 'components/shared/Header/Navbar/NavbarSearchPanel'
 import logoPicture from 'images/header/Logo.svg'
 import profilePicture from 'images/header/profile.svg'
-import basket from 'images/header/basket.svg'
 import styles from 'components/shared/Header/Navbar/Navbar.module.scss'
 
-export default function Navbar() {
+const Navbar = observer(() => {
   const [isProductSearchInputOpen, setIsProductSearchInputOpen] = useState(false)
   const [isNavbarMenuOpen, setIsNavbarMenuOpen] = useState(false)
   const pathname = usePathname()
   const navbarMenuRef = useRef(null)
+  const { totalQuantityOfAddedProducts } = productsStore
 
   const handleMenuToggle = () => {
     setIsNavbarMenuOpen(!isNavbarMenuOpen)
@@ -79,7 +81,9 @@ export default function Navbar() {
           setIsProductSearchInputOpen={setIsProductSearchInputOpen}
         />
         <Link className={styles.leftComponentLink} href="/shopping-cart">
-          <Image alt="basket picture" src={basket} />
+          {totalQuantityOfAddedProducts > 0 && (
+            <span className={styles.countProductsInCart}>{totalQuantityOfAddedProducts}</span>
+          )}
         </Link>
         <Link className={styles.leftComponentLinkProfile} href="#">
           <Image
@@ -93,4 +97,6 @@ export default function Navbar() {
       </ul>
     </nav>
   )
-}
+})
+
+export default Navbar

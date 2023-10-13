@@ -1,0 +1,41 @@
+.buttonsBlock {
+  padding-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  @include onTablet() {
+    padding-top: 1.6rem;
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  @include onTablet() {
+    flex-direction: column;
+    width: 100%;
+  }
+  @include onSmallPhone() {
+    display: none;
+  }
+}
+
+.continueButton {
+  @extend %universalButton;
+  padding: 1rem 3rem;
+  @include onTablet() {
+    width: 100%;
+  }
+}
+
+.clearButton {
+  @extend %blackButton;
+}
+
+.updateButton {
+  @extend %blackButton;
+}

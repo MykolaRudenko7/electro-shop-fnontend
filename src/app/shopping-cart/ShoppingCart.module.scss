@@ -29,8 +29,10 @@
   @include onTablet() {
     gap: 2rem;
   }
+
   @include onPhone {
-    flex-direction: column-reverse;
+    flex-direction: column;
+    padding-top: 1.6rem;
   }
 }
 
@@ -77,5 +79,16 @@
   }
   @include onPhone() {
     width: 100%;
+  }
+}
+
+.emptyCartMessage {
+  padding: 5rem;
+  text-align: center;
+  font-size: $desktopTitleFontSize;
+  font-weight: $semiBoldFontWeight;
+
+  @include onTablet() {
+    font-size: $tabletTitleFontSize;
   }
 }

@@ -1,35 +1,41 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import SummaryAccordions from 'components/ShoppingCartPage/OrderSummary/SummaryAccordions'
+import { observer } from 'mobx-react-lite'
+import productsStore from 'stores/productsStore'
+import SummaryAccordionsList from 'components/ShoppingCartPage/OrderSummary/SummaryAccordionsList'
 import payPalPicture from 'images/ShoppingCart/payPal.svg'
 import serviceImage from 'images/ShoppingCart/servicesImage.svg'
 import styles from 'components/ShoppingCartPage/OrderSummary/OrderSummary.module.scss'
 
-export default function OrderSummary() {
+const OrderSummary = observer(() => {
+  const { totalCartSum } = productsStore
+  const productMarkup = 24.82
+  const totalOrderSum = totalCartSum > 0 ? totalCartSum + productMarkup : 0
+
   return (
     <div className={styles.paymentForm}>
       <div className={styles.paymentFormWrapper}>
         <h4 className={styles.title}>Summary</h4>
-        <SummaryAccordions />
+        <SummaryAccordionsList />
         <ul className={styles.priceList}>
           <li className={styles.price}>
-            Subtotal <span className={styles.count}>${}</span>
+            Subtotal <span className={styles.quantity}>${totalCartSum}</span>
           </li>
           <li className={styles.price}>
-            Shipping <span className={styles.count}>${}</span>
+            Shipping <span className={styles.quantity}>$21.00</span>
           </li>
           <p className={styles.clarification}>
             (Standard Rate - Price may vary depending on the item/destination. TECS Staff will
             contact you.)
           </p>
           <li className={styles.price}>
-            Tax <span className={styles.count}>${}</span>
+            Tax <span className={styles.quantity}>$1.91</span>
           </li>
           <li className={styles.price}>
-            GST <span className={styles.count}>${}</span>
+            GST (10%)<span className={styles.quantity}>$1.91</span>
           </li>
           <li className={styles.price}>
-            Order Total <span className={styles.count}>${}</span>
+            Order Total <span className={styles.quantity}>${totalOrderSum}</span>
           </li>
         </ul>
         <div className={styles.payButtons}>
@@ -64,4 +70,6 @@ export default function OrderSummary() {
       </div>
     </div>
   )
-}
+})
+
+export default OrderSummary

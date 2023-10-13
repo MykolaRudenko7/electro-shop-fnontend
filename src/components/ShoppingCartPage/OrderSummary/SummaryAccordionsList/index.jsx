@@ -1,11 +1,12 @@
 'use client'
 
+import React from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { shoppingCartData } from 'data/shopping-cart'
 import SummaryItemAccordion from '@/OrderSummary/SummaryAccordionsList/SummaryItemAccordion'
 import styles from '@/OrderSummary/SummaryAccordionsList/SummaryAccordionsList.module.scss'
 
-export default function SummaryAccordionsList() {
+const SummaryAccordionsList = () => {
   const { accordionData } = shoppingCartData
 
   return (
@@ -16,3 +17,5 @@ export default function SummaryAccordionsList() {
     </ul>
   )
 }
+
+export default React.memo(SummaryAccordionsList)
