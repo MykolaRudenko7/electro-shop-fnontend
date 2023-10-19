@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import cn from 'classnames'
 import productsStore from 'stores/productsStore'
-import styles from '@/FilterBlock/FilteredResultsCountTabButton/FilteredResultsCountTabButton.module.scss'
+import styles from '@/SelectedSidebarFilters/FilteredResultsCountTabButton/FilteredResultsCountTabButton.module.scss'
 
 const FilteredResultsCountTabButton = observer(({ title }) => {
   const isCurrentTabSelected = productsStore.selectedFilterPriceRange === title
@@ -9,7 +9,7 @@ const FilteredResultsCountTabButton = observer(({ title }) => {
 
   const handleClickOnSelectedFilterCategory = (title) => {
     productsStore.setFilterPriceRange(title)
-    productsStore.sortProductsBySelectedOption()
+    productsStore.filterProductsByPrice()
   }
 
   return (

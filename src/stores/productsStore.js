@@ -1,5 +1,4 @@
 import { makeAutoObservable } from 'mobx'
-import data from 'data/shared/db.json'
 import { priceRanges } from 'data/product-catalog/filterBlockData'
 
 class ProductsStore {
@@ -12,6 +11,7 @@ class ProductsStore {
   selectedFilterPriceRange = 'All'
 
   laptops = []
+  newProducts = []
   filteredLaptops = []
   numbersOfProductsInPriceCategories = {}
 
@@ -65,11 +65,11 @@ class ProductsStore {
     makeAutoObservable(this)
   }
 
-  loadData() {
-    const {
-      laptops: { list },
-    } = data
-    this.laptops = list
+  setLaptops(laptops) {
+    this.laptops = laptops
+    this.filterProductsByPrice()
+    this.sortProductsBySelectedOption()
+    this.setNumbersOfProductsInPriceCategories()
   }
 
   resetCurrentPageNumber() {
@@ -162,7 +162,6 @@ class ProductsStore {
 
   setNumbersOfProductsInPriceCategories() {
     this.numbersOfProductsInPriceCategories = {}
-
     this.laptops.forEach((laptop) => {
       const priceCategory = priceRanges.find(
         (range) => laptop.price >= range.min && laptop.price < range.max,

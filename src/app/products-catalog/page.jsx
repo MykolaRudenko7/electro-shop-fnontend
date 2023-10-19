@@ -1,29 +1,19 @@
-'use client'
-
-import { useState } from 'react'
+import { Suspense } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { v4 as uuidv4 } from 'uuid'
-import cn from 'classnames'
-import { observer } from 'mobx-react-lite'
 import { filterBlockData } from 'data/product-catalog/filterBlockData'
-import productsStore from 'stores/productsStore'
+import Loading from 'app/loading'
+import ProductsService from 'services/productFetchingService'
 import NavigationLink from 'components/shared/NavigationLink'
-import ProductsPagination from 'components/CatalogProductsPage/ProductsPagination'
-import FilterBlock from 'components/CatalogProductsPage/FilterBlock'
-import ProductsCatalog from 'components/CatalogProductsPage/ProductsCatalog'
-import ProductsSortPanel from 'components/CatalogProductsPage/ProductsSortPanel'
-import TextBlockAboutCompany from 'components/CatalogProductsPage/TextBlockAboutCompany'
-import FilterCountProductsButton from 'components/CatalogProductsPage/FilterBlock/FilteredResultsCountTabButton'
+import ProductsSectionWrapper from 'components/CatalogProductsPage/ProductsSectionWrapper'
 import bannerImage from 'images/CatalogPage/banner.png'
 import styles from 'app/products-catalog/ProductsCatalog.module.scss'
 
-const ProductsCatalogPage = observer(() => {
-  const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false)
+export default async function ProductsCatalogPage() {
   const { filtersCategoryLinks } = filterBlockData
-  const { selectedSidebarFilters } = productsStore
 
-  const toggleFilterMenuVisibility = () => setIsFilterMenuOpen(!isFilterMenuOpen)
+  const laptops = await ProductsService.fetchLaptops()
 
   return (
     <div className={styles.catalog}>
@@ -43,39 +33,11 @@ const ProductsCatalogPage = observer(() => {
             <NavigationLink key={uuidv4()} {...link} />
           ))}
         </ul>
-        <h2 className={styles.titleProducts}>
-          MSI PS Series <span className={styles.titleProductsCount}>(20)</span>
-        </h2>
-        <section className={styles.productsWrapper}>
-          <div className={cn(styles.filterPart, { [styles.openFilterMenu]: isFilterMenuOpen })}>
-            <Link about="back button" className={styles.whiteBackButton} href="/" role="button">
-              ‹ Back
-            </Link>
-            <FilterBlock toggleFilterMenuVisibility={toggleFilterMenuVisibility} />
-          </div>
-          <div className={styles.productsPart}>
-            <ProductsSortPanel toggleFilterMenuVisibility={toggleFilterMenuVisibility} />
-            <div className={styles.selectedFiltersPanel}>
-              {selectedSidebarFilters &&
-                selectedSidebarFilters.map(({ title }) => (
-                  <FilterCountProductsButton key={uuidv4()} title={title} />
-                ))}
-              <button
-                className={styles.selectedFiltersPanelClearButton}
-                onClick={() => productsStore.resetToDefaultFilters()}
-                type="button"
-              >
-                Clear All
-              </button>
-            </div>
-            <ProductsCatalog />
-            <ProductsPagination />
-            <TextBlockAboutCompany />
-          </div>
-        </section>
+        <h2 className={styles.titleProducts}>MSI PS Series</h2>
+        <Suspense fallback={<Loading />}>
+          <ProductsSectionWrapper laptops={laptops} />
+        </Suspense>
       </div>
     </div>
   )
-})
-
-export default ProductsCatalogPage
+}

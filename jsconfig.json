@@ -4,6 +4,9 @@
       "*": ["./src/*"],
       "@/ProductChoiceSection/*": ["./src/components/AboutProductPage/ProductChoiceSection/*"],
       "@/FilterBlock/*": ["./src/components/CatalogProductsPage/FilterBlock/*"],
+      "@/SelectedSidebarFilters/*": [
+        "./src/components/CatalogProductsPage/FilterBlock/SelectedSidebarFilters/*"
+      ],
       "@/OrderSummary/*": ["./src/components/ShoppingCartPage/OrderSummary/*"]
     }
   }

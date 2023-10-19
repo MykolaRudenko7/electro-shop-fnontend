@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useRef, useState } from 'react'
 import { observer } from 'mobx-react-lite'
 import { v4 as uuidv4 } from 'uuid'
