@@ -1,0 +1,82 @@
+.signInCustomerBlock {
+  background-color: $productChoiceBlockBackgroundColor;
+  padding: 4rem 6rem;
+  @include onTablet() {
+    padding: 2rem;
+  }
+}
+
+.title {
+  @extend %accordionTitle;
+  font-weight: $semiBoldFontWeight;
+}
+
+.subtitle {
+  white-space: wrap;
+  text-align: left;
+  @extend %shoppingCartPrice;
+  font-weight: normal;
+  padding: 1rem 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputLabel {
+  text-align: left;
+  line-height: 2.3rem;
+  @extend %shoppingCartPrice;
+}
+
+.input {
+  @extend %cartPaymentInput;
+}
+
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  @include onSmallTablet() {
+    gap: 1.3rem;
+  }
+}
+
+.submitButton {
+  flex: 1;
+  @extend %blueButton;
+  width: 15rem;
+  @include onSmallTablet() {
+    width: 13rem;
+  }
+}
+
+.forgotLink {
+  flex: 1;
+  color: $mainBlueColor;
+  @extend %shoppingCartPrice;
+  font-weight: $regularFontWeight;
+  line-height: 2rem;
+  text-decoration: underline;
+}
+
+.fillButton {
+  flex: 1;
+  @extend %yellowButton;
+}
+
+.successMessage {
+  @extend %accordionTitle;
+  font-weight: $semiBoldFontWeight;
+}
+
+.textDanger {
+  color: $filterChoiceColorProductRed;
+}

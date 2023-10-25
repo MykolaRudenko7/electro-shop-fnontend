@@ -226,7 +226,7 @@
   width: 100%;
   padding: 1.5rem 1.7rem;
   border-radius: 0.4rem;
-  border: 0.1rem solid $activeLinkColor;
+  border: 0.2rem solid $activeLinkColor;
   background-color: $mainWhiteColor;
 
   @include onTablet() {
@@ -236,7 +236,7 @@
 
   &:active,
   &:focus {
-    border: 0.1rem solid $mainBlackColor;
+    border: 0.2rem solid $mainBlackColor;
   }
 }
 

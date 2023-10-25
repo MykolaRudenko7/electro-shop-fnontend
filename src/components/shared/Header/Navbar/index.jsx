@@ -10,9 +10,9 @@ import { observer } from 'mobx-react-lite'
 import { navbarLinks } from 'data/shared/headerData'
 import productsStore from 'stores/productsStore'
 import NavbarLink from 'components/shared/Header/Navbar/NavbarLink'
+import PopoverAccountMenu from 'components/shared/Header/Navbar/PopoverAccountMenu'
 import NavbarSearchPanel from 'components/shared/Header/Navbar/NavbarSearchPanel'
 import logoPicture from 'images/header/Logo.svg'
-import profilePicture from 'images/header/profile.svg'
 import styles from 'components/shared/Header/Navbar/Navbar.module.scss'
 
 const Navbar = observer(() => {
@@ -66,7 +66,7 @@ const Navbar = observer(() => {
         <ul
           className={cn(styles.navbarMenu, {
             [styles.open]: isNavbarMenuOpen,
-            [styles.hiden]: isProductSearchInputOpen,
+            [styles.hidden]: isProductSearchInputOpen,
           })}
           ref={navbarMenuRef}
         >
@@ -85,15 +85,7 @@ const Navbar = observer(() => {
             <span className={styles.countProductsInCart}>{totalQuantityOfAddedProducts}</span>
           )}
         </Link>
-        <Link className={styles.leftComponentLinkProfile} href="#">
-          <Image
-            alt="profile picture"
-            className={styles.leftComponentImage}
-            height={36}
-            src={profilePicture}
-            width={36}
-          />
-        </Link>
+        <PopoverAccountMenu />
       </ul>
     </nav>
   )

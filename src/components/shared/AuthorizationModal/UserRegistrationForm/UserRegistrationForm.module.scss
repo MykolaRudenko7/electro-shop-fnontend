@@ -1,0 +1,58 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  @include onSmallTablet() {
+    gap: 1rem;
+  }
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputLabel {
+  text-align: left;
+  line-height: 2.3rem;
+  @extend %shoppingCartPrice;
+}
+
+.input {
+  @extend %cartPaymentInput;
+  &:focus-within {
+    border: solid 0.2rem $mainBlackColor;
+  }
+}
+
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  @include onSmallTablet() {
+    gap: 1.3rem;
+  }
+}
+
+.createAnAccountButton {
+  @extend %blueButton;
+}
+
+.textDanger {
+  color: $filterChoiceColorProductRed;
+}
+
+.cancelButton {
+  flex: 1;
+  @extend %clearFilterBlockButton;
+}
+
+.confirmButton {
+  flex: 1;
+  @extend %yellowButton;
+}
+
+.fillButton {
+  flex: 1;
+  @extend %blueButton;
+}

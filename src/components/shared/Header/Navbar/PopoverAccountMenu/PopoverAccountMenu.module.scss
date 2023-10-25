@@ -1,0 +1,22 @@
+.popoverList {
+  padding: 1.5rem;
+}
+
+.popoverLink {
+  @extend %accordionTitle;
+  font-weight: $semiBoldFontWeight;
+  background-color: transparent;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.popoverList {
+  border: solid 0.1rem $activeLinkColor;
+}
+
+.popoverListItem {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}

@@ -112,7 +112,7 @@
   left: 0%;
 }
 
-.hiden {
+.hidden {
   display: none;
 }
 
@@ -168,13 +168,5 @@
   @include onTablet() {
     background-color: $mainWhiteColor;
     color: $mainBlueColor;
-  }
-}
-
-.leftComponentLinkProfile {
-  padding-left: 1.1rem;
-
-  @include onDesktop() {
-    padding-left: 0rem;
   }
 }

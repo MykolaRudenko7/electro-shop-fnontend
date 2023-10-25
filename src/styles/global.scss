@@ -43,6 +43,10 @@ a {
   }
 }
 
+.alice-carousel {
+  z-index: -1;
+}
+
 .alice-carousel__prev-btn,
 .alice-carousel__next-btn {
   position: absolute;
@@ -107,4 +111,10 @@ a {
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
+}
+
+.PhoneInputInput {
+  &:focus {
+    outline: none;
+  }
 }

@@ -60,10 +60,12 @@ const NavbarSearchPanel = observer(({ isProductSearchInputOpen, setIsProductSear
         <Image alt="Search icon picture" height={24} src={searchPicture} width={24} />
       </div>
       <input
+        autoComplete="off"
         className={cn(styles.input, {
           [styles.openSearchInput]: isProductSearchInputOpen,
         })}
-        name="search input"
+        id="searchInput"
+        name="searchInput"
         onChange={handleInputChange}
         placeholder="Search entiere store here..."
         type="text"
