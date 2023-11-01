@@ -93,15 +93,9 @@
   color: $mainWhiteColor;
   border: 0.2rem solid $mainBlackColor;
   font-size: $shoppingCartCategoryDesktopSize;
+  @extend %disabledButtonState;
 
   &:hover {
-    color: $mainBlackColor;
-    background-color: $mainWhiteColor;
-    border: 0.2rem solid $mainBlackColor;
-  }
-
-  &:disabled {
-    cursor: default;
     color: $mainBlackColor;
     background-color: $mainWhiteColor;
     border: 0.2rem solid $mainBlackColor;
@@ -182,13 +176,20 @@
   &:hover {
     background-color: $sliderBackgroundColor;
   }
-  &:active {
-  }
   @include onTablet() {
     height: 3rem;
     opacity: 1;
     gap: 0.7rem;
     margin-bottom: 1rem;
     font-size: 1.1rem;
+  }
+}
+
+%disabledButtonState {
+  &:disabled {
+    cursor: default;
+    color: $mainBlackColor;
+    background-color: $mainWhiteColor;
+    border: 0.2rem solid $mainBlackColor;
   }
 }

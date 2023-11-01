@@ -25,21 +25,6 @@
   gap: 2rem;
 }
 
-.inputContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.inputLabel {
-  text-align: left;
-  line-height: 2.3rem;
-  @extend %shoppingCartPrice;
-}
-
-.input {
-  @extend %cartPaymentInput;
-}
-
 .buttonsContainer {
   display: flex;
   align-items: center;
@@ -52,6 +37,7 @@
 .submitButton {
   flex: 1;
   @extend %blueButton;
+  @extend %disabledButtonState;
   width: 15rem;
   @include onSmallTablet() {
     width: 13rem;
@@ -70,13 +56,10 @@
 .fillButton {
   flex: 1;
   @extend %yellowButton;
+  @extend %disabledButtonState;
 }
 
 .successMessage {
   @extend %accordionTitle;
   font-weight: $semiBoldFontWeight;
-}
-
-.textDanger {
-  color: $filterChoiceColorProductRed;
 }

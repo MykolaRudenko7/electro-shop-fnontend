@@ -1,20 +1,15 @@
-import { connectToMongoDB } from 'lib/mongodb'
 import { NextResponse } from 'next/server'
+import { connectToMongoDB } from 'lib/db'
+import NewProduct from 'models/NewProduct'
 
 export async function GET() {
-  const collectionName = process.env.NEW_PRODUCTS_COLLECTION
-
   try {
-    const database = await connectToMongoDB()
+    await connectToMongoDB()
 
-    if (database) {
-      const products = await database
-        .collection(collectionName)
-        .find({})
-        .sort({ name: -1 })
-        .toArray()
+    const newProducts = await NewProduct.find({})
 
-      return NextResponse.json(products, { status: 200 })
+    if (newProducts) {
+      return NextResponse.json(newProducts, { status: 200 })
     }
 
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })

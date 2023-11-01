@@ -50,9 +50,12 @@
 .confirmButton {
   flex: 1;
   @extend %yellowButton;
+
+  @extend %disabledButtonState;
 }
 
 .fillButton {
   flex: 1;
   @extend %blueButton;
+  @extend %disabledButtonState;
 }
