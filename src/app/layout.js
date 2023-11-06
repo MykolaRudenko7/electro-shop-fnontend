@@ -1,3 +1,4 @@
+import AuthProvider from 'components/AuthProvider'
 import Footer from 'components/shared/Footer'
 import Header from 'components/shared/Header'
 import 'styles/global.scss'
@@ -12,9 +13,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <AuthProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   )

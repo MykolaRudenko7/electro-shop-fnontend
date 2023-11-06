@@ -1,0 +1,13 @@
+.myAccount {
+  padding: 2rem;
+}
+.title {
+  @extend %pageTitle;
+}
+.email {
+  @extend %paymentFormTitle;
+  margin-bottom: 1rem;
+}
+.mark {
+  color: $mainBlueColor;
+}

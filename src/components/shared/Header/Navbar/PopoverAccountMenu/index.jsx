@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Popover, PopoverTrigger, PopoverContent, PopoverBody } from '@chakra-ui/popover'
-import AuthorizationModal from 'components/shared/AuthorizationModal'
 import profilePicture from 'images/header/profile.svg'
 import styles from 'components/shared/Header/Navbar/PopoverAccountMenu/PopoverAccountMenu.module.scss'
 
@@ -21,17 +20,24 @@ export default function PopoverAccountMenu() {
         <PopoverBody>
           <ul className={styles.popoverList}>
             <li className={styles.popoverListItem}>
-              <Link className={styles.popoverLink} href="#">
+              <Link className={styles.popoverLink} href="/">
+                Home
+              </Link>
+            </li>
+            <li className={styles.popoverListItem}>
+              <Link className={styles.popoverLink} href="/products-catalog">
+                Laptops
+              </Link>
+            </li>
+            <li className={styles.popoverListItem}>
+              <Link className={styles.popoverLink} href="/profile">
                 My Account
               </Link>
             </li>
             <li className={styles.popoverListItem}>
               <Link className={styles.popoverLink} href="/login">
-                Sign In
+                Login
               </Link>
-            </li>
-            <li className={styles.popoverListItem}>
-              <AuthorizationModal />
             </li>
           </ul>
         </PopoverBody>

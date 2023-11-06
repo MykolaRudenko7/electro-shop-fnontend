@@ -55,6 +55,13 @@
     transform: translateY(0.1rem);
   }
 
+  &:disabled {
+    cursor: default;
+    color: $mainBlackColor;
+    background-color: $mainWhiteColor;
+    border: 0.2rem solid $mainBlackColor;
+  }
+
   @include onTablet() {
     font-size: $buttonTextTablet;
   }
@@ -93,7 +100,6 @@
   color: $mainWhiteColor;
   border: 0.2rem solid $mainBlackColor;
   font-size: $shoppingCartCategoryDesktopSize;
-  @extend %disabledButtonState;
 
   &:hover {
     color: $mainBlackColor;
@@ -118,6 +124,24 @@
     color: $supportLinksColor;
     background-color: $payPallButtonBackground;
     border: 0.2rem solid $mainBlackColor;
+  }
+
+  @include onTablet() {
+    font-size: $buttonTextTablet;
+  }
+}
+
+%redButton {
+  @extend %universalButton;
+  background-color: $deleteButtonColor;
+  color: $mainWhiteColor;
+  border: 0.2rem solid transparent;
+  font-size: $shoppingCartCategoryDesktopSize;
+
+  &:hover {
+    color: $deleteButtonColor;
+    background-color: $mainWhiteColor;
+    border: 0.2rem solid $deleteButtonColor;
   }
 
   @include onTablet() {
@@ -182,14 +206,5 @@
     gap: 0.7rem;
     margin-bottom: 1rem;
     font-size: 1.1rem;
-  }
-}
-
-%disabledButtonState {
-  &:disabled {
-    cursor: default;
-    color: $mainBlackColor;
-    background-color: $mainWhiteColor;
-    border: 0.2rem solid $mainBlackColor;
   }
 }

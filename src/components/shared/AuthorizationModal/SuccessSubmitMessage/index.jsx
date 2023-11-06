@@ -3,7 +3,9 @@ import styles from 'components/shared/AuthorizationModal/SuccessSubmitMessage/Su
 export default function SuccessSubmitMessage({ closeDialogWindow }) {
   return (
     <>
-      <p className={styles.successMessage}>Success! 🤌</p>
+      <p className={styles.successMessage}>
+        Success! 🤌 <span className={styles.successMessageSpan}>Please Sign In</span>
+      </p>
       <button
         aria-label="close modal window"
         className={styles.cancelButton}
@@ -11,7 +13,7 @@ export default function SuccessSubmitMessage({ closeDialogWindow }) {
         tabIndex="0"
         type="button"
       >
-        Cancel
+        Close Modal
       </button>
     </>
   )

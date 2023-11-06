@@ -21,6 +21,7 @@ export default function AuthorizationModal() {
         {!isFormSubmitted ? (
           <UserRegistrationForm
             closeDialogWindow={closeDialogWindow}
+            isFormSubmitted={isFormSubmitted}
             setIsFormSubmitted={setIsFormSubmitted}
           />
         ) : (
