@@ -10,6 +10,11 @@ import ProductsSectionWrapper from 'components/CatalogProductsPage/ProductsSecti
 import bannerImage from 'images/CatalogPage/banner.png'
 import styles from 'app/products-catalog/ProductsCatalog.module.scss'
 
+const metadata = {
+  title: 'Product Catalog',
+  description: 'Product Catalog Page',
+}
+
 export default async function ProductsCatalogPage() {
   const { filtersCategoryLinks } = filterBlockData
 

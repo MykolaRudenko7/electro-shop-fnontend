@@ -1,0 +1,18 @@
+.loggedMessage {
+  @extend %flexCenter;
+  flex-direction: column;
+}
+
+.title {
+  @extend %pageTitle;
+}
+
+.text {
+  @extend %paymentFormTitle;
+  margin-bottom: 1rem;
+}
+
+.profileLink {
+  color: $mainBlueColor;
+  @extend %underlineLinkHoverEffect;
+}

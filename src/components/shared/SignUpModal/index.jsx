@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react'
-import UserRegistrationForm from 'components/shared/AuthorizationModal/UserRegistrationForm'
-import SuccessSubmitMessage from 'components/shared/AuthorizationModal/SuccessSubmitMessage'
+import SignUpForm from 'components/shared/SignUpModal/SignUpForm'
+import SuccessSubmitMessage from 'components/shared/SignUpModal/SuccessSubmitMessage'
 import 'react-phone-number-input/style.css'
-import styles from 'components/shared/AuthorizationModal/AuthorizationModal.module.scss'
+import styles from 'components/shared/SignUpModal/SignUpModal.module.scss'
 
-export default function AuthorizationModal() {
+export default function SignUpModal() {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
   const modalRef = useRef()
 
@@ -19,7 +19,7 @@ export default function AuthorizationModal() {
     <>
       <dialog className={styles.modal} ref={modalRef}>
         {!isFormSubmitted ? (
-          <UserRegistrationForm
+          <SignUpForm
             closeDialogWindow={closeDialogWindow}
             isFormSubmitted={isFormSubmitted}
             setIsFormSubmitted={setIsFormSubmitted}

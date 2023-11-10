@@ -1,21 +1,25 @@
 'use client'
 
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useId, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { signIn } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+import { AxiosError } from 'axios'
+import { endpointConfig } from 'data/shared/endpointConfig'
+import UserRegistrationService from 'services/userRegistrationService'
 import { generateSignInInputFields } from 'utils/getInputFields'
+import { useAuthContext } from 'hooks/useAuthContext'
 import Loading from 'app/loading'
 import InputItem from 'components/shared/InputItem'
 import styles from 'components/LoginPage/SignInForm/SignInForm.module.scss'
 
 export default function SignInForm() {
-  const [errorDetails, setErrorDetails] = useState(null)
+  const [submitErrorDetails, setSubmitErrorDetails] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const { user, setUser } = useAuthContext()
 
   const router = useRouter()
-  const callbackUrl = '/profile'
+  const { profileUrl } = endpointConfig
 
   const {
     register,
@@ -30,24 +34,28 @@ export default function SignInForm() {
   const inputFields = generateSignInInputFields(register, errors)
 
   const onFormSubmit = async (data) => {
-    const { email_signIn, password_signIn } = data
-    const signInData = { email: email_signIn, password: password_signIn }
-
     try {
-      setIsLoading(true)
-      reset()
-      const res = await signIn('credentials', { ...signInData })
-      setIsLoading(false)
+      const apiResponse = await UserRegistrationService.signInUser(data)
 
-      if (!res?.error) {
-        router.push(callbackUrl)
-      } else {
-        setErrorDetails('Invalid email or password')
+      if (apiResponse?.data?.success) {
+        setIsLoading(true)
+        reset()
+        setSubmitErrorDetails('')
+        setUser(apiResponse.data.user)
+        router.push(profileUrl)
       }
     } catch (error) {
-      setErrorDetails(error)
+      if (error instanceof AxiosError) {
+        const errorMessage = error.response?.data?.error
+        setSubmitErrorDetails(errorMessage)
+      }
+      setIsLoading(false)
     }
   }
+
+  const isAccountLocked =
+    submitErrorDetails.includes('Account is locked.') ||
+    submitErrorDetails.includes('Too many login attempts.')
 
   return (
     <div className={styles.signInCustomerBlock}>
@@ -70,7 +78,9 @@ export default function SignInForm() {
               <button
                 aria-label="sign input"
                 className={styles.submitButton}
-                disabled={isLoading}
+                disabled={isLoading || isAccountLocked}
+                form={signInFormId}
+                onClick={handleSubmit(onFormSubmit)}
                 tabIndex="0"
                 type="submit"
               >
@@ -86,27 +96,9 @@ export default function SignInForm() {
                 Forgot Your Password?
               </Link>
             </div>
-            <div className={styles.servicesButtons}>
-              <button
-                className={styles.googleButton}
-                disabled={isLoading}
-                onClick={() => signIn('google', { callbackUrl })}
-                tabIndex="0"
-                type="button"
-              >
-                Sign With Google
-              </button>
-              <button
-                className={styles.gitHubButton}
-                disabled={isLoading}
-                onClick={() => signIn('github', { callbackUrl })}
-                tabIndex="0"
-                type="button"
-              >
-                Sign With GitHub
-              </button>
-            </div>
-            {errorDetails && <p className={styles.submitMessageError}>{errorDetails}</p>}
+            {submitErrorDetails && (
+              <p className={styles.submitMessageError}>{submitErrorDetails}</p>
+            )}
           </form>
         )}
       </div>

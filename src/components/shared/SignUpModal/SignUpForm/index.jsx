@@ -1,23 +1,30 @@
+'use client'
+
 import { useId, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { useForm, Controller } from 'react-hook-form'
 import PhoneInput from 'react-phone-number-input'
+import { AxiosError } from 'axios'
+import { endpointConfig } from 'data/shared/endpointConfig'
 import { validationFormRules } from 'utils/validationFormRules'
 import { generateRegistrationInputFields } from 'utils/getInputFields'
 import UserRegistrationService from 'services/userRegistrationService'
+import { useAuthContext } from 'hooks/useAuthContext'
 import Loading from 'app/loading'
 import InputItem from 'components/shared/InputItem'
 import 'react-phone-number-input/style.css'
-import styles from 'components/shared/AuthorizationModal/UserRegistrationForm/UserRegistrationForm.module.scss'
+import styles from 'components/shared/SignUpModal/SignUpForm/SignUpForm.module.scss'
 
-export default function UserRegistrationForm({
-  isFormSubmitted,
-  setIsFormSubmitted,
-  closeDialogWindow,
-}) {
-  const [errorDetails, setErrorDetails] = useState(null)
+export default function SignUpForm({ isFormSubmitted, setIsFormSubmitted, closeDialogWindow }) {
+  const [submitErrorDetails, setSubmitErrorDetails] = useState('')
+  const { user, setUser } = useAuthContext()
+
+  const router = useRouter()
+  const { profileUrl } = endpointConfig
 
   const {
     register,
+    watch,
     handleSubmit,
     formState: { errors, isSubmitting },
     control,
@@ -28,17 +35,27 @@ export default function UserRegistrationForm({
 
   const formNewUserId = useId()
   const mobileNumberInputId = useId()
+
   const { mobileNumberValidation } = validationFormRules
-  const inputFields = generateRegistrationInputFields(register, errors)
+  const inputFields = generateRegistrationInputFields(register, errors, watch)
 
   const onFormSubmit = async (data) => {
     try {
-      await UserRegistrationService.registerUser(data)
-      setIsFormSubmitted(true)
-      reset()
+      const apiResponse = await UserRegistrationService.signUpUser(data)
+
+      if (apiResponse?.data?.success) {
+        setIsFormSubmitted(true)
+        reset()
+        setSubmitErrorDetails('')
+        setUser(apiResponse.data.user)
+        router.push(profileUrl)
+      }
     } catch (error) {
-      setErrorDetails('This user already exists')
-      setIsFormSubmitted(false)
+      if (error instanceof AxiosError) {
+        const errorMessage = error.response?.data?.error
+        setSubmitErrorDetails(errorMessage)
+        setIsFormSubmitted(false)
+      }
     }
   }
 
@@ -96,16 +113,19 @@ export default function UserRegistrationForm({
               className={styles.confirmButton}
               disabled={isFormSubmitted}
               form={formNewUserId}
+              onClick={handleSubmit(onFormSubmit)}
               type="submit"
             >
               Create
             </button>
           </div>
+          <div className={styles.statusMessages}>
+            {submitErrorDetails && (
+              <p className={styles.submitMessageError}>{submitErrorDetails}</p>
+            )}
+          </div>
         </>
       )}
-      <div className={styles.statusMessages}>
-        {errorDetails && <p className={styles.submitMessageError}>{errorDetails}</p>}
-      </div>
     </form>
   )
 }

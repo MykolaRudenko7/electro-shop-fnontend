@@ -1,6 +1,7 @@
 .inputContainer {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .inputLabel {
@@ -15,4 +16,17 @@
 
 .textDanger {
   color: $filterChoiceColorProductRed;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(3%, 100%);
+}
+
+.showPasswordButton {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 60%;
+  right: 5%;
+  transform: translate(0%, -20%);
 }

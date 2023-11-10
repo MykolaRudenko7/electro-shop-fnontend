@@ -1,9 +1,13 @@
 import { v4 as uuidv4 } from 'uuid'
 import { loginNavigationLinks } from 'data/login/loginNavigationLinks'
-import SignInForm from 'components/LoginPage/SignInForm'
-import RegistrationInfo from 'components/LoginPage/RegistrationInfo'
 import NavigationLink from 'components/shared/NavigationLink'
+import LoginSection from 'components/LoginPage/LoginSection'
 import styles from 'app/login/Login.module.scss'
+
+export const metadata = {
+  title: 'Login',
+  description: 'Login page',
+}
 
 export default function Login() {
   return (
@@ -14,10 +18,7 @@ export default function Login() {
         ))}
       </ul>
       <h2 className={styles.title}>Customer Login</h2>
-      <section className={styles.loginSection}>
-        <SignInForm />
-        <RegistrationInfo />
-      </section>
+      <LoginSection />
     </div>
   )
 }

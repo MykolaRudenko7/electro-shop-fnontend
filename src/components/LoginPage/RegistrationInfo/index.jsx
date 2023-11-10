@@ -1,6 +1,6 @@
 'use client'
 
-import AuthorizationModal from 'components/shared/AuthorizationModal'
+import SignUpModal from 'components/shared/SignUpModal'
 import styles from 'components/LoginPage/RegistrationInfo/RegistrationInfo.module.scss'
 
 export default function RegistrationInfo() {
@@ -13,7 +13,7 @@ export default function RegistrationInfo() {
         <li className={styles.creatingListItem}>Keep more than one address</li>
         <li className={styles.creatingListItem}>Track orders and more</li>
       </ul>
-      <AuthorizationModal />
+      <SignUpModal />
     </div>
   )
 }

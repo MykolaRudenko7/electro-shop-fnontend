@@ -59,22 +59,3 @@
   @extend %accordionTitle;
   font-weight: $semiBoldFontWeight;
 }
-
-.servicesButtons {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  @include onSmallTablet() {
-    gap: 1.3rem;
-    flex-wrap: wrap;
-  }
-}
-.googleButton {
-  flex: 1;
-  @extend %redButton;
-}
-
-.gitHubButton {
-  flex: 1;
-  @extend %blackButton;
-}

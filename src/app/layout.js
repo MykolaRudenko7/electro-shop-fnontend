@@ -1,6 +1,6 @@
-import AuthProvider from 'components/AuthProvider'
 import Footer from 'components/shared/Footer'
 import Header from 'components/shared/Header'
+import { AuthContextProvider } from 'providers/AuthContextProvider'
 import 'styles/global.scss'
 import 'styles/null.scss'
 
@@ -12,13 +12,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <AuthProvider>
+      <AuthContextProvider>
+        <body>
           <Header />
           <main>{children}</main>
           <Footer />
-        </AuthProvider>
-      </body>
+        </body>
+      </AuthContextProvider>
     </html>
   )
 }

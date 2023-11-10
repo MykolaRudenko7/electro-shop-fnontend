@@ -57,4 +57,5 @@
   color: $deleteButtonColor;
   @extend %accordionTitle;
   font-weight: $semiBoldFontWeight;
+  display: block;
 }

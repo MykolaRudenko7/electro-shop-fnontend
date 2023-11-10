@@ -1,4 +1,4 @@
-import styles from 'components/shared/AuthorizationModal/SuccessSubmitMessage/SuccessSubmitMessage.module.scss'
+import styles from 'components/shared/SignUpModal/SuccessSubmitMessage/SuccessSubmitMessage.module.scss'
 
 export default function SuccessSubmitMessage({ closeDialogWindow }) {
   return (

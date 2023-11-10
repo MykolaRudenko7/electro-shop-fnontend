@@ -1,13 +1,18 @@
-.myAccount {
+.profile {
   padding: 2rem;
 }
+
 .title {
   @extend %pageTitle;
 }
-.email {
-  @extend %paymentFormTitle;
+
+.subtitle {
+  text-align: left;
+  @extend %shoppingCartPrice;
   margin-bottom: 1rem;
 }
-.mark {
-  color: $mainBlueColor;
+
+.button {
+  @extend %blackButton;
+  max-width: 20rem;
 }
