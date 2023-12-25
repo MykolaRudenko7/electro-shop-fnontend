@@ -71,7 +71,10 @@ export const generateRegistrationInputFields = (register, errors, watch) => {
       name: 'confirmPassword_newUser',
       label: 'Confirm Password *',
       type: 'password',
-      register: register('confirmPassword_newUser', confirmPasswordValidation(password)),
+      register: register('confirmPassword_newUser', {
+        ...confirmPasswordValidation(password),
+        validate: (value) => value === password || 'Passwords do not match',
+      }),
       error: errors.confirmPassword_newUser,
       ariaLabel: 'confirm password input',
       autoComplete: 'new-password',

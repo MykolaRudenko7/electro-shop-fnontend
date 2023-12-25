@@ -4,6 +4,6 @@ import styles from 'components/HomePage/BannerSlider/BannerSlider.module.scss'
 
 export const slides = db.main.banners.map((slide) => (
   <div className={styles.slideContainer}>
-    <Image alt="banner" src={slide} fill />
+    <Image alt="banner" height={330} src={slide} width={1400} />
   </div>
 ))

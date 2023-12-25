@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useForm, Controller } from 'react-hook-form'
 import PhoneInput from 'react-phone-number-input'
 import { AxiosError } from 'axios'
-import { endpointConfig } from 'data/shared/endpointConfig'
+import { redirectEndpoints } from 'data/shared/redirectEndpoints'
 import { validationFormRules } from 'utils/validationFormRules'
 import { generateRegistrationInputFields } from 'utils/getInputFields'
 import UserRegistrationService from 'services/userRegistrationService'
@@ -17,16 +17,16 @@ import styles from 'components/shared/SignUpModal/SignUpForm/SignUpForm.module.s
 
 export default function SignUpForm({ isFormSubmitted, setIsFormSubmitted, closeDialogWindow }) {
   const [submitErrorDetails, setSubmitErrorDetails] = useState('')
-  const { user, setUser } = useAuthContext()
+  const { setUser } = useAuthContext()
 
   const router = useRouter()
-  const { profileUrl } = endpointConfig
+  const { profileUrl } = redirectEndpoints
 
   const {
     register,
     watch,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     control,
     reset,
   } = useForm({
@@ -63,10 +63,10 @@ export default function SignUpForm({ isFormSubmitted, setIsFormSubmitted, closeD
     <form
       className={styles.form}
       id={formNewUserId}
-      method="dialog"
+      method="POST"
       onSubmit={handleSubmit(onFormSubmit)}
     >
-      {isSubmitting ? (
+      {isFormSubmitted ? (
         <Loading />
       ) : (
         <>
@@ -113,7 +113,6 @@ export default function SignUpForm({ isFormSubmitted, setIsFormSubmitted, closeD
               className={styles.confirmButton}
               disabled={isFormSubmitted}
               form={formNewUserId}
-              onClick={handleSubmit(onFormSubmit)}
               type="submit"
             >
               Create

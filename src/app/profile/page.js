@@ -2,16 +2,15 @@
 
 import { useRouter } from 'next/navigation'
 import UserRegistrationService from 'services/userRegistrationService'
-import { endpointConfig } from 'data/shared/endpointConfig'
+import { redirectEndpoints } from 'data/shared/redirectEndpoints'
 import { useAuthContext } from 'hooks/useAuthContext'
 import LoaderLine from 'components/LoaderLine'
 import styles from 'app/profile/Profile.module.scss'
 
 export default function Profile() {
   const { user, setUser } = useAuthContext()
-
   const router = useRouter()
-  const { loginUrl } = endpointConfig
+  const { loginUrl } = redirectEndpoints
 
   const handleLogOut = async () => {
     try {
@@ -33,6 +32,9 @@ export default function Profile() {
         <p className={styles.subtitle}>Hello {user.name}!</p>
         <p className={styles.subtitle}>Email: {user.email}</p>
         <p className={styles.subtitle}>Your Id: {user._id}</p>
+        <p className={styles.subtitle}>
+          Is Activated: {user.isActivated ? 'Account is active' : 'Account not activated'}
+        </p>
 
         <button className={styles.button} onClick={handleLogOut}>
           LogOut

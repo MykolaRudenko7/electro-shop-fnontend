@@ -1,10 +1,8 @@
-import Axios from 'axios'
-import { setupCache } from 'axios-cache-interceptor'
+import axios from 'axios'
 
-const { API_BASE_URL } = process.env
+const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL
 
-const mainApiClient = Axios.create({
-  baseURL: API_BASE_URL,
+export const axiosInstance = axios.create({
+  baseURL,
+  withCredentials: true,
 })
-
-export const axiosInstanceCache = setupCache(mainApiClient)

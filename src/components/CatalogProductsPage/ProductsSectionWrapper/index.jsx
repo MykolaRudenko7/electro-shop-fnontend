@@ -11,7 +11,7 @@ import ProductsCatalog from 'components/CatalogProductsPage/ProductsCatalog'
 import ProductsSortPanel from 'components/CatalogProductsPage/ProductsSortPanel'
 import TextBlockAboutCompany from 'components/CatalogProductsPage/TextBlockAboutCompany'
 import SelectedSidebarFilters from 'components/CatalogProductsPage/FilterBlock/SelectedSidebarFilters'
-import styles from 'src/components/CatalogProductsPage/ProductsSectionWrapper/ProductsSectionWrapper.module.scss'
+import styles from 'components/CatalogProductsPage/ProductsSectionWrapper/ProductsSectionWrapper.module.scss'
 
 const ProductsSectionWrapper = observer(({ laptops }) => {
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false)

@@ -1,13 +1,21 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
-module.exports = nextConfig
 const path = require('path')
 
-module.exports = {
+const nextConfig = {
   sassOptions: {
     additionalData: `@import "src/styles/_app.scss";`,
   },
   images: {
-    domains: ['res.cloudinary.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '**',
+      },
+    ],
   },
+}
+
+module.exports = {
+  ...nextConfig,
 }

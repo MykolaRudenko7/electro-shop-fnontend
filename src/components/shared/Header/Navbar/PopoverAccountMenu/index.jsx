@@ -1,10 +1,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Popover, PopoverTrigger, PopoverContent, PopoverBody } from '@chakra-ui/popover'
+import { useAuthContext } from 'hooks/useAuthContext'
 import profilePicture from 'images/header/profile.svg'
 import styles from 'components/shared/Header/Navbar/PopoverAccountMenu/PopoverAccountMenu.module.scss'
 
 export default function PopoverAccountMenu() {
+  const { user } = useAuthContext()
+
   return (
     <Popover className={styles.accountPopover} closeOnBlur={true} placement="bottom-start">
       <PopoverTrigger>
@@ -30,13 +33,8 @@ export default function PopoverAccountMenu() {
               </Link>
             </li>
             <li className={styles.popoverListItem}>
-              <Link className={styles.popoverLink} href="/profile">
-                My Account
-              </Link>
-            </li>
-            <li className={styles.popoverListItem}>
-              <Link className={styles.popoverLink} href="/login">
-                Login
+              <Link className={styles.popoverLink} href={user ? 'profile' : '/login'}>
+                {user ? `${user.name} profile` : 'Login'}
               </Link>
             </li>
           </ul>

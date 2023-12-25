@@ -133,6 +133,10 @@
   @include onPhone() {
     gap: 1rem;
   }
+
+  :global .chakra-popover__popper {
+    z-index: 1;
+  }
 }
 
 .leftComponentLink {

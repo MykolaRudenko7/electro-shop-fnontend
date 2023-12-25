@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useId, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { AxiosError } from 'axios'
-import { endpointConfig } from 'data/shared/endpointConfig'
+import { redirectEndpoints } from 'data/shared/redirectEndpoints'
 import UserRegistrationService from 'services/userRegistrationService'
 import { generateSignInInputFields } from 'utils/getInputFields'
 import { useAuthContext } from 'hooks/useAuthContext'
@@ -16,10 +16,10 @@ import styles from 'components/LoginPage/SignInForm/SignInForm.module.scss'
 export default function SignInForm() {
   const [submitErrorDetails, setSubmitErrorDetails] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const { user, setUser } = useAuthContext()
+  const { setUser } = useAuthContext()
 
   const router = useRouter()
-  const { profileUrl } = endpointConfig
+  const { profileUrl } = redirectEndpoints
 
   const {
     register,
@@ -54,8 +54,8 @@ export default function SignInForm() {
   }
 
   const isAccountLocked =
-    submitErrorDetails.includes('Account is locked.') ||
-    submitErrorDetails.includes('Too many login attempts.')
+    submitErrorDetails?.includes('Account is locked.') ||
+    submitErrorDetails?.includes('Too many login attempts.')
 
   return (
     <div className={styles.signInCustomerBlock}>
@@ -80,7 +80,6 @@ export default function SignInForm() {
                 className={styles.submitButton}
                 disabled={isLoading || isAccountLocked}
                 form={signInFormId}
-                onClick={handleSubmit(onFormSubmit)}
                 tabIndex="0"
                 type="submit"
               >

@@ -11,7 +11,8 @@ export default function FooterSubscriptionForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <label htmlFor="email">
+      <div className={styles.inputContainer}>
+        <label htmlFor="email" />
         <input
           autoComplete="email"
           className={styles.input}
@@ -23,7 +24,7 @@ export default function FooterSubscriptionForm() {
           value={emailValue}
           required
         />
-      </label>
+      </div>
       <button
         area-label="subscribe to the newsletter button"
         className={styles.buttonSubscribe}

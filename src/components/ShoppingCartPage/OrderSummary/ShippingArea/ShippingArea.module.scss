@@ -46,3 +46,12 @@
 .inputRadio {
   cursor: pointer;
 }
+
+.applyDiscountButton {
+  @extend %blueButton;
+}
+
+.errorMessage {
+  @extend %shoppingCartPrice;
+  color: $blueBorderSliderTextBlock;
+}

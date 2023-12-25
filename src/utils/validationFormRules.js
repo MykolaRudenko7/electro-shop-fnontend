@@ -6,7 +6,7 @@ export const validationFormRules = {
     maxLength: { value: 20, message: 'Maximum length is 20 characters' },
     minLength: { value: 4, message: 'Minimum length is 4 characters' },
     pattern: {
-      value: /^[A-Za-z]+$/i,
+      value: /^[a-zA-Zа-яА-Я ,.'-]+$/,
       message: 'You need to enter only letters.',
     },
   },
