@@ -15,6 +15,7 @@ const ProductsCatalog = observer(() => {
         [styles.cardsBlockGrid]: currentProductsViewType === 'grid',
         [styles.cardsBlockList]: currentProductsViewType === 'list',
       })}
+      data-test-id="productsCatalogWrapper"
     >
       {productsToShowOnPage.length > 0 &&
         productsToShowOnPage.map((product) =>

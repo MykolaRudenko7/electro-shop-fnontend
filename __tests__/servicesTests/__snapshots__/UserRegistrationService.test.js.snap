@@ -1,0 +1,257 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth service should return an object with error status and message if sign-in request is incorrect 1`] = `
+{
+  "email_signIn": undefined,
+  "password_signIn": "wrongPassword",
+}
+`;
+
+exports[`Auth service should return an object with error status and message if sign-up request is incorrect 1`] = `
+{
+  "confirmPassword_newUser": "wrongPassword",
+  "email_newUser": "wrongEmail@gmail.com",
+  "mobileNumber_newUser": "+wrongNumber",
+  "name_newUser": undefined,
+  "password_newUser": "wrongPassword",
+}
+`;
+
+exports[`Auth service should return an object with success status and message if log out user request success 1`] = `
+{
+  "message": "Log out successfully",
+  "success": true,
+}
+`;
+
+exports[`Auth service should return user data after getUserInfo request successfully 1`] = `
+{
+  "data": [
+    {
+      "accessToken": undefined,
+      "message": "Log in successfully",
+      "refreshToken": undefined,
+      "success": true,
+      "user": {
+        "__v": 0,
+        "_id": undefined,
+        "activationlink": undefined,
+        "email": undefined,
+        "isActivated": false,
+        "lockUntil": null,
+        "loginAttempts": 0,
+        "mobileNumber": undefined,
+        "name": undefined,
+        "password": undefined,
+      },
+    },
+  ],
+  "status": 200,
+}
+`;
+
+exports[`Auth service should return user data after successful sign in request 1`] = `
+{
+  "data": [
+    {
+      "accessToken": undefined,
+      "message": "Log in successfully",
+      "refreshToken": undefined,
+      "success": true,
+      "user": {
+        "__v": 0,
+        "_id": undefined,
+        "activationlink": undefined,
+        "email": undefined,
+        "isActivated": false,
+        "lockUntil": null,
+        "loginAttempts": 0,
+        "mobileNumber": undefined,
+        "name": undefined,
+        "password": undefined,
+      },
+    },
+  ],
+  "status": 200,
+}
+`;
+
+exports[`Auth service should return user data after successful sign up request 1`] = `
+{
+  "data": [
+    {
+      "accessToken": undefined,
+      "message": "Log in successfully",
+      "refreshToken": undefined,
+      "success": true,
+      "user": {
+        "__v": 0,
+        "_id": undefined,
+        "activationlink": undefined,
+        "email": undefined,
+        "isActivated": false,
+        "lockUntil": null,
+        "loginAttempts": 0,
+        "mobileNumber": undefined,
+        "name": undefined,
+        "password": undefined,
+      },
+    },
+  ],
+  "status": 200,
+}
+`;
+
+exports[`Auth service should return user data and new tokens after successful refresh request 1`] = `
+{
+  "data": [
+    {
+      "accessToken": undefined,
+      "message": "Log in successfully",
+      "refreshToken": undefined,
+      "success": true,
+      "user": {
+        "__v": 0,
+        "_id": undefined,
+        "activationlink": undefined,
+        "email": undefined,
+        "isActivated": false,
+        "lockUntil": null,
+        "loginAttempts": 0,
+        "mobileNumber": undefined,
+        "name": undefined,
+        "password": undefined,
+      },
+    },
+  ],
+  "status": 200,
+}
+`;
+
+exports[`UserRegistrationService API requests should get user information successfully 1`] = `
+{
+  "data": [
+    {
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjU4MWEzMWI1ZDRiZjNiMjliMmQzZDMyIiwiYWNjZXNzIjp0cnVlLCJpYXQiOjE3MDM1OTgyODcsImV4cCI6MTcwMzU5OTE4N30.d1QyxH0Y-mxpglUBuyP0r7K6A_-LZCEvk1oqcsT5d6Y",
+      "message": "Log in successfully",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjU4MWEzMWI1ZDRiZjNiMjliMmQzZDMyIiwicmVmcmVzaCI6dHJ1ZSwiaWF0IjoxNzAzNTk4Mjg3LCJleHAiOjE3MDYxOTAyODd9.lf11OG_fQMX8NgUK9OCMTdeHZptVSgQN4xA4JqNTVfg",
+      "success": true,
+      "user": {
+        "__v": 0,
+        "_id": "6581a31b5d4bf3b29b2d3d32",
+        "activationlink": "95709b2b-d686-47ae-8933-342250ce1509",
+        "email": "m.rudenko.rb@gmail.com",
+        "isActivated": false,
+        "lockUntil": null,
+        "loginAttempts": 0,
+        "mobileNumber": "+380951970401",
+        "name": "Mykola Rudenko",
+        "password": "$2b$10$DMO2paWHwQiS24sw4t4ZUeCHTLiUR7V9pbqpfysTrazSakJgQjVSO",
+      },
+    },
+  ],
+  "status": 200,
+}
+`;
+
+exports[`UserRegistrationService API requests should handle error when sign in data incorrect 1`] = `
+{
+  "email_signIn": "wrongEmail@gmail.com",
+  "password_signIn": "wrongPassword",
+}
+`;
+
+exports[`UserRegistrationService API requests should handle error when sign up data incorrect 1`] = `
+{
+  "confirmPassword_newUser": "wrongPassword",
+  "email_newUser": "wrongEmail@gmail.com",
+  "mobileNumber_newUser": "+wrongNumber",
+  "name_newUser": "Bad Req",
+  "password_newUser": "wrongPassword",
+}
+`;
+
+exports[`UserRegistrationService API requests should log out user successfully 1`] = `
+{
+  "message": "Log out successfully",
+  "success": true,
+}
+`;
+
+exports[`UserRegistrationService API requests should sign in successfully 1`] = `
+{
+  "data": [
+    {
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjU4MWEzMWI1ZDRiZjNiMjliMmQzZDMyIiwiYWNjZXNzIjp0cnVlLCJpYXQiOjE3MDM1OTgyODcsImV4cCI6MTcwMzU5OTE4N30.d1QyxH0Y-mxpglUBuyP0r7K6A_-LZCEvk1oqcsT5d6Y",
+      "message": "Log in successfully",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjU4MWEzMWI1ZDRiZjNiMjliMmQzZDMyIiwicmVmcmVzaCI6dHJ1ZSwiaWF0IjoxNzAzNTk4Mjg3LCJleHAiOjE3MDYxOTAyODd9.lf11OG_fQMX8NgUK9OCMTdeHZptVSgQN4xA4JqNTVfg",
+      "success": true,
+      "user": {
+        "__v": 0,
+        "_id": "6581a31b5d4bf3b29b2d3d32",
+        "activationlink": "95709b2b-d686-47ae-8933-342250ce1509",
+        "email": "m.rudenko.rb@gmail.com",
+        "isActivated": false,
+        "lockUntil": null,
+        "loginAttempts": 0,
+        "mobileNumber": "+380951970401",
+        "name": "Mykola Rudenko",
+        "password": "$2b$10$DMO2paWHwQiS24sw4t4ZUeCHTLiUR7V9pbqpfysTrazSakJgQjVSO",
+      },
+    },
+  ],
+  "status": 200,
+}
+`;
+
+exports[`UserRegistrationService API requests should sign up successfully 1`] = `
+{
+  "data": [
+    {
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjU4MWEzMWI1ZDRiZjNiMjliMmQzZDMyIiwiYWNjZXNzIjp0cnVlLCJpYXQiOjE3MDM1OTgyODcsImV4cCI6MTcwMzU5OTE4N30.d1QyxH0Y-mxpglUBuyP0r7K6A_-LZCEvk1oqcsT5d6Y",
+      "message": "Log in successfully",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjU4MWEzMWI1ZDRiZjNiMjliMmQzZDMyIiwicmVmcmVzaCI6dHJ1ZSwiaWF0IjoxNzAzNTk4Mjg3LCJleHAiOjE3MDYxOTAyODd9.lf11OG_fQMX8NgUK9OCMTdeHZptVSgQN4xA4JqNTVfg",
+      "success": true,
+      "user": {
+        "__v": 0,
+        "_id": "6581a31b5d4bf3b29b2d3d32",
+        "activationlink": "95709b2b-d686-47ae-8933-342250ce1509",
+        "email": "m.rudenko.rb@gmail.com",
+        "isActivated": false,
+        "lockUntil": null,
+        "loginAttempts": 0,
+        "mobileNumber": "+380951970401",
+        "name": "Mykola Rudenko",
+        "password": "$2b$10$DMO2paWHwQiS24sw4t4ZUeCHTLiUR7V9pbqpfysTrazSakJgQjVSO",
+      },
+    },
+  ],
+  "status": 200,
+}
+`;
+
+exports[`UserRegistrationService API requests should update tokens successfully 1`] = `
+{
+  "data": [
+    {
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjU4MWEzMWI1ZDRiZjNiMjliMmQzZDMyIiwiYWNjZXNzIjp0cnVlLCJpYXQiOjE3MDM1OTgyODcsImV4cCI6MTcwMzU5OTE4N30.d1QyxH0Y-mxpglUBuyP0r7K6A_-LZCEvk1oqcsT5d6Y",
+      "message": "Log in successfully",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjU4MWEzMWI1ZDRiZjNiMjliMmQzZDMyIiwicmVmcmVzaCI6dHJ1ZSwiaWF0IjoxNzAzNTk4Mjg3LCJleHAiOjE3MDYxOTAyODd9.lf11OG_fQMX8NgUK9OCMTdeHZptVSgQN4xA4JqNTVfg",
+      "success": true,
+      "user": {
+        "__v": 0,
+        "_id": "6581a31b5d4bf3b29b2d3d32",
+        "activationlink": "95709b2b-d686-47ae-8933-342250ce1509",
+        "email": "m.rudenko.rb@gmail.com",
+        "isActivated": false,
+        "lockUntil": null,
+        "loginAttempts": 0,
+        "mobileNumber": "+380951970401",
+        "name": "Mykola Rudenko",
+        "password": "$2b$10$DMO2paWHwQiS24sw4t4ZUeCHTLiUR7V9pbqpfysTrazSakJgQjVSO",
+      },
+    },
+  ],
+  "status": 200,
+}
+`;

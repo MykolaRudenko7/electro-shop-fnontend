@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductFetchingService API requests Should fetch laptops successfully 1`] = `
+[
+  {
+    "inStock": true,
+    "name": "Laptop Mi Notebook Lite 15 I5/8/512/MX110/W (JYU4139CN)",
+    "previousPrice": 29999,
+    "price": 21499,
+    "rating": 4.3,
+    "reviewsCount": 10,
+    "slug": "mi-lite-15",
+    "url": "https://res.cloudinary.com/dqdonqby4/image/upload/v1612476949/new-products/1_hw0qj0.jpg",
+  },
+]
+`;
+
+exports[`ProductFetchingService API requests Should fetch newProducts successfully 1`] = `
+[
+  {
+    "inStock": true,
+    "name": "Laptop Mi Notebook Lite 15 I5/8/512/MX110/W (JYU4139CN)",
+    "previousPrice": 29999,
+    "price": 21499,
+    "rating": 4.3,
+    "reviewsCount": 10,
+    "slug": "mi-lite-15",
+    "url": "https://res.cloudinary.com/dqdonqby4/image/upload/v1612476949/new-products/1_hw0qj0.jpg",
+  },
+]
+`;
+
+exports[`ProductFetchingService API requests Should return laptops data on successful request 1`] = `
+[
+  {
+    "inStock": true,
+    "name": "Laptop Mi Notebook Lite 15 I5/8/512/MX110/W (JYU4139CN)",
+    "previousPrice": 29999,
+    "price": 21499,
+    "rating": 4.3,
+    "reviewsCount": 10,
+    "slug": "mi-lite-15",
+    "url": "https://res.cloudinary.com/dqdonqby4/image/upload/v1612476949/new-products/1_hw0qj0.jpg",
+  },
+]
+`;
+
+exports[`ProductFetchingService API requests Should return new products data on successful request 1`] = `
+[
+  {
+    "inStock": true,
+    "name": "Laptop Mi Notebook Lite 15 I5/8/512/MX110/W (JYU4139CN)",
+    "previousPrice": 29999,
+    "price": 21499,
+    "rating": 4.3,
+    "reviewsCount": 10,
+    "slug": "mi-lite-15",
+    "url": "https://res.cloudinary.com/dqdonqby4/image/upload/v1612476949/new-products/1_hw0qj0.jpg",
+  },
+]
+`;

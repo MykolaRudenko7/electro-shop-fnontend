@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useForm, Controller } from 'react-hook-form'
 import PhoneInput from 'react-phone-number-input'
 import { AxiosError } from 'axios'
-import { redirectEndpoints } from 'data/shared/redirectEndpoints'
+import { apiEndpoints } from 'data/shared/apiEndpoints'
 import { validationFormRules } from 'utils/validationFormRules'
 import { generateRegistrationInputFields } from 'utils/getInputFields'
 import UserRegistrationService from 'services/userRegistrationService'
@@ -20,7 +20,7 @@ export default function SignUpForm({ isFormSubmitted, setIsFormSubmitted, closeD
   const { setUser } = useAuthContext()
 
   const router = useRouter()
-  const { profileUrl } = redirectEndpoints
+  const { profilePageURL } = apiEndpoints
 
   const {
     register,
@@ -48,7 +48,7 @@ export default function SignUpForm({ isFormSubmitted, setIsFormSubmitted, closeD
         reset()
         setSubmitErrorDetails('')
         setUser(apiResponse.data.user)
-        router.push(profileUrl)
+        router.push(profilePageURL)
       }
     } catch (error) {
       if (error instanceof AxiosError) {
@@ -62,6 +62,7 @@ export default function SignUpForm({ isFormSubmitted, setIsFormSubmitted, closeD
   return (
     <form
       className={styles.form}
+      data-test-id="signUpForm"
       id={formNewUserId}
       method="POST"
       onSubmit={handleSubmit(onFormSubmit)}
@@ -120,7 +121,9 @@ export default function SignUpForm({ isFormSubmitted, setIsFormSubmitted, closeD
           </div>
           <div className={styles.statusMessages}>
             {submitErrorDetails && (
-              <p className={styles.submitMessageError}>{submitErrorDetails}</p>
+              <p className={styles.submitMessageError} data-test-id="signUpErrorMessage">
+                {submitErrorDetails}
+              </p>
             )}
           </div>
         </>

@@ -1,4 +1,4 @@
-import { axiosInstance } from 'axios/mainInstances'
+import { axiosInstance } from 'axiosInstances/mainInstances'
 
 const { LAPTOPS_ENDPOINT, NEW_PRODUCTS_ENDPOINT } = process.env
 

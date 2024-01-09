@@ -1,4 +1,4 @@
-import { axiosInstance } from 'axios/mainInstances'
+import { axiosInstance } from 'axiosInstances/mainInstances'
 
 const signUpUrl = process.env.NEXT_PUBLIC_SIGN_UP_ENDPOINT
 const signInUrl = process.env.NEXT_PUBLIC_SIGN_IN_ENDPOINT

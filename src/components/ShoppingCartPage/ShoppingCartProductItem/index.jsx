@@ -13,7 +13,7 @@ const ShoppingCartProductItem = observer(({ url, name, price, slug }) => {
   const productQuantity = productsQuantities[slug]
 
   return (
-    <div className={styles.shoppingCartProductItem}>
+    <div className={styles.shoppingCartProductItem} data-test-id="shoppingCartProductItem">
       <div className={styles.wrapper}>
         <div className={styles.description}>
           <div className={styles.productImageWrapper}>

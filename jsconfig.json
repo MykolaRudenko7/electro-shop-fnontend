@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "paths": {
-      "*": ["./src/*"],
-      "@/ProductChoiceSection/*": ["./src/components/AboutProductPage/ProductChoiceSection/*"],
-      "@/FilterBlock/*": ["./src/components/CatalogProductsPage/FilterBlock/*"],
+      "@/*": ["./*"],
+      "@/ProductChoiceSection/*": ["components/AboutProductPage/ProductChoiceSection/*"],
+      "@/FilterBlock/*": ["components/CatalogProductsPage/FilterBlock/*"],
       "@/SelectedSidebarFilters/*": [
-        "./src/components/CatalogProductsPage/FilterBlock/SelectedSidebarFilters/*"
+        "components/CatalogProductsPage/FilterBlock/SelectedSidebarFilters/*"
       ],
-      "@/OrderSummary/*": ["./src/components/ShoppingCartPage/OrderSummary/*"]
+      "@/OrderSummary/*": ["components/ShoppingCartPage/OrderSummary/*"]
     }
-  }
+  },
+  "include": ["src"]
 }

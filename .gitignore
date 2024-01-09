@@ -28,3 +28,7 @@ next-env.d.ts
 # generate-react-cli
 generate-react-cli.json
 /templates
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

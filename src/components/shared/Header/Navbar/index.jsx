@@ -68,6 +68,7 @@ const Navbar = observer(() => {
             [styles.open]: isNavbarMenuOpen,
             [styles.hidden]: isProductSearchInputOpen,
           })}
+          data-test-id="navbarMenu"
           ref={navbarMenuRef}
         >
           {navbarLinks.map((link) => (
@@ -80,7 +81,7 @@ const Navbar = observer(() => {
           isProductSearchInputOpen={isProductSearchInputOpen}
           setIsProductSearchInputOpen={setIsProductSearchInputOpen}
         />
-        <Link className={styles.leftComponentLink} href="/shopping-cart">
+        <Link aria-label="cart" className={styles.leftComponentLink} href="/shopping-cart">
           {totalQuantityOfAddedProducts > 0 && (
             <span className={styles.countProductsInCart}>{totalQuantityOfAddedProducts}</span>
           )}

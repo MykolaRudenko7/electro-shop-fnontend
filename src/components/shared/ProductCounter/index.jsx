@@ -8,7 +8,9 @@ import styles from 'components/shared/ProductCounter/ProductCounter.module.scss'
 const ProductCounter = observer(({ productQuantity, price, slug }) => (
   <div className={styles.leftBlock}>
     <div className={styles.counter}>
-      <div className={styles.quantity}>{productQuantity}</div>
+      <div className={styles.quantity} data-test-id="productQuantityCounter">
+        {productQuantity}
+      </div>
       <div className={styles.controlButtonsWrapper}>
         <button
           aria-label="increase product quantity"

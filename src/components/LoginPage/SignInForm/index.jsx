@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useId, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { AxiosError } from 'axios'
-import { redirectEndpoints } from 'data/shared/redirectEndpoints'
+import { apiEndpoints } from 'data/shared/apiEndpoints'
 import UserRegistrationService from 'services/userRegistrationService'
 import { generateSignInInputFields } from 'utils/getInputFields'
 import { useAuthContext } from 'hooks/useAuthContext'
@@ -19,7 +19,7 @@ export default function SignInForm() {
   const { setUser } = useAuthContext()
 
   const router = useRouter()
-  const { profileUrl } = redirectEndpoints
+  const { profilePageURL } = apiEndpoints
 
   const {
     register,
@@ -42,7 +42,7 @@ export default function SignInForm() {
         reset()
         setSubmitErrorDetails('')
         setUser(apiResponse.data.user)
-        router.push(profileUrl)
+        router.push(profilePageURL)
       }
     } catch (error) {
       if (error instanceof AxiosError) {
@@ -67,6 +67,7 @@ export default function SignInForm() {
         ) : (
           <form
             className={styles.form}
+            data-test-id="signInForm"
             id={signInFormId}
             method="POST"
             onSubmit={handleSubmit(onFormSubmit)}
@@ -78,7 +79,7 @@ export default function SignInForm() {
               <button
                 aria-label="sign input"
                 className={styles.submitButton}
-                disabled={isLoading || isAccountLocked}
+                disabled={isAccountLocked}
                 form={signInFormId}
                 tabIndex="0"
                 type="submit"
@@ -96,7 +97,10 @@ export default function SignInForm() {
               </Link>
             </div>
             {submitErrorDetails && (
-              <p className={styles.submitMessageError}>{submitErrorDetails}</p>
+              <p className={styles.submitMessageError} data-test-id="signInErrorMessage">
+                {' '}
+                {submitErrorDetails}
+              </p>
             )}
           </form>
         )}

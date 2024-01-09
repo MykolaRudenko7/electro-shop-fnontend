@@ -1,9 +1,7 @@
 import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
-import { redirectEndpoints } from 'data/shared/redirectEndpoints'
 
-const { loginUrl, profileUrl } = redirectEndpoints
-const { API_BASE_URL, REFRESH_ENDPOINT } = process.env
+const { API_BASE_URL, REFRESH_ENDPOINT, LOGIN_PAGE_ENDPOINT, PROFILE_PAGE_URL } = process.env
 const refreshTokenUrl = `${API_BASE_URL}${REFRESH_ENDPOINT}`
 
 export default async function middleware(req, res) {
@@ -25,19 +23,19 @@ export default async function middleware(req, res) {
       }).then((res) => res.json())
 
       if (fetchResponse.success) {
-        const responseWithCookies = NextResponse.redirect(new URL(profileUrl, req.url))
+        const responseWithCookies = NextResponse.redirect(new URL(PROFILE_PAGE_URL, req.url))
         responseWithCookies.cookies.set('accessToken', fetchResponse.accessToken)
         responseWithCookies.cookies.set('refreshToken', fetchResponse.refreshToken)
 
         return responseWithCookies
       }
     } catch (error) {
-      return NextResponse.redirect(new URL(loginUrl, req.url))
+      return NextResponse.redirect(new URL(LOGIN_PAGE_ENDPOINT, req.url))
     }
   }
 
   if (!accessToken && !refreshToken) {
-    return NextResponse.redirect(new URL(loginUrl, req.url))
+    return NextResponse.redirect(new URL(LOGIN_PAGE_ENDPOINT, req.url))
   }
 
   return NextResponse.next()

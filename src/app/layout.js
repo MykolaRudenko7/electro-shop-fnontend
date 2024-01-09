@@ -1,3 +1,4 @@
+import { Poppins } from 'next/font/google'
 import Footer from 'components/shared/Footer'
 import Header from 'components/shared/Header'
 import AuthContextProvider from 'providers/AuthContextProvider'
@@ -9,9 +10,15 @@ export const metadata = {
   description: 'Tech online store',
 }
 
+const poppins = Poppins({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html className={poppins.className} lang="en">
       <AuthContextProvider>
         <body>
           <Header />
