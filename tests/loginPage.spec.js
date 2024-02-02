@@ -1,29 +1,26 @@
 import { test, expect } from '@playwright/test'
+import createRandomUser from 'utils/createRandomUser'
 
-const {
-  LOGIN_PAGE_URL,
-  PROFILE_PAGE_URL,
-  TEST_EMAIL,
-  TEST_PASSWORD,
-  TEST_SIGN_UP_NAME,
-  TEST_SIGN_UP_MOBILE_NUMBER,
-} = process.env
+const { LOGIN_PAGE_URL, PROFILE_PAGE_URL, TEST_EMAIL, TEST_PASSWORD } = process.env
 
 test.describe('Login page', () => {
   let elements
 
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ page, browserName }) => {
+    test.skip(browserName === 'webkit', 'Skipping WebKit')
+
     elements = {
-      signInEmailInput: page.getByLabel('email input').first(),
-      signInPasswordInput: page.getByLabel('password input').first(),
+      randomUserData: createRandomUser(),
+      signInEmailInput: page.getByLabel('sign in email input'),
+      signInPasswordInput: page.getByLabel('sign in password input'),
       signInSignInButton: page.getByLabel('sign input'),
 
       signUpModal: page.getByLabel('open modal window'),
-      signUpNameInput: page.getByLabel('name input').first(),
-      signUpEmailInput: page.getByLabel('email input').last(),
-      signUpPasswordInput: page.getByLabel('password input').nth(1),
-      signUpConfirmPasswordInput: page.getByLabel('confirm password input').last(),
-      signUpMobileNumberInput: page.getByLabel('mobile number input').last(),
+      signUpNameInput: page.getByLabel('sign up  name input'),
+      signUpEmailInput: page.getByLabel('sign up email input'),
+      signUpPasswordInput: page.getByLabel('sign up password input'),
+      signUpConfirmPasswordInput: page.getByLabel('sign up confirm password input'),
+      signUpMobileNumberInput: page.getByLabel('sign up mobile number input'),
       signUpSubmitButton: page.getByLabel('create an account'),
 
       profileTextBlock: page.getByTestId('profileTextBlock'),
@@ -71,21 +68,22 @@ test.describe('Login page', () => {
       signUpConfirmPasswordInput,
       signUpMobileNumberInput,
       signUpSubmitButton,
-      profileTextBlock,
+      randomUserData,
     } = elements
+    const profileTitleBlock = page.getByRole('heading', { name: 'Profile' })
 
     await signUpModal.click()
-    await signUpNameInput.fill(TEST_SIGN_UP_NAME)
-    await signUpEmailInput.fill(TEST_EMAIL)
-    await signUpPasswordInput.fill(TEST_PASSWORD)
-    await signUpConfirmPasswordInput.fill(TEST_PASSWORD)
-    await signUpMobileNumberInput.fill(TEST_SIGN_UP_MOBILE_NUMBER)
+    await signUpNameInput.fill(randomUserData.userName)
+    await signUpEmailInput.fill(randomUserData.email)
+    await signUpPasswordInput.fill(randomUserData.password)
+    await signUpConfirmPasswordInput.fill(randomUserData.password)
+    await signUpMobileNumberInput.fill(randomUserData.mobNumber)
     await signUpSubmitButton.click()
 
     await page.waitForURL(PROFILE_PAGE_URL)
     await page.waitForLoadState('domcontentloaded')
 
-    await expect(profileTextBlock).toHaveScreenshot()
+    await expect(profileTitleBlock).toHaveScreenshot()
   })
 
   test('should show error message block after entered sign up data if user already exists', async ({

@@ -1,4 +1,4 @@
-import sliderPicture from 'images/AboutPage/Productchoice/productSlider.png'
+import sliderPicture from 'images/AboutPage/ProductChoice/productSlider.png'
 
 export const linksProductChoiceData = [
   { label: 'Home', href: '#' },

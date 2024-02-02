@@ -27,3 +27,9 @@
 .newProductsLink:hover {
   text-decoration: underline;
 }
+
+.errorMessage {
+  font-weight: $boldFontWeight;
+  font-size: $tabletTitleFontSize;
+  padding: 3rem;
+}

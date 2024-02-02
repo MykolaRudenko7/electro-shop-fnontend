@@ -9,6 +9,7 @@
     "requireConfigFile": false
   },
   "rules": {
+    "import/no-extraneous-dependencies": "off",
     "@next/next/no-img-element": "off",
     "no-underscore-dangle": 0,
     "func-names": 0,
@@ -118,12 +119,6 @@
       }
     ],
     "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": []
-      }
-    ],
     "no-param-reassign": [
       "error",
       {

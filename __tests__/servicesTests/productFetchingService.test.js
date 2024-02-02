@@ -5,18 +5,12 @@ import { productFetchingServiceMock } from '__mocks__/productFetchingServiceMock
 const { productsSuccessResponse, laptopsErrorResponse, newProductsErrorResponse } =
   productFetchingServiceMock
 
-jest.mock('axios', () => {
-  return {
-    get: jest.fn(),
-    create: jest.fn(() => axios),
-  }
-})
+jest.mock('axios', () => ({
+  get: jest.fn(),
+  create: jest.fn(() => axios),
+}))
 
 describe('ProductFetchingService API requests', () => {
-  beforeAll(() => {
-    productsSuccessResponse
-  })
-
   it('Should return laptops data on successful request', async () => {
     axios.get = jest.fn().mockResolvedValue(productsSuccessResponse)
 

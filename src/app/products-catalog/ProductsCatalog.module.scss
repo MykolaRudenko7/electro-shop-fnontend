@@ -31,3 +31,9 @@
 .titleProducts {
   @extend %pageTitle;
 }
+
+.errorMessage {
+  font-weight: $boldFontWeight;
+  font-size: $tabletTitleFontSize;
+  padding: 3rem;
+}

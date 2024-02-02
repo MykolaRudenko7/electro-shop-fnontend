@@ -4,14 +4,22 @@ const { LAPTOPS_ENDPOINT, NEW_PRODUCTS_ENDPOINT } = process.env
 
 export default class ProductsService {
   static async fetchLaptops() {
-    const response = await axiosInstance.get(LAPTOPS_ENDPOINT)
+    try {
+      const response = await axiosInstance.get(LAPTOPS_ENDPOINT)
 
-    return response.data
+      return response.data
+    } catch (error) {
+      return null
+    }
   }
 
   static async fetchNewProducts() {
-    const response = await axiosInstance.get(NEW_PRODUCTS_ENDPOINT)
+    try {
+      const response = await axiosInstance.get(NEW_PRODUCTS_ENDPOINT)
 
-    return response.data
+      return response.data
+    } catch (error) {
+      return null
+    }
   }
 }
