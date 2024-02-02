@@ -83,7 +83,7 @@ export default function SignUpForm({ isFormSubmitted, setIsFormSubmitted, closeD
               name="mobileNumber_newUser"
               render={({ field: { onChange, value } }) => (
                 <PhoneInput
-                  aria-label="mobile number input"
+                  aria-label="sign up mobile number input"
                   autoComplete="off"
                   className={styles.input}
                   defaultCountry="UA"

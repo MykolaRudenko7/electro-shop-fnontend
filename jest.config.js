@@ -3,9 +3,11 @@ const nextJest = require('next/jest')
 /** @type {import('jest').Config} */
 const createJestConfig = nextJest({
   dir: './',
+  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
 })
 
 const config = {
+  testPathIgnorePatterns: ['<rootDir>/test'],
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],

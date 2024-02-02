@@ -4,8 +4,14 @@ import dotenv from 'dotenv'
 dotenv.config({ path: '.env.local' })
 const baseClientUrl = process.env.CLIENT_BASE_URL
 
-module.exports = defineConfig({
+export default defineConfig({
   testDir: './tests',
+  expect: {
+    toMatchSnapshot: {
+      threshold: 0.3,
+      maxDiffPixelRatio: 0.2,
+    },
+  },
   snapshotPathTemplate: 'screenshots/{testFilePath}/{testName}/{projectName}.png',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,

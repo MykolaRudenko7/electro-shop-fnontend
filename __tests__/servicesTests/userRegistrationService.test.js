@@ -15,13 +15,11 @@ const {
   badSignUpUserRequest,
 } = userRegistrationServiceMock
 
-jest.mock('axios', () => {
-  return {
-    create: jest.fn(() => axios),
-    post: jest.fn(() => Promise.resolve()),
-    get: jest.fn(() => Promise.resolve()),
-  }
-})
+jest.mock('axios', () => ({
+  create: jest.fn(() => axios),
+  post: jest.fn(() => Promise.resolve()),
+  get: jest.fn(() => Promise.resolve()),
+}))
 
 describe('Auth service', () => {
   it('should return user data after successful sign in request', async () => {

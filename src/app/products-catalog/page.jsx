@@ -33,15 +33,21 @@ export default async function ProductsCatalogPage() {
             />
           </Link>
         </div>
-        <ul className={styles.linksWrapper}>
-          {filtersCategoryLinks.map((link) => (
-            <NavigationLink key={uuidv4()} {...link} />
-          ))}
-        </ul>
-        <h2 className={styles.titleProducts}>MSI PS Series</h2>
-        <Suspense fallback={<Loading />}>
-          <ProductsSectionWrapper laptops={laptops} />
-        </Suspense>
+        {laptops ? (
+          <>
+            <ul className={styles.linksWrapper}>
+              {filtersCategoryLinks.map((link) => (
+                <NavigationLink key={uuidv4()} {...link} />
+              ))}
+            </ul>
+            <h2 className={styles.titleProducts}>MSI PS Series</h2>
+            <Suspense fallback={<Loading />}>
+              <ProductsSectionWrapper laptops={laptops} />
+            </Suspense>
+          </>
+        ) : (
+          <p className={styles.errorMessage}>Sorry something went wrong...</p>
+        )}
       </div>
     </div>
   )

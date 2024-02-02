@@ -32,11 +32,15 @@ export default function NewProductsSection({ newProducts }) {
             </Link>
           </div>
           <div className={styles.sliderContainer}>
-            <AliceCarousel
-              items={carouselItems}
-              {...newProductsSliderOptions}
-              responsive={responsive}
-            />
+            {newProducts && newProducts.length > 0 ? (
+              <AliceCarousel
+                items={carouselItems}
+                {...newProductsSliderOptions}
+                responsive={responsive}
+              />
+            ) : (
+              <p className={styles.errorMessage}>Sorry something went wrong...</p>
+            )}
           </div>
         </div>
       )}

@@ -25,7 +25,7 @@ test.describe('Home page', () => {
 
   test('should go to products catalog page after clicking the laptops link', async ({ page }) => {
     test.slow()
-    await laptopsLink.click()
+    await laptopsLink.dblclick()
     await page.waitForURL(PRODUCTS_CATALOG_URL)
     await page.waitForLoadState('domcontentloaded')
 
