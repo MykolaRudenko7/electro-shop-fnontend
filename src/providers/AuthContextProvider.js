@@ -4,7 +4,7 @@ import { memo, useEffect, useState } from 'react'
 import { AuthContext } from 'context/AuthContext'
 import UserRegistrationService from 'services/userRegistrationService'
 
-const AuthContextProvider = ({ children }) => {
+function AuthContextProvider({ children }) {
   const [user, setUser] = useState(null)
 
   const getProfile = async () => {
