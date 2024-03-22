@@ -4,7 +4,7 @@
   gap: 1.3rem;
   font-size: 1.4rem;
 
-  @include onTablet() {
+  @include onTablet {
     font-size: 1.3rem;
     gap: 0.7rem;
   }
@@ -13,17 +13,21 @@
 .buttonAddToCart {
   font-size: $buttonTextTablet;
   padding: 1.4rem 3.9rem;
+
   @extend %blueButton;
-  @include onTablet() {
+
+  @include onTablet {
     padding: 0.8rem 3.1rem;
   }
-  @include onPhone() {
+
+  @include onPhone {
     padding: 0.8rem 1.8rem;
   }
 }
 
 .buttonPayPal {
   @extend %transparentTap;
+
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -36,10 +40,11 @@
     transform: translateY(0.1rem);
   }
 
-  @include onTablet() {
+  @include onTablet {
     padding: 1.1rem 3.1rem;
   }
-  @include onPhone() {
+
+  @include onPhone {
     padding: 1.1rem 1.8rem;
   }
 }

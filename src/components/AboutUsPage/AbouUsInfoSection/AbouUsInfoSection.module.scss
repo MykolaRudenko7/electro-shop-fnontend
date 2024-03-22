@@ -1,16 +1,3 @@
-.container {
-  padding: 3.9rem 3.3rem 4.8rem 4.9rem;
-}
-
-.container:nth-child(odd) {
-  background-color: $mainBlackColor;
-  color: $mainWhiteColor;
-}
-
-.container:nth-child(even) .infoBlock {
-  flex-direction: row-reverse;
-}
-
 .infoBlock {
   display: flex;
   justify-content: space-between;
@@ -18,6 +5,19 @@
   max-width: 116rem;
   margin: 0 auto;
   height: 68rem;
+}
+
+.container {
+  padding: 3.9rem 3.3rem 4.8rem 4.9rem;
+
+  &:nth-child(odd) {
+    background-color: $mainBlackColor;
+    color: $mainWhiteColor;
+  }
+
+  &:nth-child(even) .infoBlock {
+    flex-direction: row-reverse;
+  }
 }
 
 .imageContainer {
@@ -36,7 +36,7 @@
 .header {
   font-size: 4.4rem;
   font-weight: $mediumFontWeight;
-  margin-bottom: 0.72em;
+  margin-bottom: 0.72rem;
 }
 
 .paragraph {
@@ -44,10 +44,15 @@
   line-height: 2.6rem;
   max-width: 43.6rem;
   font-weight: $lightFontWeight;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 @include onSmallTablet {
+  .badge {
+    width: 3rem;
+    height: 100%;
+  }
+
   .container:nth-child(2) .badge {
     width: 5.2rem;
   }
@@ -69,14 +74,18 @@
     font-size: 1.4rem;
     line-height: 2rem;
   }
-
-  .badge {
-    width: 3rem;
-    height: 100%;
-  }
 }
 
 @include onSmallPhone {
+  .infoBlock {
+    padding: 0;
+    flex-direction: column-reverse;
+  }
+
+  .infoBlockImage:first-of-type {
+    height: 18.6rem;
+  }
+
   .container {
     padding: 0;
 
@@ -99,16 +108,7 @@
     }
   }
 
-  .infoBlock {
-    padding: 0;
-    flex-direction: column-reverse;
-  }
-
   .summary {
     padding: 0.4rem 1.6rem 2.6rem 3.3rem;
-  }
-
-  .infoBlockImage:nth-of-type(1) {
-    height: 18.6rem;
   }
 }

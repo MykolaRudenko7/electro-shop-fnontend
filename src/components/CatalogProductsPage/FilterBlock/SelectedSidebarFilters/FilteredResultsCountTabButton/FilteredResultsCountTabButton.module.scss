@@ -4,6 +4,7 @@
   align-items: center;
   gap: 0.5rem;
   white-space: nowrap;
+
   @extend %filtersPanelButton;
 }
 
@@ -12,11 +13,12 @@
 }
 
 .selectedFiltersButtonDelete {
-  font-weight: $lightFontWeight;
   @extend %flexCenter;
+
+  font-weight: $lightFontWeight;
   color: $mainWhiteColor;
-  width: 20px;
-  height: 20px;
+  width: 0.2rem;
+  height: 0.2rem;
   border-radius: 100%;
   background-color: $deleteButtonColor;
   transition: $transitionSetEase;

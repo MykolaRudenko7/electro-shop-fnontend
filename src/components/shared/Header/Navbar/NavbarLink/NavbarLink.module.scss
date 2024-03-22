@@ -1,12 +1,13 @@
 .navbarLinkWrapper {
   @extend %flexCenter;
 
-  @include onTablet() {
+  @include onTablet {
     &::before {
       position: absolute;
       content: '>';
       right: 2.7rem;
-      @include onSmallPhone() {
+
+      @include onSmallPhone {
         display: none;
       }
     }
@@ -24,17 +25,19 @@
     transform: scale(1.03);
   }
 
-  @include onTablet() {
+  @include onTablet {
     font-size: 2.4rem;
     font-weight: $regularFontWeight;
     position: relative;
   }
-  @include onPhone() {
+
+  @include onPhone {
     font-size: 1.4rem;
     font-weight: $regularFontWeight;
     position: relative;
   }
-  @include onSmallPhone() {
+
+  @include onSmallPhone {
     font-size: 1.2rem;
     font-weight: $regularFontWeight;
     position: relative;

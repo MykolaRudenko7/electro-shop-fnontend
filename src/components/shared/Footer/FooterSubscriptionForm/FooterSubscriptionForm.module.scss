@@ -3,7 +3,7 @@
   align-items: center;
   gap: 2.3rem;
 
-  @include onTablet() {
+  @include onTablet {
     gap: 1rem;
   }
 }
@@ -28,22 +28,24 @@
     border: 0.2rem solid $mainBlueColor;
   }
 
-  @include onDesktop() {
+  @include onDesktop {
     width: 25rem;
   }
 
-  @include onTablet() {
+  @include onTablet {
     width: 18.6rem;
-    padding: 1rem 1rem;
+    padding: 1rem;
   }
-  @include onSmallPhone() {
+
+  @include onSmallPhone {
     width: 14rem;
   }
 }
 
 .buttonSubscribe {
   @extend %blueButton;
-  @include onSmallPhone() {
+
+  @include onSmallPhone {
     padding: 1rem 2rem;
     font-size: 1.2rem;
   }

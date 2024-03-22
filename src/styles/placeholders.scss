@@ -7,6 +7,7 @@
 
 %universalLink {
   @extend %transparentTap;
+
   font-size: $accordionTitleTablet;
   color: $mainBlackColor;
   text-decoration: none;
@@ -38,6 +39,7 @@
 
 %underlineLinkHoverEffect {
   @extend %transparentTap;
+
   position: relative;
   cursor: pointer;
   transition: $transitionSetEase;
@@ -76,7 +78,7 @@
 
 %wrapperFilterBlock {
   background-color: $sliderBackgroundColor;
-  padding: 0 1rem 1.7rem 1rem;
+  padding: 0 1rem 1.7rem;
 }
 
 %subtitleFilterText {
@@ -88,6 +90,7 @@
 
 %titleFilterCategory {
   @extend %transparentTap;
+
   font-size: $shoppingCartCategoryDesktopSize;
   color: $mainBlackColor;
   font-weight: $semiBoldFontWeight;
@@ -124,7 +127,8 @@
     top: 0;
     left: 0;
   }
-  @include onTablet() {
+
+  @include onTablet {
     width: 0.9rem;
     height: 0.9rem;
   }
@@ -132,6 +136,7 @@
 
 %inStockElementProductCard {
   @extend %transparentTap;
+
   white-space: nowrap;
   padding: 0.7rem 0.5rem 0.7rem 2.7rem;
   color: $deleteButtonColor;
@@ -161,7 +166,7 @@
   padding-bottom: 2rem;
   font-size: $desktopTitleFontSize;
 
-  @include onTablet() {
+  @include onTablet {
     padding-bottom: 1.3rem;
     font-size: $tabletTitleFontSize;
   }
@@ -173,7 +178,7 @@
   font-size: $shoppingCartCategoryDesktopSize;
   font-weight: $semiBoldFontWeight;
 
-  @include onTablet() {
+  @include onTablet {
     font-size: $shoppingCartCategoryTabletSize;
   }
 }
@@ -182,7 +187,7 @@
   font-size: $paymentFormTitleDesktopSize;
   font-weight: $semiBoldFontWeight;
 
-  @include onTablet() {
+  @include onTablet {
     font-size: $shoppingCartCategoryDesktopSize;
   }
 }
@@ -194,7 +199,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @include onTablet() {
+
+  @include onTablet {
     font-size: $accordionTitleTablet;
   }
 }
@@ -202,7 +208,8 @@
 %accordionTitle {
   text-align: left;
   font-size: $tabletTitleFontSize;
-  @include onTablet() {
+
+  @include onTablet {
     font-size: $accordionTitleTablet;
   }
 }
@@ -213,7 +220,7 @@
   font-weight: $semiBoldFontWeight;
   line-height: 1.45rem;
 
-  @include onTablet() {
+  @include onTablet {
     color: $mainBlackColor;
     font-size: $inStockElementProductCard;
   }
@@ -229,7 +236,7 @@
   border: 0.2rem solid $activeLinkColor;
   background-color: $mainWhiteColor;
 
-  @include onTablet() {
+  @include onTablet {
     padding: 1.1rem 1.3rem;
     font-size: $shoppingCartCategoryTabletSize;
   }
@@ -247,7 +254,7 @@
   flex-direction: column;
   gap: 1rem;
 
-  @include onTablet() {
+  @include onTablet {
     padding-top: 1.3rem;
     padding-bottom: 1.3rem;
   }
@@ -255,6 +262,7 @@
 
 %countOfProduct {
   @extend %flexCenter;
+
   color: $mainWhiteColor;
   background-color: $mainBlueColor;
   border-radius: 50%;
@@ -262,7 +270,7 @@
   height: 1.75rem;
   font-size: $shoppingCartCategoryDesktopSize;
 
-  @include onTablet() {
+  @include onTablet {
     font-size: $shoppingCartCategoryTabletSize;
   }
 }

@@ -17,18 +17,19 @@
   gap: 1rem;
   width: 100%;
 
-  @include onPhone() {
+  @include onPhone {
     gap: 0;
   }
 }
 
 .filtersWrapper {
   @extend %flexCenter;
+
   flex-direction: column;
   background-color: $sliderBackgroundColor;
   padding: 2rem 1rem;
 
-  @include onPhone() {
+  @include onPhone {
     padding: 2rem;
     background-color: $mainWhiteColor;
   }
@@ -46,7 +47,7 @@
 .title {
   @extend %filtersTitle;
 
-  @include onPhone() {
+  @include onPhone {
     text-align: left;
     padding-bottom: 1.6rem;
     border-bottom: 0.2rem solid $activeLinkColor;
@@ -55,24 +56,26 @@
 
 .clearFiltersButton {
   @extend %clearFilterBlockButton;
+
   margin-top: 1.6rem;
 }
 
 .applyFiltersButton {
   margin-top: 1rem;
+
   @extend %blueButton;
 }
 
 .brandsWrapper {
   background-color: $sliderBackgroundColor;
 
-  @include onPhone() {
+  @include onPhone {
     background-color: $mainWhiteColor;
   }
 }
 
 .brandsHeader {
-  padding: 0 1rem 1.7rem 1rem;
+  padding: 0 1rem 1.7rem;
 }
 
 .brandsTitle {
@@ -93,7 +96,7 @@
 .selectedList {
   @extend %wrapperFilterBlock;
 
-  @include onPhone() {
+  @include onPhone {
     display: none;
   }
 }
@@ -104,22 +107,25 @@
 
 .listSubtitle {
   @extend %subtitleFilterText;
+
   margin-bottom: 1rem;
   text-align: left;
 }
 
 .listNoItems {
   @extend %subtitleFilterText;
+
   text-align: center;
 }
 
 .resetListButton {
   @extend %clearFilterBlockButton;
+
   padding: 0.5rem 0;
 }
 
 .advertisingImageWrapper {
-  @include onPhone() {
+  @include onPhone {
     display: none;
   }
 }

@@ -4,18 +4,21 @@
   gap: 2rem;
   background-color: $productChoiceBlockBackgroundColor;
   padding: 4rem 6rem;
-  @include onTablet() {
+
+  @include onTablet {
     padding: 2rem;
   }
 }
 
 .title {
   @extend %accordionTitle;
+
   font-weight: $semiBoldFontWeight;
 }
 
 .creatingList {
   padding: 1rem 0;
+
   @extend %accordionTitle;
 }
 
@@ -29,7 +32,8 @@
   display: flex;
   align-items: center;
   gap: 2rem;
-  @include onSmallTablet() {
+
+  @include onSmallTablet {
     gap: 1.3rem;
   }
 }

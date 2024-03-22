@@ -1,32 +1,5 @@
-.popoverContainer {
-  position: relative;
-  display: inline-block;
-
-  &:hover {
-    .popoverContent {
-      display: block;
-    }
-    .popoverTriggerImage {
-      rotate: 180deg;
-      transform: translateY(10%);
-    }
-  }
-}
-
 .popoverTriggerImage {
   transition: $transitionSetEase;
-}
-
-.popoverTrigger {
-  @extend %flexCenter;
-  color: $activeLinkColor;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.popoverTriggerTextColor {
-  color: $mainWhiteColor;
 }
 
 .popoverContent {
@@ -39,6 +12,35 @@
   z-index: 3;
 }
 
+.popoverContainer {
+  position: relative;
+  display: inline-block;
+
+  &:hover {
+    .popoverContent {
+      display: block;
+    }
+
+    .popoverTriggerImage {
+      transform: rotate(180deg);
+      transform: translateY(10%);
+    }
+  }
+}
+
+.popoverTrigger {
+  @extend %flexCenter;
+
+  color: $activeLinkColor;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.popoverTriggerTextColor {
+  color: $mainWhiteColor;
+}
+
 .time {
   display: flex;
   gap: 0.7rem;
@@ -47,6 +49,7 @@
 
   &__picture {
     @extend %flexCenter;
+
     flex-shrink: 0;
     width: 3.5rem;
     height: 3.5rem;
@@ -88,6 +91,7 @@
 
   &__picture {
     @extend %flexCenter;
+
     flex-shrink: 0;
     width: 3.5rem;
     height: 3.5rem;

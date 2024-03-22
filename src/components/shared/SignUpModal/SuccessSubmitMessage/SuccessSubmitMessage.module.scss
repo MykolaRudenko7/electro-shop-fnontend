@@ -1,13 +1,17 @@
 .successMessage {
   text-align: center;
+
   @extend %pageTitle;
+
   margin-bottom: 0.5rem;
 }
 
 .cancelButton {
   width: 100%;
+
   @extend %yellowButton;
 }
+
 .successMessageSpan {
   display: block;
 }

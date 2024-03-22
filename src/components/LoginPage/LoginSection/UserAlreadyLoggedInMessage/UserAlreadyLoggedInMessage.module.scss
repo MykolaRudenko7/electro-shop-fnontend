@@ -1,5 +1,6 @@
 .loggedMessage {
   @extend %flexCenter;
+
   flex-direction: column;
 }
 
@@ -9,10 +10,12 @@
 
 .text {
   @extend %paymentFormTitle;
+
   margin-bottom: 1rem;
 }
 
 .profileLink {
   color: $mainBlueColor;
+
   @extend %underlineLinkHoverEffect;
 }

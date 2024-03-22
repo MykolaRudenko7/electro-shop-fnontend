@@ -1,9 +1,11 @@
 .paymentForm {
   width: 32%;
-  @include onTablet() {
+
+  @include onTablet {
     width: 45%;
   }
-  @include onPhone() {
+
+  @include onPhone {
     width: 100%;
   }
 }
@@ -12,7 +14,8 @@
   width: 100%;
   background-color: $productChoiceBlockBackgroundColor;
   padding: 1.7rem 3rem;
-  @include onTablet() {
+
+  @include onTablet {
     padding: 1.7rem 1.5rem;
   }
 }
@@ -20,9 +23,11 @@
 .title {
   @extend %paymentFormTitle;
 }
+
 .priceList {
   padding: 1rem 0;
 }
+
 .price {
   @extend %paymentPrice;
 }
@@ -47,6 +52,7 @@
 
 .checkOutWithPayPal {
   @extend %yellowButton;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,12 +61,14 @@
 
 .checkOutWithMultiple {
   @extend %universalButton;
+
   white-space: wrap;
 }
 
 .service {
   padding: 1rem 0;
   margin: 0 auto;
+
   @extend %flexCenter;
 }
 
@@ -71,11 +79,13 @@
   height: auto;
   object-fit: contain;
 }
+
 .serviceText {
   padding-left: 0.8rem;
 
   @extend %cartServiceText;
 }
+
 .serviceLink {
   text-decoration: underline;
 }

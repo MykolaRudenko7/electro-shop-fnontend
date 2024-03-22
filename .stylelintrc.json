@@ -1,0 +1,29 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "ignoreFiles": [
+    "src/styles/global.scss",
+    "src/components/shared/ProductCardGridItem/StarRating/StarRating.module.scss",
+    "src/components/shared/Header/Navbar/Navbar.module.scss",
+    "src/components/AboutProductPage/ProductChoiceSection/ProductChoiceSlider/ProductChoiceSlider.module.scss",
+    "src/components/shared/FeedbackSlider/FeedbackSlider.module.scss",
+    "src/styles/variables.scss"
+  ],
+  "rules": {
+    "scss/load-no-partial-leading-underscore": null,
+    "scss/dollar-variable-pattern": "^[a-z]+([a-zA-Z0-9]+)?$",
+    "scss/at-import-partial-extension": "always",
+    "no-duplicate-selectors": true,
+    "property-no-vendor-prefix": null,
+    "selector-max-compound-selectors": 3,
+    "selector-class-pattern": [
+      "^[a-z][a-zA-Z]+$",
+      { "message": "Selector should be in camelCase" }
+    ],
+    "unit-allowed-list": [
+      ["%", "deg", "rem", "vh", "vw", "ms", "fr"],
+      { "message": "Use only %, deg, rem, vh, vw, fr or ms units" }
+    ],
+    "scss/percent-placeholder-pattern": null,
+    "scss/at-mixin-pattern": null
+  }
+}

@@ -9,26 +9,32 @@
   padding: 2.5rem 0;
   gap: 1.2rem;
 
-  @include onTablet() {
+  @include onTablet {
     padding: 1.5rem 0;
   }
-  @include onPhone() {
+
+  @include onPhone {
     padding: 2rem 0;
   }
 }
+
 .prevButton,
 .nextButton,
 .paginateElements {
   border-radius: 100%;
   border: 0.3rem solid $activeLinkColor;
+
   @extend %flexCenter;
+
   color: $activeLinkColor;
   text-align: center;
   font-size: 1.3rem;
   font-weight: $semiBoldFontWeight;
+
   &:hover {
     color: $mainBlackColor;
   }
+
   &:active {
     background-color: $activeLinkColor;
   }
@@ -38,6 +44,7 @@
 .nextButtonLink,
 .paginateLink {
   @extend %flexCenter;
+
   cursor: pointer;
   width: 3.8rem;
   height: 3.8rem;

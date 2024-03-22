@@ -1,5 +1,6 @@
 .discountArea {
   @extend %cardFormBlock;
+
   padding-bottom: 0;
 }
 
@@ -12,12 +13,14 @@
 
 .title {
   @extend %shoppingCartPrice;
+
   line-height: 2.3rem;
 }
 
 .input {
   @extend %cartPaymentInput;
 }
+
 .applyDiscountButton {
   @extend %blueButton;
 }

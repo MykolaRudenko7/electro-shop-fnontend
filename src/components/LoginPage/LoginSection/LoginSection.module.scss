@@ -1,16 +1,17 @@
 .loginSection {
   @extend %flexCenter;
+
   align-items: stretch;
   gap: 3.4rem;
   width: 100%;
-  padding: 2rem 0 6rem 0;
+  padding: 2rem 0 6rem;
 
-  @include onTablet() {
+  @include onTablet {
     padding: 1.6rem 0;
     gap: 2rem;
   }
 
-  @include onPhone() {
+  @include onPhone {
     flex-direction: column;
     gap: 1.6rem;
   }

@@ -3,17 +3,18 @@
 
   &__container {
     @extend %mainDefaultContainerSettings;
+
     padding-top: 4.7rem;
     padding-bottom: 1.7rem;
   }
 
-  @include onTablet() {
+  @include onTablet {
     &__container {
       padding: 3.5rem 5.5rem;
     }
   }
 
-  @include onPhone() {
+  @include onPhone {
     &__container {
       padding: 3.5rem 2rem;
     }
@@ -41,7 +42,7 @@
     line-height: 2.1rem;
   }
 
-  @include onTablet() {
+  @include onTablet {
     padding-bottom: 2.6rem;
     align-items: flex-start;
 
@@ -59,12 +60,13 @@
     }
   }
 
-  @include onTablet() {
+  @include onTablet {
     flex-wrap: wrap;
     row-gap: 1.5rem;
     padding-bottom: 1.6rem;
   }
-  @include onPhone() {
+
+  @include onPhone {
     justify-content: center;
   }
 }
@@ -73,14 +75,13 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  column-gap: 5rem;
-  row-gap: 5rem;
+  gap: 5rem 5rem;
   flex-wrap: wrap;
   padding-bottom: 3.6rem;
   border-bottom: 0.2rem solid $sliderBtnShadowColor;
 
-  @include onTablet() {
-    padding-bottom: 0rem;
+  @include onTablet {
+    padding-bottom: 0;
     align-items: stretch;
     flex-direction: column;
     gap: 1.5rem;
@@ -101,7 +102,7 @@
     align-items: center;
     gap: 1.1rem;
 
-    @include onPhone() {
+    @include onPhone {
       order: 1;
     }
   }
@@ -113,7 +114,7 @@
   font-weight: $mediumFontWeight;
   line-height: 1.6rem;
 
-  @include onTablet() {
+  @include onTablet {
     order: 1;
     font-size: 1rem;
   }
@@ -123,10 +124,9 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-
   list-style: none;
 
-  @include onPhone() {
+  @include onPhone {
     order: 2;
   }
 }

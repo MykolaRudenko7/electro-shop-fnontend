@@ -7,7 +7,7 @@
   display: flex;
   padding: 1.9rem 0;
 
-  @include onTablet() {
+  @include onTablet {
     flex-wrap: wrap;
     padding: 1rem 0;
   }
@@ -15,6 +15,7 @@
 
 .link {
   @extend %universalLink;
+
   text-align: left;
 }
 
