@@ -3,10 +3,8 @@ import { priceRanges } from 'data/product-catalog/filterBlockData'
 
 class ProductsStore {
   currentPageNumber = 0
-
   currentSortOption = 'Alphabetical'
   productsPerPage = 20
-
   currentProductsViewType = 'grid'
   selectedFilterPriceRange = 'All'
 
@@ -14,12 +12,11 @@ class ProductsStore {
   newProducts = []
   filteredLaptops = []
   numbersOfProductsInPriceCategories = {}
-
   selectedSidebarFilters = []
+
   productsWishList = []
   productsRatingList = []
   productSearchQuery = ''
-
   productsInCart = []
   productsQuantities = {}
   productsSums = {}
