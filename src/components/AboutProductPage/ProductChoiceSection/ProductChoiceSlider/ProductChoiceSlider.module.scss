@@ -3,19 +3,21 @@
   padding-top: 6.7rem;
   text-align: center;
 
-  @include onTablet() {
+  @include onTablet {
     padding-top: 4rem;
   }
-  @include onPhone() {
+
+  @include onPhone {
     width: 100%;
     margin: 0 auto;
     padding-top: 0.627rem;
-    padding-left: 0rem;
+    padding-left: 0;
   }
 }
 
 .swiper {
   overflow: hidden;
+
   :global .swiper-pagination {
     position: static;
     margin-top: 2rem;
@@ -26,6 +28,7 @@
       justify-content: center;
     }
   }
+
   :global .swiper-pagination-bullet {
     width: 1rem;
     height: 1rem;
@@ -34,9 +37,11 @@
     border-radius: 50%;
     transition: $transitionSetCubicBezier;
   }
+
   :global .swiper-pagination-bullet-active {
     background-color: $mainBlueColor;
   }
+
   :global .swiper-slide {
     display: flex;
     align-items: center;

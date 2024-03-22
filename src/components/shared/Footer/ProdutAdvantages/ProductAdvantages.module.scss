@@ -7,14 +7,15 @@
 
 .advantagesContainer {
   @extend %mainDefaultContainerSettings;
+
   padding-top: 6.25rem;
   padding-bottom: 4.45rem;
 
-  @include onTablet() {
+  @include onTablet {
     padding: 3.8rem 2.2rem;
   }
 
-  @include onPhone() {
+  @include onPhone {
     padding: 2.5rem 5.5rem;
   }
 }
@@ -27,12 +28,12 @@
   align-items: center;
   justify-content: center;
 
-  @include onTablet() {
+  @include onTablet {
     max-width: 100%;
     gap: 2.5rem;
   }
 
-  @include onPhone() {
+  @include onPhone {
     flex-wrap: wrap;
   }
 }

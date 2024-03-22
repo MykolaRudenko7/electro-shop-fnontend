@@ -4,6 +4,7 @@
   justify-content: center;
   padding: 7rem 0;
 }
+
 .loader {
   position: relative;
   display: flex;
@@ -25,12 +26,13 @@
     background-color: $mainBlackColor;
     opacity: 0.1;
   }
+
   &::after {
     content: '';
     height: 100%;
     width: 100%;
     border-radius: calc(0.5rem / 2);
-    animation: wobble 1.75s ease-in-out infinite;
+    animation: wobble 17500ms ease-in-out infinite;
     transform: translateX(-95%);
     background-color: $mainBlackColor;
   }
@@ -41,6 +43,7 @@
   100% {
     transform: translateX(-95%);
   }
+
   50% {
     transform: translateX(95%);
   }

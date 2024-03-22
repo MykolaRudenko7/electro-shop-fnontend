@@ -3,12 +3,14 @@
   text-align: center;
   font-size: 1.4rem;
   font-weight: $regularFontWeight;
-  @include onTablet() {
+
+  @include onTablet {
     font-size: 1.2rem;
     word-wrap: break-word;
     max-width: 8rem;
   }
-  @include onPhone() {
+
+  @include onPhone {
     border-radius: 1rem;
     padding: 1rem 0;
     max-width: none;
@@ -16,6 +18,7 @@
     background-color: $productChoiceBlockBackgroundColor;
   }
 }
+
 .priceTextMark {
   font-weight: $semiBoldFontWeight;
 }

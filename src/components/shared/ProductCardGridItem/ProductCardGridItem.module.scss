@@ -1,12 +1,30 @@
 .card {
   padding: 0 2.5rem;
 
-  @include onTablet() {
+  @include onTablet {
     padding: 0 1.25rem;
   }
-  @include onPhone() {
+
+  @include onPhone {
     padding: 0 0.9rem;
   }
+}
+
+.addToBasketButton {
+  margin: 0 auto;
+
+  @extend %addToBasketButton;
+}
+
+.additionalAppearPanel {
+  position: absolute;
+  z-index: 3;
+  top: 10%;
+  right: -100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 300ms ease-in-out;
 }
 
 .cardWrapper {
@@ -14,8 +32,7 @@
   position: relative;
   overflow: hidden;
   display: grid;
-  justify-items: start;
-  align-items: stretch;
+  place-items: stretch start;
   text-align: center;
   align-content: space-between;
 
@@ -59,7 +76,7 @@
   text-align: center;
   overflow: hidden;
 
-  @include onTablet() {
+  @include onTablet {
     width: 10rem;
     height: 10rem;
   }
@@ -67,7 +84,9 @@
 
 .cardImage {
   @extend %productImage;
+
   transition: $transitionSetEase;
+
   &:hover {
     scale: 1.02;
   }
@@ -81,8 +100,8 @@
   white-space: nowrap;
   flex-wrap: wrap;
 
-  @include onTablet() {
-    padding: 0 0;
+  @include onTablet {
+    padding: 0;
     gap: 0.3rem;
   }
 }
@@ -98,7 +117,7 @@
     color: $mainBlackColor;
   }
 
-  @include onTablet() {
+  @include onTablet {
     font-size: 1rem;
   }
 }
@@ -116,7 +135,7 @@
     color: $activeLinkColor;
   }
 
-  @include onTablet() {
+  @include onTablet {
     font-size: 1.1rem;
   }
 }
@@ -126,7 +145,7 @@
   text-align: left;
   font-size: 1.4rem;
 
-  @include onTablet() {
+  @include onTablet {
     padding: 1rem 0;
     font-size: 1.2rem;
   }
@@ -139,7 +158,7 @@
   text-decoration: line-through;
   margin-bottom: 1rem;
 
-  @include onTablet() {
+  @include onTablet {
     font-size: 1.2rem;
     line-height: 1.7rem;
   }
@@ -151,38 +170,25 @@
   color: $mainBlackColor;
   font-weight: $semiBoldFontWeight;
 
-  @include onTablet() {
+  @include onTablet {
     font-size: 1.4rem;
     line-height: 1.4rem;
   }
 }
 
-.addToBasketButton {
-  margin: 0 auto;
-  @extend %addToBasketButton;
-}
-
 .countOfProduct {
   @extend %countOfProduct;
-}
-.additionalAppearPanel {
-  position: absolute;
-  z-index: 3;
-  top: 10%;
-  right: -100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  transition: all 0.3s ease-in-out;
 }
 
 .additionalAppearPanelLikeButton {
   background-image: url('../../../images/CatalogPage/cardsBlock/heart.svg');
+
   @extend %interactWithProductButton;
 }
 
 .additionalAppearPanelRatingButton {
   background-image: url('../../../images/CatalogPage/cardsBlock/rating.svg');
+
   @extend %interactWithProductButton;
 }
 

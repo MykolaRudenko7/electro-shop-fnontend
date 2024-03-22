@@ -1,8 +1,9 @@
 .shoppingCartProductItem {
   padding: 2.5rem 0;
   border-bottom: 0.1rem solid $activeLinkColor;
-  @include onTablet() {
-    padding: 1.6rem 0 1rem 0;
+
+  @include onTablet {
+    padding: 1.6rem 0 1rem;
   }
 }
 
@@ -10,7 +11,8 @@
   display: flex;
   justify-content: space-between;
   gap: 2rem;
-  @include onTablet() {
+
+  @include onTablet {
     flex-direction: column;
   }
 }
@@ -21,17 +23,20 @@
   align-items: flex-start;
   justify-content: flex-start;
   width: 62%;
-  @include onTablet() {
+
+  @include onTablet {
     width: 100%;
   }
 }
 
 .productImageWrapper {
   @extend %flexCenter;
+
   min-height: 12rem;
   min-width: 12rem;
   overflow: hidden;
-  @include onTablet() {
+
+  @include onTablet {
     min-width: 6.8rem;
     min-height: 6.8rem;
   }
@@ -39,7 +44,9 @@
 
 .productImage {
   @extend %setupForImage;
+
   transition: $transitionSetEase;
+
   &:hover {
     transform: scale(1.02);
   }
@@ -47,15 +54,19 @@
 
 .descriptionText {
   @extend %transparentTap;
+
   max-width: 25rem;
   font-size: 1.4rem;
-  @include onTablet() {
+
+  @include onTablet {
     font-size: 1rem;
     max-width: 100%;
   }
+
   &:hover {
     text-decoration: underline;
   }
+
   &:active {
     color: $activeLinkColor;
   }
@@ -67,18 +78,21 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 2rem;
-  @include onTablet() {
+
+  @include onTablet {
     width: 100%;
   }
 }
 
 .price {
   @extend %shoppingCartPrice;
+
   width: 10rem;
 }
 
 .subtotalPrice {
   @extend %shoppingCartPrice;
+
   width: 10rem;
 }
 
@@ -94,10 +108,12 @@
   background-color: transparent;
   transition: $transitionSetEase;
   border-radius: 50%;
+
   &:hover {
     filter: invert(80%);
     transform: translateY(-0.1rem);
   }
+
   &:active {
     transform: translateY(0.1rem);
   }

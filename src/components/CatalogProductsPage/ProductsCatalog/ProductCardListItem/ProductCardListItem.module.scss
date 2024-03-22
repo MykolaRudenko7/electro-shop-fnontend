@@ -2,6 +2,25 @@
   overflow: hidden;
 }
 
+.interactionWithProductBlock {
+  position: absolute;
+  z-index: 3;
+  bottom: 15%;
+  right: -30%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 500ms ease-in-out;
+
+  @include onTablet {
+    bottom: 18%;
+  }
+
+  @include onPhone {
+    flex-direction: column;
+  }
+}
+
 .cardWrapper {
   position: relative;
   display: flex;
@@ -13,19 +32,19 @@
       bottom: 15%;
       right: 10%;
 
-      @include onTablet() {
+      @include onTablet {
         bottom: 18%;
         right: 5%;
       }
     }
   }
 
-  @include onDesktop() {
+  @include onDesktop {
     gap: 2.5rem;
     padding: 1.2rem 1.3rem 2.3rem 2.8rem;
   }
 
-  @include onTablet() {
+  @include onTablet {
     gap: 1.8rem;
   }
 }
@@ -44,7 +63,7 @@
   text-align: center;
   overflow: hidden;
 
-  @include onTablet() {
+  @include onTablet {
     width: 14.5rem;
     height: 14.5rem;
   }
@@ -52,7 +71,9 @@
 
 .productImage {
   @extend %productImage;
+
   transition: $transitionSetEase;
+
   &:hover {
     scale: 1.02;
   }
@@ -65,8 +86,8 @@
   padding: 0.6rem 0;
   white-space: nowrap;
 
-  @include onTablet() {
-    padding: 0 0;
+  @include onTablet {
+    padding: 0;
     gap: 0.3rem;
   }
 }
@@ -84,7 +105,7 @@
   text-align: left;
   width: 30%;
 
-  @include onTablet() {
+  @include onTablet {
     width: 40%;
   }
 }
@@ -95,7 +116,7 @@
   font-size: 1.2rem;
   font-weight: $lightFontWeight;
 
-  @include onPhone() {
+  @include onPhone {
     font-size: 1rem;
     margin-bottom: 1.2rem;
   }
@@ -114,7 +135,7 @@
     color: $activeLinkColor;
   }
 
-  @include onPhone() {
+  @include onPhone {
     font-size: 1.1rem;
     margin-bottom: 1rem;
   }
@@ -126,7 +147,7 @@
   gap: 1rem;
   margin-bottom: 5.7rem;
 
-  @include onTablet() {
+  @include onTablet {
     margin-bottom: 2rem;
   }
 }
@@ -137,7 +158,7 @@
   line-height: 2rem;
   text-decoration: line-through;
 
-  @include onTablet() {
+  @include onTablet {
     font-size: 1.2rem;
     line-height: 1.7rem;
   }
@@ -149,7 +170,7 @@
   color: $mainBlackColor;
   font-weight: $semiBoldFontWeight;
 
-  @include onTablet() {
+  @include onTablet {
     font-size: 1.4rem;
     line-height: 1.3rem;
   }
@@ -157,11 +178,12 @@
 
 .addToBasketButton {
   @extend %addToBasketButton;
+
   opacity: 1;
   max-width: 16rem;
   margin-bottom: 0;
 
-  @include onTablet() {
+  @include onTablet {
     max-width: 13rem;
   }
 }
@@ -175,6 +197,7 @@
     top: 0.8rem;
     left: 10%;
   }
+
   @include onDesktop {
     text-wrap: wrap;
     line-height: 1rem;
@@ -191,37 +214,21 @@
   }
 }
 
-.interactionWithProductBlock {
-  position: absolute;
-  z-index: 3;
-  bottom: 15%;
-  right: -30%;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  transition: all 0.5s ease-in-out;
-
-  @include onTablet() {
-    bottom: 18%;
-  }
-
-  @include onPhone() {
-    flex-direction: column;
-  }
-}
-
 .addToWishlistButton {
   background-image: url('../../../../images/CatalogPage/cardsBlock/heart.svg');
+
   @extend %interactWithProductButton;
 }
 
 .addToComparisonListButton {
   background-image: url('../../../../images/CatalogPage/cardsBlock/rating.svg');
+
   @extend %interactWithProductButton;
 }
 
 .addReviewButton {
   background-image: url('../../../../images/CatalogPage/cardsBlock/message.svg');
+
   @extend %interactWithProductButton;
 }
 
@@ -231,7 +238,7 @@
   flex-direction: column;
   justify-content: center;
 
-  @include onTablet() {
+  @include onTablet {
     display: none;
   }
 }

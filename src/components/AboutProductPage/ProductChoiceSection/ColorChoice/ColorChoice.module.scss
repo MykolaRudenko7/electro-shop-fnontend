@@ -3,11 +3,11 @@
   gap: 1.8rem;
   padding-bottom: 3rem;
 
-  @include onTablet() {
+  @include onTablet {
     padding-bottom: 3.2rem;
   }
 
-  @include onPhone() {
+  @include onPhone {
     padding-bottom: 1.8rem;
   }
 }

@@ -8,37 +8,43 @@
   font-weight: $lightFontWeight;
   line-height: 1.4rem;
 
-  @include onTablet() {
+  @include onTablet {
     margin-top: 0.5rem;
   }
-  @include onPhone() {
+
+  @include onPhone {
     margin-top: 0.5rem;
     max-width: 21.5rem;
     font-size: 1rem;
   }
 }
+
 .textBlockImage {
   padding-right: 1.1rem;
   border-right: solid 0.2rem $blueBorderSliderTextBlock;
   height: auto;
   width: auto;
-  @include onTablet() {
+
+  @include onTablet {
     padding-right: 0.6rem;
   }
 }
+
 .textBlockSubtitle {
   padding-left: 1.1rem;
-  @include onTablet() {
+
+  @include onTablet {
     padding-left: 0.6rem;
   }
 }
+
 .textBlockLink {
   text-decoration-line: underline;
   color: $mainBlueColor;
 }
 
 .slideImage {
-  @include onTablet() {
+  @include onTablet {
     object-fit: contain;
     height: 20rem;
     width: auto;

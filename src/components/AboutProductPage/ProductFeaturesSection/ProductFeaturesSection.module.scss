@@ -1,16 +1,20 @@
 .features {
   color: $mainWhiteColor;
   background: radial-gradient(50% 50% at 50% 50%, #242528 0%, #040404 100%);
+
   &__container {
     @extend %mainDefaultContainerSettings;
-    padding: 7.6rem 0 10.4rem 0;
+
+    padding: 7.6rem 0 10.4rem;
   }
+
   &__title {
     text-align: center;
     font-size: 3.8rem;
     font-weight: $mediumFontWeight;
     padding-bottom: 2.8rem;
   }
+
   &__subtitle {
     margin: 0 auto;
     max-width: 41.8rem;
@@ -20,15 +24,18 @@
     line-height: 2.6rem;
     padding-bottom: 3.75rem;
   }
-  @include onTablet() {
+
+  @include onTablet {
     &__container {
-      padding: 3.1rem 0 6rem 0;
+      padding: 3.1rem 0 6rem;
     }
+
     &__title {
       font-size: 3.2rem;
       font-weight: $mediumFontWeight;
       padding-bottom: 1.4rem;
     }
+
     &__subtitle {
       max-width: 32.6rem;
       font-size: 1.2rem;
@@ -37,28 +44,31 @@
       padding-bottom: 3.1rem;
     }
   }
-  @include onPhone() {
+
+  @include onPhone {
     &__container {
-      padding: 3.1rem 0 3.3rem 0;
+      padding: 3.1rem 0 3.3rem;
     }
+
     &__subtitle {
       padding-bottom: 1.85rem;
     }
   }
 }
+
 .cards {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(25.4rem, 1fr));
-  column-gap: 4.7rem;
-  row-gap: 3.3rem;
+  gap: 3.3rem 4.7rem;
   padding: 0 12rem;
-  @include onTablet() {
-    column-gap: 7rem;
-    row-gap: 3.3rem;
+
+  @include onTablet {
+    gap: 3.3rem 7rem;
     padding: 0 7.5rem;
   }
-  @include onPhone() {
+
+  @include onPhone {
     grid-template-columns: repeat(auto-fit, minmax(19.2rem, 1fr));
     row-gap: 1rem;
     padding: 0 5rem;

@@ -1,6 +1,6 @@
 .sliderSlide {
   margin: 0 auto;
-  padding: 4.9rem 11.9rem 5.6rem 11.9rem;
+  padding: 4.9rem 11.9rem 5.6rem;
   background-color: $sliderBackgroundColor;
 }
 
@@ -30,9 +30,7 @@
 .btn {
   cursor: pointer;
   outline: none;
-  border: none;
-  border: none;
-  padding: 0.8rem 2.6rem 0.8rem 2.6rem;
+  padding: 0.8rem 2.6rem;
   border-radius: 5rem;
   background-color: initial;
   font-size: 1.4rem;

@@ -12,11 +12,11 @@
   font-size: 1.3rem;
   line-height: 2.7rem;
 
-  @include onTablet() {
+  @include onTablet {
     font-size: 1.1rem;
   }
 
-  @include onPhone() {
+  @include onPhone {
     order: 3;
   }
 }
@@ -24,7 +24,7 @@
 .sortPanelFilterOnMobileButton {
   display: none;
 
-  @include onPhone() {
+  @include onPhone {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,7 +54,7 @@
   align-items: center;
   gap: 1rem;
 
-  @include onPhone() {
+  @include onPhone {
     flex: 0 0 47%;
   }
 }
@@ -65,19 +65,21 @@
   justify-content: space-between;
   gap: 1rem;
 
-  @include onPhone() {
+  @include onPhone {
     display: none;
   }
 }
 
 .setProductsGridViewButton {
   @extend %setProductsViewButton;
+
   background-image: url('../../../images/CatalogPage/filter/view1.svg');
   transition: $transitionSetEase;
 
   &:hover {
     transform: scale(0.9);
   }
+
   &.changeView {
     background-image: url('../../../images/CatalogPage/filter/view1fill.svg');
   }
@@ -85,12 +87,14 @@
 
 .setProductsListViewButton {
   @extend %setProductsViewButton;
+
   transition: $transitionSetEase;
   background-image: url('../../../images/CatalogPage/filter/view2.svg');
 
   &:hover {
     transform: scale(0.9);
   }
+
   &.changeView {
     background-image: url('../../../images/CatalogPage/filter/view2fill.svg');
   }
@@ -109,7 +113,7 @@
   align-items: center;
   gap: 0.7rem;
 
-  @include onTablet() {
+  @include onTablet {
     display: none;
   }
 }
@@ -118,12 +122,12 @@
   position: relative;
 
   &:nth-child(2) {
-    @include onTablet() {
+    @include onTablet {
       display: none;
     }
   }
 
-  @include onPhone() {
+  @include onPhone {
     width: 100%;
   }
 }
@@ -165,12 +169,12 @@
     transform: rotate(180deg);
   }
 
-  @include onTablet() {
+  @include onTablet {
     font-size: 1.1rem;
     padding: 0.6rem 2.8rem 0.6rem 1.5rem;
   }
 
-  @include onPhone() {
+  @include onPhone {
     width: 100%;
   }
 }
@@ -180,7 +184,6 @@
 }
 
 .dropdownList {
-  background-color: $mainWhiteColor;
   display: none;
   list-style: none;
   position: absolute;
@@ -208,7 +211,7 @@
     background-color: $sliderBackgroundColor;
   }
 
-  @include onTablet() {
+  @include onTablet {
     font-size: 1.1rem;
   }
 }

@@ -1,26 +1,33 @@
 .about {
   background: $productChoiceBlockBackgroundColor;
+
   &__container {
     @extend %mainDefaultContainerSettings;
+
     display: flex;
     padding-bottom: 6rem;
   }
-  @include onTablet() {
+
+  @include onTablet {
     &__container {
       padding-bottom: 4.6rem;
     }
   }
-  @include onPhone() {
+
+  @include onPhone {
     background: $mainWhiteColor;
+
     &__container {
       flex-direction: column-reverse;
       padding-bottom: 1rem;
     }
   }
 }
+
 .productChoice {
   flex: 0 0 57.5%;
   padding: 6.7rem 11.8rem 0 12.3rem;
+
   &__title {
     color: $mainBlackColor;
     font-size: 3.2rem;
@@ -28,57 +35,69 @@
     padding-top: 2.5rem;
     padding-bottom: 1.3rem;
   }
+
   &__subtitle {
     font-size: 1.2rem;
     color: $mainBlueColor;
     font-weight: $regularFontWeight;
     padding-bottom: 2.4rem;
   }
+
   &__text {
     font-size: 1.8rem;
     font-weight: $lightFontWeight;
     line-height: 3rem;
     padding-bottom: 4.4rem;
   }
-  @include onTablet() {
+
+  @include onTablet {
     width: 55%;
     padding: 3.4rem 5.4rem 1.5rem;
+
     &__title {
       font-size: 2.2rem;
       padding-top: 2.4rem;
       padding-bottom: 0.65rem;
     }
+
     &__subtitle {
       font-size: 1rem;
       padding-bottom: 1.5rem;
     }
+
     &__text {
       font-size: 1.2rem;
       line-height: 2rem;
       padding-bottom: 1.6rem;
     }
   }
-  @include onPhone() {
+
+  @include onPhone {
     width: 100%;
-    padding: 1.3rem 0.5rem 0 0.5rem;
+    padding: 1.3rem 0.5rem 0;
+
     &__links {
       display: none;
     }
+
     &__title {
       padding-top: 0;
       font-size: 2.2rem;
       padding-bottom: 0.65rem;
     }
+
     &__subtitle {
       font-size: 1rem;
       padding-bottom: 1.45rem;
     }
+
     &__text {
       font-size: 1.2rem;
       line-height: 2rem;
     }
   }
 }
+
 .productChoiceMoreInf {
   position: relative;
   left: -12.3rem;
@@ -87,45 +106,54 @@
   font-weight: $boldFontWeight;
   line-height: normal;
   text-transform: uppercase;
-  @include onTablet() {
+
+  @include onTablet {
     display: none;
   }
 }
+
 .productChoiceLinks {
   display: flex;
   list-style: none;
   color: $mainBlackColor;
   font-size: 1.2rem;
   font-weight: $regularFontWeight;
-  @include onPhone() {
+
+  @include onPhone {
     display: none;
   }
 }
+
 .bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex: 1 1 auto;
+
   &__contact {
     font-size: 1.2rem;
     font-weight: $mediumFontWeight;
     color: $mainBlackColor;
   }
+
   &__contactLink {
     color: $mainBlueColor;
     text-decoration-line: underline;
   }
+
   &__model {
     color: $mainBlackColor;
     font-size: 1.2rem;
     font-weight: $lightFontWeight;
     padding-bottom: 16.6rem;
   }
-  @include onTablet() {
+
+  @include onTablet {
     &__contact {
       font-size: 1rem;
       font-weight: $regularFontWeight;
     }
+
     &__model {
       color: $mainBlackColor;
       font-size: 1.2rem;
@@ -134,22 +162,26 @@
     }
   }
 }
+
 .appearOnPhone {
   display: none;
-  @include onPhone() {
+
+  @include onPhone {
     display: block;
   }
 }
+
 .appearBlock {
-  @include onPhone() {
+  @include onPhone {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 0rem 1rem 1.1rem 1rem;
+    padding: 0 1rem 1.1rem;
   }
 }
+
 .appearBlockTop {
-  @include onPhone() {
+  @include onPhone {
     display: flex;
     align-items: center;
     justify-content: space-between;

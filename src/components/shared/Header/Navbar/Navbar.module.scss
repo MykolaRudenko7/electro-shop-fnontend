@@ -1,10 +1,11 @@
 .navbar {
+  @extend %mainDefaultContainerSettings;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @extend %mainDefaultContainerSettings;
-  padding: 1.3rem 0;
   gap: 1.2rem;
+  padding: 1.3rem 0;
 
   &__wrapper {
     display: flex;
@@ -17,21 +18,21 @@
     font-weight: $semiBoldFontWeight;
   }
 
-  @include onDesktop() {
+  @include onDesktop {
     &__wrapper {
       gap: 1rem;
       font-size: 1.2rem;
     }
   }
 
-  @include onTablet() {
+  @include onTablet {
     padding: 1.3rem 2.6rem;
     background-color: $mainBlueColor;
     justify-content: flex-start;
     gap: 2.6rem;
   }
 
-  @include onPhone() {
+  @include onPhone {
     gap: 1rem;
     padding: 1.2rem;
   }
@@ -40,11 +41,11 @@
 .logo {
   padding: 1.4rem 2.6rem;
 
-  @include onDesktop() {
+  @include onDesktop {
     padding: 0.5rem;
   }
 
-  @include onTablet() {
+  @include onTablet {
     display: none;
   }
 }
@@ -56,13 +57,12 @@
   &__line {
     width: 2.6rem;
     height: 0.3rem;
-    border-radius: 0.1rem;
     border-radius: 2rem;
     background-color: $mainWhiteColor;
     transition: $transitionSetEase;
   }
 
-  @include onTablet() {
+  @include onTablet {
     width: 2.6rem;
     position: relative;
     z-index: 2;
@@ -73,38 +73,36 @@
     gap: 0.5rem;
   }
 
-  @include onPhone() {
-    padding-left: 0rem;
+  @include onPhone {
+    padding-left: 0;
   }
 }
 
 .navbarMenu {
   @extend %flexCenter;
+
   gap: 2.5rem;
   text-align: center;
   list-style: none;
 
-  @include onDesktop() {
+  @include onDesktop {
     gap: 2rem;
   }
 
-  @include onTablet() {
+  @include onTablet {
     flex-direction: column;
     justify-content: start;
     align-items: flex-start;
     position: fixed;
     z-index: 4;
-    left: -100%;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    inset: 0 0 0 -100%;
     width: 56%;
     height: 100vh;
     background-color: $mainWhiteColor;
     transition: $transitionSetCubicBezier;
     font-size: 1.3rem;
     font-weight: $regularFontWeight;
-    padding: 7.5rem 2.4rem 0 2.4rem;
+    padding: 7.5rem 2.4rem 0;
   }
 }
 
@@ -118,19 +116,21 @@
 
 .leftComponent {
   width: 100%;
+
   @extend %flexCenter;
+
   gap: 3rem;
 
-  @include onDesktop() {
+  @include onDesktop {
     gap: 1rem;
   }
 
-  @include onTablet() {
+  @include onTablet {
     width: 100%;
     gap: 2.6rem;
   }
 
-  @include onPhone() {
+  @include onPhone {
     gap: 1rem;
   }
 
@@ -141,13 +141,14 @@
 
 .leftComponentLink {
   @extend %flexCenter;
+
   position: relative;
   width: 2.5rem;
   height: 2.5rem;
   background: no-repeat url('../../../../images/header/basket.svg');
   background-position: center center;
 
-  @include onTablet() {
+  @include onTablet {
     background: no-repeat url('../../../../images/header/whiteBasket.svg');
     background-position: center center;
     width: 3.2rem;
@@ -157,6 +158,7 @@
 
 .countProductsInCart {
   @extend %flexCenter;
+
   position: absolute;
   right: -0.5rem;
   top: -0.5rem;
@@ -168,7 +170,7 @@
   width: 1.7rem;
   height: 1.7rem;
 
-  @include onTablet() {
+  @include onTablet {
     background-color: $mainWhiteColor;
     color: $mainBlueColor;
   }

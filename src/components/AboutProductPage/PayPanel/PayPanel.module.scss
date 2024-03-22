@@ -1,33 +1,37 @@
 .payPanel {
   &__container {
     @extend %mainDefaultContainerSettings;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-top: 2.6rem;
     padding-bottom: 2.6rem;
-    @include onTablet() {
+
+    @include onTablet {
       padding-top: 2.3rem;
       padding-bottom: 2.3rem;
       gap: 3rem;
     }
-    @include onTablet() {
-      flex-direction: column-reverse;
+
+    @include onTablet {
+      flex-flow: column-reverse wrap;
       justify-content: center;
-      flex-wrap: wrap;
-      column-gap: 3rem;
-      row-gap: 2rem;
+      gap: 2rem 3rem;
     }
-    @include onPhone() {
+
+    @include onPhone {
       display: none;
     }
   }
 }
+
 .pay {
   display: flex;
   align-items: center;
   gap: 2.1rem;
-  @include onTablet() {
+
+  @include onTablet {
     gap: 1.4rem;
   }
 }

@@ -8,16 +8,20 @@
 
 .icon {
   cursor: pointer;
+
   @extend %flexCenter;
+
   transition: $transitionSetCubicBezier;
 
-  @include onDesktop() {
+  @include onDesktop {
     width: 3.2rem;
     height: 3.2rem;
   }
-  @include onTablet() {
+
+  @include onTablet {
     display: none;
   }
+
   &.openSearchInput {
     display: none;
   }
@@ -39,10 +43,10 @@
   background-position: 1.5rem center;
   background-repeat: no-repeat;
 
-  @include onTablet() {
+  @include onTablet {
     font-size: $shoppingCartCategoryTabletSize;
     height: 4.5rem;
-    padding: 0rem 1.2rem 0rem 3.8rem;
+    padding: 0 1.2rem 0 3.8rem;
     opacity: 1;
     width: 100%;
     background-color: $mainWhiteColor;
@@ -52,7 +56,7 @@
     color: $sliderDotsBackgroundColor;
     font-size: $shoppingCartCategoryDesktopSize;
 
-    @include onTablet() {
+    @include onTablet {
       font-size: $shoppingCartCategoryTabletSize;
     }
   }
@@ -74,7 +78,7 @@
   transform: translate(-200%, -50%);
   font-size: $desktopTitleFontSize;
 
-  @include onTablet() {
+  @include onTablet {
     font-size: $tabletTitleFontSize;
   }
 }

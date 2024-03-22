@@ -4,6 +4,7 @@
 
 %filtersPanelButton {
   @extend %transparentTap;
+
   color: $mainBlackColor;
   font-size: $buttonTextTablet;
   font-weight: $semiBoldFontWeight;
@@ -17,6 +18,7 @@
   &:hover {
     background-color: $productChoiceBlockBackgroundColor;
   }
+
   &:active {
     border-color: $mainBlackColor;
   }
@@ -25,6 +27,7 @@
 %setProductsViewButton {
   @extend %transparentTap;
   @extend %flexCenter;
+
   width: 3.2rem;
   height: 3.2rem;
   transition: $transitionSetEase;
@@ -35,9 +38,10 @@
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  white-space: nowrap;
   cursor: pointer;
+
   @extend %transparentTap;
+
   text-align: center;
   font-size: $shoppingCartCategoryDesktopSize;
   font-weight: $semiBoldFontWeight;
@@ -51,6 +55,7 @@
     color: $mainWhiteColor;
     background-color: $filterCleanButtonColor;
   }
+
   &:active {
     transform: translateY(0.1rem);
   }
@@ -62,13 +67,14 @@
     border: 0.2rem solid $mainBlackColor;
   }
 
-  @include onTablet() {
+  @include onTablet {
     font-size: $buttonTextTablet;
   }
 }
 
 %clearFilterBlockButton {
   @extend %universalButton;
+
   background-color: transparent;
   color: $filterCleanButtonColor;
   width: 100%;
@@ -76,7 +82,9 @@
 
 %blueButton {
   width: 100%;
+
   @extend %universalButton;
+
   background-color: $mainBlueColor;
   color: $mainWhiteColor;
   border: 0.2rem solid $mainBlueColor;
@@ -88,14 +96,16 @@
     border: 0.2rem solid $mainBlueColor;
   }
 
-  @include onTablet() {
+  @include onTablet {
     font-size: $buttonTextTablet;
   }
 }
 
 %blackButton {
   padding: 1rem 3rem;
+
   @extend %universalButton;
+
   background-color: $mainBlackColor;
   color: $mainWhiteColor;
   border: 0.2rem solid $mainBlackColor;
@@ -107,7 +117,7 @@
     border: 0.2rem solid $mainBlackColor;
   }
 
-  @include onTablet() {
+  @include onTablet {
     font-size: $buttonTextTablet;
     width: 100%;
   }
@@ -115,6 +125,7 @@
 
 %yellowButton {
   @extend %universalButton;
+
   background-color: $payPallButtonBackground;
   color: $supportLinksColor;
   border: 0.2rem solid $payPallButtonBackground;
@@ -126,13 +137,14 @@
     border: 0.2rem solid $mainBlackColor;
   }
 
-  @include onTablet() {
+  @include onTablet {
     font-size: $buttonTextTablet;
   }
 }
 
 %redButton {
   @extend %universalButton;
+
   background-color: $deleteButtonColor;
   color: $mainWhiteColor;
   border: 0.2rem solid transparent;
@@ -144,13 +156,14 @@
     border: 0.2rem solid $deleteButtonColor;
   }
 
-  @include onTablet() {
+  @include onTablet {
     font-size: $buttonTextTablet;
   }
 }
 
 %chooseProductColorButton {
   @extend %transparentTap;
+
   cursor: pointer;
   width: 3.2rem;
   height: 3.2rem;
@@ -160,6 +173,7 @@
   &:hover {
     border: 0.3rem solid $mainBlueColor;
   }
+
   &:active {
     transform: scale(0.9);
   }
@@ -167,6 +181,7 @@
 
 %interactWithProductButton {
   @extend %transparentTap;
+
   width: 3rem;
   height: 3rem;
   background-color: transparent;
@@ -175,6 +190,7 @@
   &:hover {
     background-color: $filterChoiceColorProductRed;
   }
+
   &:active {
     transform: scale(0.9);
   }
@@ -182,8 +198,11 @@
 
 %addToBasketButton {
   @extend %transparentTap;
+
   cursor: pointer;
+
   @extend %flexCenter;
+
   font-size: 1.4rem;
   font-weight: $boldFontWeight;
   opacity: 0;
@@ -191,7 +210,7 @@
   background-color: $mainWhiteColor;
   color: $mainBlueColor;
   gap: 0.3rem;
-  padding: 0rem 1rem;
+  padding: 0 1rem;
   border: 0.1rem solid $mainBlueColor;
   border-radius: 5rem;
   transition: $transitionSetEase;
@@ -200,7 +219,8 @@
   &:hover {
     background-color: $sliderBackgroundColor;
   }
-  @include onTablet() {
+
+  @include onTablet {
     height: 3rem;
     opacity: 1;
     gap: 0.7rem;

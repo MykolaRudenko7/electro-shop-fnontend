@@ -3,10 +3,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, (minmax(22rem, 1fr)));
   justify-content: space-evenly;
-  align-items: stretch;
-  justify-items: start;
+  place-items: stretch start;
 
-  @include onTablet() {
+  @include onTablet {
     grid-template-columns: repeat(auto-fit, (minmax(16.5rem, 1fr)));
   }
 }
@@ -24,7 +23,7 @@
   font-size: $desktopTitleFontSize;
   font-weight: $semiBoldFontWeight;
 
-  @include onTablet() {
+  @include onTablet {
     font-size: $tabletTitleFontSize;
   }
 }

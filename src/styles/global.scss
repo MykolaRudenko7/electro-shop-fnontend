@@ -35,7 +35,7 @@ a {
     background-color: $mainWhiteColor;
   }
 
-  @include onTablet() {
+  @include onTablet {
     display: none;
   }
 }
@@ -75,6 +75,7 @@ a {
   font-size: 2rem;
   font-weight: $semiBoldFontWeight;
   filter: drop-shadow(0 0.4rem 0.4rem $sliderNextPrevBtnShadowColor);
+
   @include onSmallTablet {
     font-size: 1.2rem;
   }
@@ -84,6 +85,7 @@ a {
   padding: 1.9rem 1.8rem 1.9rem 1.3rem;
   border-top-right-radius: 3rem;
   border-bottom-right-radius: 3rem;
+
   @include onSmallTablet {
     padding: 1.2rem 1rem 1.2rem 0.9rem;
     border-top-right-radius: 1.8rem;
@@ -95,6 +97,7 @@ a {
   padding: 1.9rem 1.3rem 1.9rem 1.8rem;
   border-top-left-radius: 3rem;
   border-bottom-left-radius: 3rem;
+
   @include onSmallTablet {
     padding: 1.2rem 0.9rem 1.2rem 1rem;
     border-top-left-radius: 1.8rem;
@@ -104,6 +107,7 @@ a {
 
 .dropdown {
   @extend %cartPaymentInput;
+
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;

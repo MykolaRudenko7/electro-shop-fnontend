@@ -9,15 +9,18 @@
 .shoppingCartLinks {
   padding: 2rem 0;
   display: flex;
-  @include onTablet() {
+
+  @include onTablet {
     flex-wrap: wrap;
   }
 }
 
 .shoppingCartTitle {
   @extend %pageTitle;
+
   padding-bottom: 3rem;
-  @include onTablet() {
+
+  @include onTablet {
     padding-bottom: 0;
   }
 }
@@ -26,7 +29,7 @@
   display: flex;
   gap: 3.5rem;
 
-  @include onTablet() {
+  @include onTablet {
     gap: 2rem;
   }
 
@@ -38,10 +41,12 @@
 
 .shoppingCartItems {
   width: 68%;
-  @include onTablet() {
+
+  @include onTablet {
     width: 55%;
   }
-  @include onPhone() {
+
+  @include onPhone {
     width: 100%;
   }
 }
@@ -52,21 +57,25 @@
   align-items: center;
   justify-content: flex-start;
   border-bottom: 0.1rem solid $activeLinkColor;
-  @include onTablet() {
+
+  @include onTablet {
     display: none;
   }
 }
 
 .shoppingCartItem {
   text-align: left;
+
   @extend %shoppingCartPrice;
 
   &:first-child {
     width: 58%;
   }
+
   &:not(:first-child) {
     width: 15%;
   }
+
   &:nth-child(3) {
     width: 10%;
   }
@@ -74,10 +83,12 @@
 
 .shoppingCartPayPanel {
   width: 32%;
-  @include onTablet() {
+
+  @include onTablet {
     width: 45%;
   }
-  @include onPhone() {
+
+  @include onPhone {
     width: 100%;
   }
 }
@@ -88,7 +99,7 @@
   font-size: $desktopTitleFontSize;
   font-weight: $semiBoldFontWeight;
 
-  @include onTablet() {
+  @include onTablet {
     font-size: $tabletTitleFontSize;
   }
 }

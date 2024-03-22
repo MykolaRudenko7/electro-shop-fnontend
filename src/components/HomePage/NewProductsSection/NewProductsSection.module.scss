@@ -10,6 +10,7 @@
   color: $mainBlackColor;
   font-size: 2.2rem;
   font-weight: $semiBoldFontWeight;
+
   @include onSmallTablet {
     font-size: 1.8rem;
   }
@@ -19,6 +20,7 @@
   color: $mainBlackColor;
   font-size: 1.3rem;
   font-weight: $regularFontWeight;
+
   @include onSmallTablet {
     font-size: 1rem;
   }

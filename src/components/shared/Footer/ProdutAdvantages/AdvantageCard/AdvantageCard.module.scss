@@ -4,43 +4,50 @@
   text-align: center;
   align-self: flex-start;
   row-gap: 2.4rem;
-  @include onTablet() {
+
+  @include onTablet {
     row-gap: 0.7rem;
   }
 }
+
 .advantageCardImageWrapper {
   @extend %flexCenter;
+
   width: 6.5rem;
   height: 6.5rem;
   padding: 2rem;
   background-color: $mainBlueColor;
   border-radius: 100%;
-  @include onTablet() {
+  object-fit: contain;
+
+  @include onTablet {
     width: 4.5rem;
     height: 4.5rem;
     padding: 1.25rem;
   }
 }
-.advantageCardImageWrapper {
-  object-fit: contain;
-}
+
 .advantageTextBlock {
   color: $mainBlackColor;
 }
+
 .advantageTitle {
   font-size: 1.8rem;
   font-weight: $boldFontWeight;
   line-height: 2.4rem;
   padding-bottom: 1.3rem;
+
   @include onTablet {
     font-size: 1.4rem;
     padding-bottom: 0.5rem;
   }
 }
+
 .advantageSubtitle {
   font-size: 1.4rem;
   font-weight: $regularFontWeight;
   line-height: 1.96rem;
+
   @include onTablet {
     line-height: 1.68rem;
   }

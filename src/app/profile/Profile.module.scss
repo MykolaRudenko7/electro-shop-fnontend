@@ -8,11 +8,14 @@
 
 .subtitle {
   text-align: left;
+
   @extend %shoppingCartPrice;
+
   margin-bottom: 1rem;
 }
 
 .button {
   @extend %blackButton;
+
   max-width: 20rem;
 }
