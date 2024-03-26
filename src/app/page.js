@@ -5,6 +5,7 @@ import Wrapper from 'components/shared/Wrapper/Wrapper'
 import ProductsService from 'services/productFetchingService'
 import NewProductsSection from 'components/HomePage/NewProductsSection'
 import SliderContainer from 'components/shared/FeedbackSlider'
+import CookiePopup from 'components/shared/CookiePopup/CookiePopup'
 
 export default async function Home() {
   const newProducts = await ProductsService.fetchNewProducts()
@@ -16,6 +17,7 @@ export default async function Home() {
         <NewProductsSection newProducts={newProducts} />
       </Suspense>
       <SliderContainer />
+      <CookiePopup />
     </Wrapper>
   )
 }
