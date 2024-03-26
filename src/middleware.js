@@ -26,20 +26,14 @@ export default async function middleware(req) {
         const newAccessToken = fetchResponse.headers.get('Authorization')?.split(' ')[1]
         const newRefreshToken = fetchResponse.headers.get('X-Refresh-Token')
 
-        const responseWithCookies = NextResponse.rewrite(new URL(PROFILE_PAGE_URL, req.url))
-        responseWithCookies.cookies.set('accessToken', newAccessToken, {
-          path: '/',
-          sameSite: 'none',
-        })
-        responseWithCookies.cookies.set('refreshToken', newRefreshToken, {
-          path: '/',
-          sameSite: 'none',
-        })
+        const responseWithCookies = NextResponse.redirect(new URL(PROFILE_PAGE_URL, req.url))
+        responseWithCookies.cookies.set('accessToken', newAccessToken)
+        responseWithCookies.cookies.set('refreshToken', newRefreshToken)
 
         return responseWithCookies
       }
     } catch (error) {
-      const responseWithoutCookies = NextResponse.rewrite(new URL(LOGIN_PAGE_ENDPOINT, req.url))
+      const responseWithoutCookies = NextResponse.redirect(new URL(LOGIN_PAGE_ENDPOINT, req.url))
       responseWithoutCookies.cookies.delete('accessToken')
       responseWithoutCookies.cookies.delete('refreshToken')
 
@@ -68,19 +62,13 @@ export default async function middleware(req) {
           const newRefreshToken = fetchResponse.headers.get('X-Refresh-Token')
 
           const responseWithUpdatedCookies = NextResponse.next()
-          responseWithUpdatedCookies.cookies.set('accessToken', newAccessToken, {
-            path: '/',
-            sameSite: 'none',
-          })
-          responseWithUpdatedCookies.cookies.set('refreshToken', newRefreshToken, {
-            path: '/',
-            sameSite: 'none',
-          })
+          responseWithUpdatedCookies.cookies.set('accessToken', newAccessToken)
+          responseWithUpdatedCookies.cookies.set('refreshToken', newRefreshToken)
 
           return responseWithUpdatedCookies
         }
       } catch (error) {
-        const responseWithoutCookies = NextResponse.rewrite(new URL(LOGIN_PAGE_ENDPOINT, req.url))
+        const responseWithoutCookies = NextResponse.redirect(new URL(LOGIN_PAGE_ENDPOINT, req.url))
         responseWithoutCookies.cookies.delete('accessToken')
         responseWithoutCookies.cookies.delete('refreshToken')
 
@@ -90,7 +78,7 @@ export default async function middleware(req) {
   }
 
   if ((accessToken && !refreshToken) || (!accessToken && !refreshToken)) {
-    const responseWithoutCookies = NextResponse.rewrite(new URL(LOGIN_PAGE_ENDPOINT, req.url))
+    const responseWithoutCookies = NextResponse.redirect(new URL(LOGIN_PAGE_ENDPOINT, req.url))
     responseWithoutCookies.cookies.delete('accessToken')
     responseWithoutCookies.cookies.delete('refreshToken')
 
@@ -101,5 +89,5 @@ export default async function middleware(req) {
 }
 
 export const config = {
-  matcher: ['/profile', '/shopping-cart', '/login'],
+  matcher: ['/profile/:path*', '/shopping-cart/:path*'],
 }
