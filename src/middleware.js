@@ -7,7 +7,7 @@ const refreshTokenUrl = `${API_BASE_URL}${REFRESH_ENDPOINT}`
 const accessTokenMinTime = 300
 
 export default async function middleware(req) {
-  let accessToken = cookies(req).get('accessToken')?.value
+  const accessToken = cookies(req).get('accessToken')?.value
   const refreshToken = cookies(req).get('refreshToken')?.value
 
   if (!accessToken && refreshToken) {
@@ -36,6 +36,7 @@ export default async function middleware(req) {
       const responseWithoutCookies = NextResponse.rewrite(new URL(LOGIN_PAGE_ENDPOINT, req.url))
       responseWithoutCookies.cookies.delete('accessToken')
       responseWithoutCookies.cookies.delete('refreshToken')
+
       return responseWithoutCookies
     }
   }
@@ -70,6 +71,7 @@ export default async function middleware(req) {
         const responseWithoutCookies = NextResponse.rewrite(new URL(LOGIN_PAGE_ENDPOINT, req.url))
         responseWithoutCookies.cookies.delete('accessToken')
         responseWithoutCookies.cookies.delete('refreshToken')
+
         return responseWithoutCookies
       }
     }
@@ -79,6 +81,7 @@ export default async function middleware(req) {
     const responseWithoutCookies = NextResponse.rewrite(new URL(LOGIN_PAGE_ENDPOINT, req.url))
     responseWithoutCookies.cookies.delete('accessToken')
     responseWithoutCookies.cookies.delete('refreshToken')
+
     return responseWithoutCookies
   }
 
