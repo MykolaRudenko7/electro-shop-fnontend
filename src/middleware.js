@@ -29,11 +29,9 @@ export default async function middleware(req) {
         const responseWithCookies = NextResponse.rewrite(new URL(PROFILE_PAGE_URL, req.url))
         responseWithCookies.cookies.set('accessToken', newAccessToken, {
           path: '/',
-          sameSite: 'none',
         })
         responseWithCookies.cookies.set('refreshToken', newRefreshToken, {
           path: '/',
-          sameSite: 'none',
         })
 
         return responseWithCookies
@@ -70,11 +68,9 @@ export default async function middleware(req) {
           const responseWithUpdatedCookies = NextResponse.next()
           responseWithUpdatedCookies.cookies.set('accessToken', newAccessToken, {
             path: '/',
-            sameSite: 'none',
           })
           responseWithUpdatedCookies.cookies.set('refreshToken', newRefreshToken, {
             path: '/',
-            sameSite: 'none',
           })
 
           return responseWithUpdatedCookies
