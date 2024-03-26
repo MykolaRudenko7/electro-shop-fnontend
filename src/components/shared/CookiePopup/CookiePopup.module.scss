@@ -1,0 +1,28 @@
+.container {
+  background-color: $mainWhiteColor !important;
+  padding: 1rem !important;
+  border-radius: 0.75rem !important;
+  bottom: 1rem !important;
+  left: 50% !important;
+  transform: translate(-50%, 0%) !important;
+  width: clamp(30rem, 10rem + 62.5vw, 100rem) !important;
+  box-shadow: $activeLinkColor 0 0.8rem 2.4rem;
+  gap: 1rem;
+}
+
+.content {
+  color: $mainBlackColor !important;
+  flex: auto !important;
+  margin: 0 auto !important;
+  text-align: center;
+
+  @extend %cartServiceText;
+}
+
+.buttonWrapper {
+  flex: auto !important;
+}
+
+.button {
+  @extend %blueButton;
+}
