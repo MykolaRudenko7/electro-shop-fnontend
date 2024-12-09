@@ -26,14 +26,20 @@ export default async function middleware(req) {
         const newAccessToken = fetchResponse.headers.get('Authorization')?.split(' ')[1]
         const newRefreshToken = fetchResponse.headers.get('X-Refresh-Token')
 
-        const responseWithCookies = NextResponse.redirect(new URL(PROFILE_PAGE_URL, req.url))
+        const responseWithCookies = NextResponse.redirect(
+          new URL(PROFILE_PAGE_URL, req.nextUrl.clone()),
+        )
+        responseWithCookies.headers.set('x-middleware-cache', 'no-cache')
         responseWithCookies.cookies.set('accessToken', newAccessToken)
         responseWithCookies.cookies.set('refreshToken', newRefreshToken)
 
         return responseWithCookies
       }
     } catch (error) {
-      const responseWithoutCookies = NextResponse.redirect(new URL(LOGIN_PAGE_ENDPOINT, req.url))
+      const responseWithoutCookies = NextResponse.redirect(
+        new URL(LOGIN_PAGE_ENDPOINT, req.nextUrl.clone()),
+      )
+      responseWithoutCookies.headers.set('x-middleware-cache', 'no-cache')
       responseWithoutCookies.cookies.delete('accessToken')
       responseWithoutCookies.cookies.delete('refreshToken')
 
@@ -62,13 +68,17 @@ export default async function middleware(req) {
           const newRefreshToken = fetchResponse.headers.get('X-Refresh-Token')
 
           const responseWithUpdatedCookies = NextResponse.next()
+          responseWithUpdatedCookies.headers.set('x-middleware-cache', 'no-cache')
           responseWithUpdatedCookies.cookies.set('accessToken', newAccessToken)
           responseWithUpdatedCookies.cookies.set('refreshToken', newRefreshToken)
 
           return responseWithUpdatedCookies
         }
       } catch (error) {
-        const responseWithoutCookies = NextResponse.redirect(new URL(LOGIN_PAGE_ENDPOINT, req.url))
+        const responseWithoutCookies = NextResponse.redirect(
+          new URL(LOGIN_PAGE_ENDPOINT, req.nextUrl.clone()),
+        )
+        responseWithoutCookies.headers.set('x-middleware-cache', 'no-cache')
         responseWithoutCookies.cookies.delete('accessToken')
         responseWithoutCookies.cookies.delete('refreshToken')
 
@@ -78,7 +88,10 @@ export default async function middleware(req) {
   }
 
   if ((accessToken && !refreshToken) || (!accessToken && !refreshToken)) {
-    const responseWithoutCookies = NextResponse.redirect(new URL(LOGIN_PAGE_ENDPOINT, req.url))
+    const responseWithoutCookies = NextResponse.redirect(
+      new URL(LOGIN_PAGE_ENDPOINT, req.nextUrl.clone()),
+    )
+    responseWithoutCookies.headers.set('x-middleware-cache', 'no-cache')
     responseWithoutCookies.cookies.delete('accessToken')
     responseWithoutCookies.cookies.delete('refreshToken')
 

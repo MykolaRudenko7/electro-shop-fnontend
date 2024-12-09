@@ -38,7 +38,7 @@ jobs:
 
       - name: 'Create env file'
         run: |
-          echo "${{ secrets.ENV_LOCAL_FRONTEND }}" > .env.local
+          echo "${{ secrets.ENV_LOCAL_FRONTEND }}" > .env
 
       - name: Run prettier
         run: npm run prettier
